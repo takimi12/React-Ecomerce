@@ -1,0 +1,42 @@
+.ps-shop-categories {
+    margin-bottom: 30px;
+    @media (max-width: 1199px) {
+        display: none;
+    }
+                     
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        .col-3 {
+            max-width: 25%;
+            width: 100%;
+            padding: 0px 15px;
+            .ps-block--category-2 {
+                display: flex;
+                margin-bottom: 30px;
+                border: 1px solid #bfbfbf;
+                -webkit-transition: all .4s ease;
+                transition: all .4s ease;
+                 .ps-block__thumbnail {
+                    max-width: 175px;
+                    @media (max-width: 1680px) {
+    max-width: 100px;
+    padding-top: 20px;}
+                }
+                .ps-block__content {
+                    padding: 18px 10px 15px;
+                    h4 {
+                        font-weight: 400;
+                        font-size: 18px;
+                    }
+                   ul li a {
+                        display: inline-block;
+                        color: #666;
+                        line-height: 25px;
+                        position: relative;
+                    }
+                }
+            }
+        }
+        }
+    }

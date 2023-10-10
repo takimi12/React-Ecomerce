@@ -1,0 +1,41 @@
+// Zaimportuj pliki SCSS
+@import "Scss/__reset";
+@import "Scss/__typography";
+@import "Scss/__normalize";
+
+// Header&Footer
+@import "Scss/modules/Footer/__Footer";
+@import "Scss/modules/Header/__Header";
+// koszyk
+
+@import "Scss/modules/Header/_MiniBig";
+
+// Home
+@import "Scss/modules/Header/navigation/navigation.scss";
+@import "Scss/modules/Home/HomeFirstSection.scss";
+@import "Scss/modules/Home/HomeSecondSection.scss";
+@import "Scss/modules/Home/HomeThirdSection.scss";
+@import "Scss/modules/Home/HomeFourthSection.scss";
+@import "Scss/modules/Home/HomeFivethSection.scss";
+@import "Scss/modules/Home/HomeSixthSection.scss";
+@import "Scss/modules/Home/HomeNinethSection.scss";
+@import "Scss/modules/Home/HomeTenthSection.scss";
+@import "Scss/modules/Home/HomeNewsletter.scss";
+
+// Elements
+@import "Scss/elements/_BreadCrumb.scss";
+
+// Pages // shop
+@import "Scss/Pages/shop/ShopBanner.scss";
+@import "Scss/Pages/shop/ShopBrand.scss";
+@import "Scss/Pages/shop/ShopCategories.scss";
+@import "Scss/Pages/shop/WidgetShopCategories.scss";
+
+
+
+
+// @import "Css/icon.css";
+@import "Scss/Css/demo.css";
+@import "Scss/Css/font-awesome.min.css";
+
+

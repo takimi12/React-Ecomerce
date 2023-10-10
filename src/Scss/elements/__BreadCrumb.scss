@@ -1,0 +1,39 @@
+.BreadCrumbsection {
+ 
+    background-color: #f1f1f1;
+    .ps-container{
+        max-width: 1650px;
+        margin: 0 auto;
+        padding: 20px 40px;
+       
+    }
+    .breadcrumb {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+
+        li {
+            display: inline-block;
+            font-size: 14px;
+            line-height: 20px;
+            color: #000;
+
+            a {
+                line-height: 20px;
+                color: #09c;
+            }
+
+            &:not(:first-child)::before {
+                content: "/";
+                margin-right: 5px;
+            }
+            &::before {
+             
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
