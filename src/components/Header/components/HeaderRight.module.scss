@@ -1,0 +1,85 @@
+.Header-actions {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .parent {
+      .header--extra{
+        display: inline-block;
+      position: relative;
+      width: 30px;
+      height: 42px;
+      transition: all 0.4s ease;
+  
+      .icon{
+        font-size: 30px;
+        line-height: 42px;
+        .counter{
+          position: absolute;
+      bottom: 0;
+      right: -6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      vertical-align: top;
+      width: 20px;
+      height: 20px;
+      color: #fff;
+      background-color: #000;
+      border-radius: 50%;
+        }
+      }
+      }
+    }
+    .user--header{
+      display: flex;
+      flex-flow: row nowrap;
+      text-align: left;
+      margin: 0px 20px;
+      .block--left{
+        display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      .icon{
+        font-size: 30px;
+        line-height: 42px;
+      }
+      }
+  
+    .block--right{
+      padding-left: 10px;
+    a{
+      display: block;
+      font-weight: 700;
+      line-height: 18px;
+    } 
+    } 
+  }
+  }    
+  
+  .LoginUser{
+    display: flex;
+    .icon{
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  .user--header-login{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mainwrap{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .welcome{
+    font-weight: 700;
+    margin-left: 10px;
+    .WelcomeSpan{
+      font-weight: 900;
+      font-size: 20px;
+    }
+  }

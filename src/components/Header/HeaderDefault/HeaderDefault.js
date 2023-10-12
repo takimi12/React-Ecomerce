@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 
 
-import Logo from './components/HeaderLeft';
-import HeaderRight from './components/HeaderRight';
-import SearchHeader from './components/HeaderSearch';
-import NavigationDefault from './Navigation/NavigationDefault';
-import { stickyHeader } from './components/StickyHeader';
+import Logo from '../components/HeaderLeft';
+import HeaderRight from '../components/HeaderRight';
+import SearchHeader from '../components/HeaderSearch';
+import NavigationDefault from '../Navigation/NavigationDefault';
+import { stickyHeader } from '../components/StickyHeader';
 
 const Header = () => {
 

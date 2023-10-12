@@ -1,3 +1,6 @@
+// App.js
+import React from 'react';
+
 import './App.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
@@ -5,7 +8,9 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Header, Footer} from './components';
 
 // Pages
-import {Home} from './pages';
+import {Login, Register, Reset} from './pages';
+import Breadcrumbs from './components/breadcrumbs/Breadcrumbs';
+
 
 function App() {
 
@@ -13,10 +18,13 @@ function App() {
 <>
 <BrowserRouter>
 <Header />
+<Breadcrumbs />
+
 
 <Routes>
-{/* <Route path="/" element={<Home />} />
-<Route path="/about" element={<About />} /> */}
+<Route path="/login" element={<Login />} />
+<Route path="/register" element={<Register />} />
+<Route path="/reset" element={<Reset />} />
 </Routes>
 
 <Footer />

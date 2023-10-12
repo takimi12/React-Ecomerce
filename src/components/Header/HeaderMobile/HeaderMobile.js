@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MobileHeaderActions from './MobileHeadersAction';
-import Logo from '../../../img/logo_light.png'
+
+import Logo from "../../../assets/img/logo_light.png"
 
 const HeaderMobile = () => {
   return (
