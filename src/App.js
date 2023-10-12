@@ -10,6 +10,7 @@ import {Header, Footer} from './components';
 // Pages
 import {Login, Register, Reset} from './pages';
 import Breadcrumbs from './components/breadcrumbs/Breadcrumbs';
+import Home from './pages/home/Home';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
 <Header />
 <Breadcrumbs />
 
-
+<Home />
 <Routes>
 <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
