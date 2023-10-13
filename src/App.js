@@ -11,6 +11,7 @@ import {Header, Footer} from './components';
 import {Login, Register, Reset} from './pages';
 import Breadcrumbs from './components/breadcrumbs/Breadcrumbs';
 import Home from './pages/home/Home';
+import Account from './pages/account/Account';
 
 
 function App() {
@@ -21,11 +22,13 @@ function App() {
 <Header />
 <Breadcrumbs />
 
-<Home />
+{/* <Home /> */}
 <Routes>
 <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
 <Route path="/reset" element={<Reset />} />
+<Route path="/account" element={<Account />} />
+
 </Routes>
 
 <Footer />

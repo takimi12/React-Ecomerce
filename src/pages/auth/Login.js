@@ -46,12 +46,8 @@ const Login = () => {
         }));
 
 
-        localStorage.setItem('authData', JSON.stringify({
-          email: user.email,
-          displayName: user.displayName,
-      
-        }));
-        navigate("/");
+
+        navigate("/account");
       
       })
       .catch((error) => {
@@ -88,15 +84,11 @@ const Login = () => {
           displayName: user.displayName || user.email.split('@')[0], // Wybierz część adresu e-mail do znaku "@"
           // Dodaj inne dane, jeśli są dostępne
         };
-        console.log(userData);
-  
-        // Zapisz dane użytkownika w localStorage
-        localStorage.setItem('authData', JSON.stringify(userData));
   
         // Wyślij dane użytkownika do Redux
         dispatch(SET_ACTIVE_USER(userData));
   
-        navigate("/");
+        navigate("/accounts");
       })
       .catch((error) => {
         toast.error(error.message);

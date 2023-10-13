@@ -42,14 +42,7 @@ const Slider = () => {
                   {index === currentSlide && (
                     <>
                       <img src={image} alt="slide" />
-                      <div className={Styles.content}>
-                        <h2>{heading}</h2>
-                        <p>{desc}</p>
-                        <hr />
-                        <a href="#product" className={Styles['--btn-primary']}>
-                          Shop Now
-                        </a>
-                      </div>
+                 
                     </>
                   )}
                 </div>

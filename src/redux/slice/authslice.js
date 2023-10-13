@@ -1,49 +1,38 @@
-// authslice.js
-
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  isLoggedIn: false,
-  email: null,
-  displayName: null,
-  userID: null,
-  isLoading: false,
-  isRegistered: false,
+isLoggedIn: false,
+email: null,
+userName: null,
+userID: null,
+}
 
- };
-
-
- 
-const authSlice = createSlice({
-  name: 'auth',
+const authslice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
-    SET_ACTIVE_USER: (state) => {
-      state.isLoggedIn = true;
-
+    SET_ACTIVE_USER: (state, action) => {
+        const { email, userName, userID} = action.payload
+        state.isLoggedIn = true;
+        state.email = email;
+        state.userName = userName;
+        state.userID = userID;
     },
-    LOGOUT_USER: (state) => {
+    REMOVE_ACTIVE_USER:(state, action)  => {
       state.isLoggedIn = false;
       state.email = null;
-      state.displayName = null;
-     },
-
-  },
+      state.userName = null;
+      state.userID = null;
+    },
+    },
 });
 
-export const {
-  SET_ACTIVE_USER,
-  LOGOUT_USER,
-} = authSlice.actions;
+export const {SET_ACTIVE_USER,REMOVE_ACTIVE_USER} = authslice.actions
 
-export const selectIsLoggedIn = (state) => {
-  return state.auth.isLoggedIn;
-};
-
+export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectEmail = (state) => state.auth.email;
-export const selectDisplayName = (state) => state.auth.displayName;
-export const selectUserID = (state) => state.auth.userID;
-export const selectIsLoading = (state) => state.auth.isLoading;
-export const selectIsRegistered = (state) => state.auth.isRegistered;
+export const selectUserName = (state) => state.auth.UserName;
+export const selectUserID = (state) => state.auth.UserID;
 
-export default authSlice.reducer;
+
+export default authslice.reducer
