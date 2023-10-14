@@ -8,12 +8,11 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Header, Footer} from './components';
 
 // Pages
-import {Login, Register, Reset} from './pages';
+import {Login, Register, Reset, Admin} from './pages';
 import Breadcrumbs from './components/breadcrumbs/Breadcrumbs';
-import Home from './pages/home/Home';
 import Account from './pages/account/Account';
-
-
+import AdminOnlyrRoute from './components/adminOnlyRoute/AdminOnlyRoute';
+import UserLogin from './components/userOnlyRoute/userOnlyRoute';
 function App() {
 
   return (
@@ -27,7 +26,14 @@ function App() {
 <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
 <Route path="/reset" element={<Reset />} />
-<Route path="/account" element={<Account />} />
+
+
+<Route path="/account/*" element={
+<UserLogin>
+  {" "}
+  <Account />
+  </UserLogin>
+} />
 
 </Routes>
 

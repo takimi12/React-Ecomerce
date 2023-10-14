@@ -1,18 +1,24 @@
-import React from 'react'
-import AdminOnlyRoute from '../../components/adminOnlyRoute/AdminOnlyRoute'
+import React from 'react';
+import styles from './Account.module.scss';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from '../../components/admin/navbar/Navbar';
+import Home from '../../components/admin/home/Home';
+import ViewProducts from '../../components/admin/viewProducts/ViewProducts';
+import AddProduct from '../../components/admin/addProduct/AddProduct';
+
+import Orders from '../../components/admin/orders/Orders';
+import AdminOnlyRoute from '../../components/adminOnlyRoute/AdminOnlyRoute';
+ 
 
 const Account = () => {
-  return (
-    <section class="ps-my-account ps-page--account">
-    <div class="container">
-        
-      <div class="row">
-        <div class="col-lg-3">
-            <AdminOnlyRoute>
-            <div  className='adminOnly'>
-            Witaj Admin
-            </div>
-           <div class="ps-section__left">
+    return (
+                <div className={styles.admin}>
+                  
+                    <div className={styles.navbar}>
+                    <AdminOnlyRoute>
+                    <Navbar /> 
+                    </AdminOnlyRoute>
+                    <div class="ps-section__left">
             <aside class="ps-widget--account-dashboard">
               <div class="ps-widget__header">
                 <img src="/static/img/users/3.jpg" />
@@ -23,6 +29,9 @@ const Account = () => {
               </div>
               <div class="ps-widget__content">
                 <ul class="ps-list--user-links">
+          
+                
+                
                   <li class="active">
                     <a href="/account/user-information">
                       <i class="icon-user"></i>Account Information </a>
@@ -43,12 +52,22 @@ const Account = () => {
               </div>
             </aside>
           </div>
-          </AdminOnlyRoute>
-        </div>
-      </div>
-    </div>
-  </section>
-  )
+                    </div>
+
+
+                    <AdminOnlyRoute>
+                    <div className={styles.content}>
+                        <Routes>
+                        <Route path="home" element={<Home />} />
+                        <Route path="all-products" element={<ViewProducts />} />
+                        <Route path="add-product" element={<AddProduct />} /> 
+                        <Route path="orders" element={<Orders />} />
+                            
+                        </Routes>
+                    </div>
+                    </AdminOnlyRoute>
+                    </div>
+    )
 }
 
-export default Account
+export default Account;
