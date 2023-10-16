@@ -6,7 +6,8 @@ import { db, storage } from "../../../firebase/config";
 import { toast } from "react-toastify";
 import { Timestamp, addDoc, collection, doc, setDoc } from 'firebase/firestore';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
+import { selectProducts } from '../../../redux/slice/productslice';
 
 const categories = [
     { id: 1, name: "Laptop" },
@@ -25,19 +26,30 @@ const categories = [
   };
 
 const AddProduct = () => {
-    
-    const [product, setProduct] = useState({
-        name: '',
-        imageURL: '',
-        price: null,
-        category: '',
-        brand:'',
-        desc: '',
-    })
-
+  const {id} = useParams();
     const [uploadProgress, setUploadProgress] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    const products = useSelector(selectProducts);
+    const productEdit = products.find((product) => product.id === id);
+
+    const [product, setProduct] = useState(()=>{
+      const newState = detectForm(id, 
+        {...initialState},
+        productEdit
+        )
+        return newState
+    });
+      
+
+
+    function detectForm (id, f1, f2) {
+      if (id === "ADD") {
+        return f1;
+      } 
+        return f2
+    
+    }
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -95,48 +107,47 @@ const AddProduct = () => {
           setProduct({ ...initialState });
     
           toast.success("Product uploaded successfully.");
-          navigate("/admin/all-products");
+          navigate("/account/all-products");
         } catch (error) {
           setIsLoading(false);
           toast.error(error.message);
         }
       };
 
-    //   const editProduct = (e) => {
-    // //     e.preventDefault();
-    // //     setIsLoading(true);
+      const editProduct = (e) => {
+        e.preventDefault();
+        setIsLoading(true);
     
-    // //     if (product.imageURL !== productEdit.imageURL) {
-    // //       const storageRef = ref(storage, productEdit.imageURL);
-    // //      deleteObject(storageRef);
-    // //     }
+        if (product.imageURL !== productEdit.imageURL) {
+          const storageRef = ref(storage, productEdit.imageURL);
+         deleteObject(storageRef);
+        }
     
-    // //     try {
-    // //       setDoc(doc(db, "products", id), {
-    // //         name: product.name,
-    // //         imageURL: product.imageURL,
-    // //         price: Number(product.price),
-    // //         category: product.category,
-    // //         brand: product.brand,
-    // //         desc: product.desc,
-    // //         createdAt: productEdit.createdAt,
-    // //         editedAt: Timestamp.now().toDate(),
-    // //       });
-    // //       setIsLoading(false);
-    // //       toast.success("Product Edited Successfully");
-    // //       navigate("/admin/all-products");
-    // //     } catch (error) {
-    // //       setIsLoading(false);
-    // //       toast.error(error.message);
-    // //     }
-    // //   };
+        try {
+          setDoc(doc(db, "products", id), {
+            name: product.name,
+            imageURL: product.imageURL,
+            price: Number(product.price),
+            category: product.category,
+            brand: product.brand,
+            desc: product.desc,
+            createdAt: productEdit.createdAt,
+            editedAt: Timestamp.now().toDate(),
+          });
+          setIsLoading(false);
+          toast.success("Product Edited Successfully");
+          navigate("/account/all-products");
+        } catch (error) {
+          setIsLoading(false);
+          toast.error(error.message);
+        }
+      };
     
   return (
     <div className={styles.product}>
-        <h1>Add New Product</h1>
+        <h2>{detectForm(id, "Add New Product", "Edit Product")}</h2>
         <Card cardclass={styles.card}>
-            
-            <form onSubmit={addProduct}>
+            <form onSubmit={detectForm(id, addProduct, editProduct)}>
             <label>Product name:</label>
             <input type="text" 
             placeholder='Product name' 
@@ -176,13 +187,14 @@ const AddProduct = () => {
                 />
               )}
             </Card>
-
+ 
                 <label>Product price:</label>
             <input
               type="number"
               placeholder="Product price"
               required
               name="price"
+              value={product.price}
               onChange={(e) => handleInputChange(e)}
             
         
@@ -232,7 +244,7 @@ const AddProduct = () => {
             ></textarea>
 
             <button className="--btn --btn-primary">
-                Save product
+              {detectForm(id, "Save Product", "Edit Product")}
             </button>
           </form>
         </Card>

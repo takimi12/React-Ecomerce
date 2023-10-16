@@ -8,10 +8,14 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import Loader from '../../loader/Loader'
 import { deleteObject, ref } from 'firebase/storage'
 import Notiflix from "notiflix";
+import {useDispatch} from 'react-redux';
+import { STORE_PRODUCTS } from '../../../redux/slice/productslice'
+
 
 const ViewProducts = () => {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     gerProducts()
@@ -31,6 +35,11 @@ const ViewProducts = () => {
         }));
         setProducts(allProducts);
         setIsLoading(false);
+        dispatch(
+          STORE_PRODUCTS({
+              products: allProducts
+          })
+          )
       });
 
     } catch (error) {
@@ -124,17 +133,17 @@ const ViewProducts = () => {
                   {`$${price}`}
                 </td>
                 <td className={styles.icons}>
-                <Link to={`/admin/add-products/${id}`}>
+                <Link to={`/account/add-product/${id}`}>
                     <FaEdit size={20} color="green" />
                   </Link>
                   &nbsp; &nbsp;
-                  <Link to ="/admin/add-product">
+                
                     <FaTrashAlt  
                     size={18} 
                     color="red" 
                     onClick={() =>confirmDelete(id, imageURL)}
                     />
-                  </Link>
+            
                 </td>
               </tr>
               
