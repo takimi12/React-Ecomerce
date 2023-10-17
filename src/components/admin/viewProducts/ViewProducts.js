@@ -18,15 +18,15 @@ const ViewProducts = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    gerProducts()
+    getProducts()
   }, [])
 
-  const gerProducts =  () => {
+  const getProducts =  () => {
     setIsLoading(true)
 
     try{
-      const productsef = collection(db, "products");
-      const q = query(productsef, orderBy("createdAt", "desc"));
+      const productref = collection(db, "products");
+      const q = query(productref, orderBy("createdAt", "desc"));
 
       onSnapshot(q, (snapshot) => {
         const allProducts = snapshot.docs.map((doc) => ({
