@@ -8,46 +8,58 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import Loader from '../../loader/Loader'
 import { deleteObject, ref } from 'firebase/storage'
 import Notiflix from "notiflix";
-import {useDispatch} from 'react-redux';
-import { STORE_PRODUCTS } from '../../../redux/slice/productslice'
+import {useDispatch, useSelector} from 'react-redux';
+import { STORE_PRODUCTS, selectProducts } from '../../../redux/slice/productslice';
+import useFetchCollection from '../../../customHooks/useFetchCollection';
+
 
 
 const ViewProducts = () => {
-  const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const {data, isLoading} = useFetchCollection("products");
+  const products = useSelector(selectProducts)
+  
+  
   const dispatch = useDispatch()
 
   useEffect(() => {
-    getProducts()
-  }, [])
+    dispatch(
+      STORE_PRODUCTS({
+          products: data,
+      })
+      );
+  }, [dispatch, data])
 
-  const getProducts =  () => {
-    setIsLoading(true)
+  // useEffect(() => {
+  //   getProducts()
+  // }, [])
 
-    try{
-      const productref = collection(db, "products");
-      const q = query(productref, orderBy("createdAt", "desc"));
+  // const getProducts =  () => {
+  //   setIsLoading(true)
 
-      onSnapshot(q, (snapshot) => {
-        const allProducts = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setProducts(allProducts);
-        setIsLoading(false);
-        dispatch(
-          STORE_PRODUCTS({
-              products: allProducts
-          })
-          )
-      });
+  //   try{
+  //     const productref = collection(db, "products");
+  //     const q = query(productref, orderBy("createdAt", "desc"));
 
-    } catch (error) {
-      setIsLoading(false)
-      toast.error(error.message)
-    }
+  //     onSnapshot(q, (snapshot) => {
+  //       const allProducts = snapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       }));
+  //       setProducts(allProducts);
+  //       setIsLoading(false);
+  //       dispatch(
+  //         STORE_PRODUCTS({
+  //             products: allProducts
+  //         })
+  //         )
+  //     });
 
-  };
+  //   } catch (error) {
+  //     setIsLoading(false)
+  //     toast.error(error.message)
+  //   }
+
+  // };
 
   const confirmDelete =(id, imageURL) => {
     Notiflix.Confirm.show(
