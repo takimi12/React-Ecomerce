@@ -13,6 +13,7 @@ import Breadcrumbs from './components/breadcrumbs/Breadcrumbs';
 import Account from './pages/account/Account';
 import AdminOnlyrRoute from './components/adminOnlyRoute/AdminOnlyRoute';
 import UserLogin from './components/userOnlyRoute/userOnlyRoute';
+import Home from './pages/home/Home';
 function App() {
 
   return (
@@ -21,7 +22,7 @@ function App() {
 <Header />
 <Breadcrumbs />
 
-{/* <Home /> */}
+<Home />
 <Routes>
 <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
