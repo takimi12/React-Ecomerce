@@ -29,37 +29,7 @@ const ViewProducts = () => {
       );
   }, [dispatch, data])
 
-  // useEffect(() => {
-  //   getProducts()
-  // }, [])
 
-  // const getProducts =  () => {
-  //   setIsLoading(true)
-
-  //   try{
-  //     const productref = collection(db, "products");
-  //     const q = query(productref, orderBy("createdAt", "desc"));
-
-  //     onSnapshot(q, (snapshot) => {
-  //       const allProducts = snapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       }));
-  //       setProducts(allProducts);
-  //       setIsLoading(false);
-  //       dispatch(
-  //         STORE_PRODUCTS({
-  //             products: allProducts
-  //         })
-  //         )
-  //     });
-
-  //   } catch (error) {
-  //     setIsLoading(false)
-  //     toast.error(error.message)
-  //   }
-
-  // };
 
   const confirmDelete =(id, imageURL) => {
     Notiflix.Confirm.show(
