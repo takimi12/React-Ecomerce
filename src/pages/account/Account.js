@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Account.module.scss';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import Navbar from '../../components/admin/navbar/Navbar';
 import Home from '../../components/admin/home/Home';
 import ViewProducts from '../../components/admin/viewProducts/ViewProducts';
@@ -8,6 +8,7 @@ import AddProduct from '../../components/admin/addProduct/AddProduct';
 
 import Orders from '../../components/admin/orders/Orders';
 import AdminOnlyRoute from '../../components/adminOnlyRoute/AdminOnlyRoute';
+import ProductDetails from '../../components/product/productDetails/ProductDetails';
  
 
 const Account = () => {
@@ -55,17 +56,18 @@ const Account = () => {
                     </div>
 
 
-                    <AdminOnlyRoute>
                     <div className={styles.content}>
+                      
                         <Routes>
+
                         <Route path="home" element={<Home />} />
                         <Route path="all-products" element={<ViewProducts />} />
                         <Route path="add-product/:id" element={<AddProduct />} /> 
                         <Route path="orders" element={<Orders />} />
-                            
+                          <Route path="/product-details/:id" element={<ProductDetails />}></Route>  
+  
                         </Routes>
                     </div>
-                    </AdminOnlyRoute>
                     </div>
     )
 }

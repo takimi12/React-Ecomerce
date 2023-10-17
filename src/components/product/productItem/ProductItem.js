@@ -18,7 +18,7 @@ if (text.lenght > n) {
   return (
     <Card cardClass={ grid ?  `${styles.grid}` : `${styles.list}`}>
       
-      <Link to={`/product-details`}>
+      <Link to={`/product-details/${id}`}>
       <div className={styles.img}>
         <img src={imageURL} alt={name} /> 
       </div>
