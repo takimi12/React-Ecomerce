@@ -15,13 +15,13 @@ const Home = () => {
     }
   }
 
-  useEffect(() => {
-    scrollToProducts()
-  }, [])
+  // useEffect(() => {
+  //   scrollToProducts()
+  // }, []);
   
   return (
     <>
-<Slider />
+{/* <Slider /> */}
 <Product />
     </> 
   )
