@@ -10,6 +10,7 @@ import Home from './pages/home/Home';
 import ProductDetails from './components/product/productDetails/ProductDetails';
 import Cart from './pages/cart/Cart';
 import CheckoutDetails from './pages/checkout/CheckoutDetails';
+import Checkout from './pages/checkout/Checkout';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout-details" element={<CheckoutDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
           {/* Dodaj Route dla Home na stronie głównej */}
           <Route path="/" element={<Home />} />
         </Routes>
