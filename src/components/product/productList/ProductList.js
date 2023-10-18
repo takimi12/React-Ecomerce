@@ -10,20 +10,19 @@ import Pagination from '../../pagination/Pagination';
 
 
 
-const ProductList = ({ products }) => {
+const ProductList = ({products}) => {
   const [grid, setGrid] = useState(true);
-  const [search, setSearch] = useState('');
-  const [sort, setSort] = useState('latest');
-  const filteredProducts = useSelector(selectFilteredProducts)
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("latest");
+  const filteredProducts = useSelector(selectFilteredProducts);
 
-//Pagination states 
-const [currentPage, setCurrentPage] = useState(1);
-const [ProductsPerPage, setProductPerPage] = useState(1);
-// Get current products
-const indexOfLastProduct = currentPage * ProductsPerPage;
-const indexOfFirstProduct = indexOfLastProduct - ProductsPerPage;
-const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-// const [indexOfLastProduct, setIndexOfLastProduct] = useState(1);
+  //Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [ProductsPerPage, setProductsPerPage] = useState(2);
+  // Get current Products
+  const indexOfLastProduct = currentPage * ProductsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - ProductsPerPage; 
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
 
   const dispatch =  useDispatch()
@@ -71,7 +70,7 @@ const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastP
           <p>No product found.</p>
         ) : (
           <>
-            {filteredProducts.map((product) => {
+            {currentProducts.map((product) => {
               return (
                 <div key={product.id}>
                   <ProductItem {...product} grid={grid} product={product} />
@@ -84,7 +83,7 @@ const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastP
       <Pagination
       currentPage={currentPage}
       setCurrentPage={setCurrentPage}
-      productsPerPage={ProductsPerPage}
+        ProductsPerPage={ProductsPerPage}
       totalProducts={filteredProducts.length}
       />
     </div>
