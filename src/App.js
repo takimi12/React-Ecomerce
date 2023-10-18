@@ -8,6 +8,7 @@ import AdminOnlyRoute from './components/adminOnlyRoute/AdminOnlyRoute';
 import UserLogin from './components/userOnlyRoute/userOnlyRoute';
 import Home from './pages/home/Home';
 import ProductDetails from './components/product/productDetails/ProductDetails';
+import Cart from './pages/cart/Cart';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             </UserLogin>
           } />
           <Route path="/product-details/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
           {/* Dodaj Route dla Home na stronie głównej */}
           <Route path="/" element={<Home />} />
         </Routes>
