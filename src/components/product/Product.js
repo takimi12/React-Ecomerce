@@ -4,8 +4,10 @@ import ProductFilter from './productFilter/ProductFilter'
 import ProductList from './productList/ProductList'
 import useFetchCollection from '../../customHooks/useFetchCollection'
 import { useDispatch, useSelector } from 'react-redux'
-import { STORE_PRODUCTS, selectProducts } from '../../redux/slice/productslice'
+import { GET_PRICE_RANGE, STORE_PRODUCTS, selectProducts } from '../../redux/slice/productslice'
 import spinner from '../../assets/img/spinner.jpg'
+
+
 
 const Product = () => {
 
@@ -19,6 +21,9 @@ const Product = () => {
             products: data,
         })
         );
+        dispatch(GET_PRICE_RANGE({ 
+          products: data 
+        }));
     }, [dispatch, data])
   
   return (
