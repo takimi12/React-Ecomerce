@@ -46,6 +46,13 @@ const filterProducts = (cat) => {
   dispatch(FILTER_BY_CATEGORY({ products, category: cat }));
 };
 
+const clearFilters = () => {
+  setCategory("All");
+  setBrand("All");
+  setPice(maxPrice);
+};
+
+
 return (
     <div className={styles.filter}>
       <h4>Categories</h4>
@@ -87,7 +94,9 @@ return (
          />
       </div>
       <br />
-      <button className="btn btn-primary">Clear Filter</button>
+      <button className="btn btn-primary"
+      onClick={clearFilters}
+      >Clear Filter</button>
     </div>
     </div>
   )
