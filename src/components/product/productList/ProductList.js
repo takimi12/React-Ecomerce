@@ -6,6 +6,7 @@ import Search from '../../search/Search';
 import ProductItem from '../productItem/ProductItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { FILTER_BY_SEARCH, SORT_PRODUCTS, selectFilteredProducts } from '../../../redux/slice/filterslice';
+import Pagination from '../../pagination/Pagination';
 
 
 
@@ -14,6 +15,16 @@ const ProductList = ({ products }) => {
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('latest');
   const filteredProducts = useSelector(selectFilteredProducts)
+
+//Pagination states 
+const [currentPage, setCurrentPage] = useState(1);
+const [ProductsPerPage, setProductPerPage] = useState(1);
+// Get current products
+const indexOfLastProduct = currentPage * ProductsPerPage;
+const indexOfFirstProduct = indexOfLastProduct - ProductsPerPage;
+const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+// const [indexOfLastProduct, setIndexOfLastProduct] = useState(1);
+
 
   const dispatch =  useDispatch()
 
@@ -70,6 +81,12 @@ const ProductList = ({ products }) => {
           </>
         )}
       </div>
+      <Pagination
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+      productsPerPage={ProductsPerPage}
+      totalProducts={filteredProducts.length}
+      />
     </div>
   );
 };
