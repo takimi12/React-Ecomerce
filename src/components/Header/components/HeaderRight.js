@@ -11,6 +11,7 @@ import {
 } from '../../../redux/slice/authslice';
 import {  selectEmail, selectDisplayName } from '../../../redux/slice/authslice';
 import ShowOnLogin, { ShowOnLogOut } from '../../hidden/hiddenLink';
+import { CALCULATE_TOTAL_QUANTITY, selectCartTotalQuantity } from '../../../redux/slice/cartslice';
 
 
 
@@ -18,6 +19,14 @@ const HeaderRight = () => {
   const [displayName, setdisplayName] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  /// cart amount visible 
+const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+
+useEffect(()  => {
+  dispatch(CALCULATE_TOTAL_QUANTITY());
+}, [dispatch])
+
 
 
   const email = useSelector(selectEmail);
@@ -100,6 +109,7 @@ const HeaderRight = () => {
       Logout
     </NavLink>
   </div>
+  <p>{cartTotalQuantity}</p>
   </ShowOnLogin>
   <ShowOnLogOut>
   <div className={styles['user--header']}>
