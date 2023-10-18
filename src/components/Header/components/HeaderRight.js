@@ -108,8 +108,9 @@ useEffect(()  => {
     <NavLink to="/" onClick={logoutUser}>
       Logout
     </NavLink>
+    <p>{cartTotalQuantity}</p>
   </div>
-  <p>{cartTotalQuantity}</p>
+ 
   </ShowOnLogin>
   <ShowOnLogOut>
   <div className={styles['user--header']}>
@@ -120,6 +121,7 @@ useEffect(()  => {
       <a href="/login">Login</a>
       <a href="/register">Register</a>
     </div>
+    <p>{cartTotalQuantity}</p>
   </div>
 </ShowOnLogOut>
           </>

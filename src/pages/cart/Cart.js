@@ -68,7 +68,7 @@ const navigate = useNavigate();
   <section>
     <div className={`container ${styles.table}`}>
         <h2>Shopping Cart</h2>
-        {cartItems.lenght === 0 ? (
+        {cartItems.length === 0 ? (
             <>
             <p>Your cart is currently empty!</p>
             

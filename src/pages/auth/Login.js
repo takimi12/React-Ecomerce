@@ -9,9 +9,8 @@ import Card from '../../components/card/Card';
 import Loader from '../../components/loader/Loader';
 import { useDispatch } from 'react-redux'; 
 import { SET_ACTIVE_USER } from '../../redux/slice/authslice'; 
-
-
-
+import { useSelector } from 'react-redux';
+import { selectPreviousURL } from '../../redux/slice/cartslice';
 
 
 
@@ -28,7 +27,17 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+
+  const previousURL = useSelector(selectPreviousURL);
   const navigate = useNavigate();
+
+  const redirectUser = () => {
+    if (previousURL.includes("cart")) {
+      return navigate("/cart")
+    }
+    navigate("/")
+  };
+
   const dispatch = useDispatch(); 
 
   const loginUser = (e) => {
@@ -41,13 +50,8 @@ const Login = () => {
         setIsLoading(false);
         toast.success("Login succesful..");
 
-        dispatch(SET_ACTIVE_USER({
-       
-        }));
-
-
-
-        navigate("/account");
+     
+        redirectUser();
       
       })
       .catch((error) => {
@@ -88,7 +92,7 @@ const Login = () => {
         // Wyślij dane użytkownika do Redux
         dispatch(SET_ACTIVE_USER(userData));
   
-        navigate("/accounts");
+       redirectUser();
       })
       .catch((error) => {
         toast.error(error.message);
