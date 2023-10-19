@@ -7,13 +7,14 @@ import spinnerImg from "../../../assets/img/spinner.jpg";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY, DECREASE_CART, selectCartItems } from "../../../redux/slice/cartslice";
-
+import useFetchDocument from "../../../customHooks/useFetchDocument";
 
 const ProductDetails = () => {
   const {id} = useParams();
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
+  const {document} = useFetchDocument('products', id);
 
   const cart = cartItems.find((cart) => cart.id === id);
 
@@ -22,8 +23,8 @@ const ProductDetails = () => {
   });
 
   useEffect(() => {
-    getProduct()
-   }, []);
+    setProduct(document)
+   }, [document]);
 
    const addToCart = (product) => {
     dispatch(ADD_TO_CART(product));
@@ -36,27 +37,6 @@ const ProductDetails = () => {
    };
 
   
-  
-
-
-  const getProduct = async () => {
-
-
-    const docRef = doc(db, "products", id);
-    const docSnap = await getDoc(docRef);
-    
-    if (docSnap.exists()) {
-     const obj = {
-      id:id,
-      ...docSnap.data()
-     }
-     setProduct(obj)
-
-    } else {
-      toast.erorr("Product not found")
-    }
-
-  };
 
   return (
     <section>
