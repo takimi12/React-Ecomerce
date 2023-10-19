@@ -3,6 +3,8 @@ import InfoBox from "../../infoBox/InfoBox";
 import styles from "./Home.module.scss";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { BsCart4, BsClipboardData } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+
 
 //icons
 const earningIcon = <AiFillDollarCircle size={30} color="#b624ff" />;
