@@ -13,7 +13,8 @@ import CheckoutDetails from './pages/checkout/CheckoutDetails';
 import Checkout from './pages/checkout/Checkout';
 import CheckoutSuccess from './pages/checkout/CheckoutSucces';
 import OrderHistory from './pages/orderHistory/OrderHistory';
-import OrderDetails from './pages/orderDetails/OrderDetails';s
+import OrderDetails from './pages/orderDetails/OrderDetails';import ReviewProducts from './components/reviewProducts.js/ReviewProducts';
+s
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/order-history" element={<OrderHistory />} />
           <Route path="/order-details/:id" element={<OrderDetails />} />
+          <Route path="/review-product/:id" element={<ReviewProducts />} />
           {/* Dodaj Route dla Home na stronie głównej */}
           <Route path="/" element={<Home />} />
         </Routes>
