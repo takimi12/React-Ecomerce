@@ -8,6 +8,7 @@ import Home from '../../components/admin/home/Home';
 import Orders from '../../components/admin/orders/Orders';
 import AdminOnlyRoute from '../../components/adminOnlyRoute/AdminOnlyRoute';
 import ProductDetails from '../../components/product/productDetails/ProductDetails';
+import OrderDetails from '../../components/admin/orderDetails/OrderDetails';
  
 
 const Account = () => {
@@ -63,6 +64,7 @@ const Account = () => {
                         <Route path="all-products" element={<ViewProducts />} />
                         <Route path="add-product/:id" element={<AddProduct />} /> 
                         <Route path="orders" element={<Orders />} />
+                        <Route path="orders-details/:id" element={<OrderDetails />} />
                           <Route path="/product-details/:id" element={<ProductDetails />}></Route>  
   
                         </Routes>
