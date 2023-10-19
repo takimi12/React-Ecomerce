@@ -13,8 +13,7 @@ import CheckoutDetails from './pages/checkout/CheckoutDetails';
 import Checkout from './pages/checkout/Checkout';
 import CheckoutSuccess from './pages/checkout/CheckoutSucces';
 import OrderHistory from './pages/orderHistory/OrderHistory';
-import OrderDetails from './pages/orderDetails/OrderDetails';import ReviewProducts from './components/reviewProducts.js/ReviewProducts';
-s
+import OrderDetails from './pages/orderDetails/OrderDetails';import ReviewProducts from './components/reviewProducts/ReviewProducts';
 
 function App() {
   return (

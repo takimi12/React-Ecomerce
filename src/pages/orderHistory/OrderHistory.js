@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import styles from './OrderHistory.scss'
+import styles from './OrderHistory.module.scss'
 import useFetchCollection from '../../customHooks/useFetchCollection'
 import { useDispatch, useSelector } from 'react-redux'
 import { STORE_ORDERS, selectOrderHistory } from '../../redux/slice/orderslice'

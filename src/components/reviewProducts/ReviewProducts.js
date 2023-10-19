@@ -9,7 +9,7 @@ import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { toast } from "react-toastify";
 import useFetchDocument from "../../customHooks/useFetchDocument";
-import spinnerImg from "../../assets/spinner.jpg";
+import spinnerImg from "../../assets/img/spinner.jpg";
 
 const ReviewProducts = () => {
   const [rate, setRate] = useState(0);
