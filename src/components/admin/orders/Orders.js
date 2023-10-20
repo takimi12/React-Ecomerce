@@ -6,7 +6,7 @@ import useFetchCollection from "../../../customHooks/useFetchCollection";
 import {
   selectOrderHistory,
   STORE_ORDERS,
-} from "../../../redux/slice/orderSlice";
+} from "../../../redux/slice/orderslice";
 import Loader from "../../loader/Loader";
 import styles from "./Orders.module.scss";
 

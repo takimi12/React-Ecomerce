@@ -8,13 +8,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectProducts,
   STORE_PRODUCTS,
-} from "../../../redux/slice/productSlice";
+} from "../../../redux/slice/productslice";
 import {
   CALC_TOTAL_ORDER_AMOUNT,
   selectOrderHistory,
   selectTotalOrderAmount,
   STORE_ORDERS,
-} from "../../../redux/slice/orderSlice";
+} from "../../../redux/slice/orderslice";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
 import Chart from "../../chart/Chart";
 
