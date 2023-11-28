@@ -15,6 +15,9 @@ const Product = () => {
     const products = useSelector(selectProducts)
     const dispatch = useDispatch()
   
+
+
+
     useEffect(() => {
       dispatch(
         STORE_PRODUCTS({

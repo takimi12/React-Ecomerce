@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "react": "first-eccomerce",
+    "default": "first-eccomerce"
+  },
+  "targets": {},
+  "etags": {}
+}

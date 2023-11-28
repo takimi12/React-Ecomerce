@@ -24,12 +24,11 @@ const ProductList = ({products}) => {
   const indexOfFirstProduct = indexOfLastProduct - ProductsPerPage; 
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
-
   const dispatch =  useDispatch()
 
-  useEffect(() => {
-    dispatch(SORT_PRODUCTS({products, sort}));
-  }, [dispatch, products,sort]);
+  // useEffect(() => {
+  //   dispatch(SORT_PRODUCTS({products, sort}));
+  // }, [dispatch, products,sort]);
 
   useEffect(() => {
     dispatch(FILTER_BY_SEARCH({products, search}));
@@ -80,12 +79,7 @@ const ProductList = ({products}) => {
           </>
         )}
       </div>
-      <Pagination
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
-        ProductsPerPage={ProductsPerPage}
-      totalProducts={filteredProducts.length}
-      />
+ 
     </div>
   );
 };

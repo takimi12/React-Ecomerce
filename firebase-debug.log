@@ -1,0 +1,134 @@
+[debug] [2023-11-25T02:03:06.964Z] ----------------------------------------------------------------------
+[debug] [2023-11-25T02:03:06.967Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Thomas Shelby\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --debug
+[debug] [2023-11-25T02:03:06.967Z] CLI Version:   12.9.1
+[debug] [2023-11-25T02:03:06.967Z] Platform:      win32
+[debug] [2023-11-25T02:03:06.967Z] Node Version:  v20.5.1
+[debug] [2023-11-25T02:03:06.967Z] Time:          Sat Nov 25 2023 03:03:06 GMT+0100 (czas środkowoeuropejski standardowy)
+[debug] [2023-11-25T02:03:06.968Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-25T02:03:07.044Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-25T02:03:07.046Z] > authorizing via signed-in user (tomek12olech@gmail.com)
+[debug] [2023-11-25T02:03:07.047Z] [iam] checking project first-eccomerce for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-11-25T02:03:07.049Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/first-eccomerce:testIamPermissions [none]
+[debug] [2023-11-25T02:03:07.050Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/first-eccomerce:testIamPermissions x-goog-quota-user=projects/first-eccomerce
+[debug] [2023-11-25T02:03:07.051Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/first-eccomerce:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-11-25T02:03:07.911Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/first-eccomerce:testIamPermissions 200
+[debug] [2023-11-25T02:03:07.913Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/first-eccomerce:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-11-25T02:03:07.915Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/first-eccomerce [none]
+[debug] [2023-11-25T02:03:08.255Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/first-eccomerce 200
+[debug] [2023-11-25T02:03:08.257Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/first-eccomerce {"projectId":"first-eccomerce","projectNumber":"25843316895","displayName":"First Eccomerce","name":"projects/first-eccomerce","resources":{"hostingSite":"first-eccomerce","storageBucket":"first-eccomerce.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_8cad2cb4-7920-4d2c-9b51-7cb2cc5a9a6c"}
+[info] 
+[info] === Deploying to 'first-eccomerce'...
+[info] 
+[info] i  deploying firestore, hosting 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2023-11-25T02:03:08.275Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/first-eccomerce:test [none]
+[debug] [2023-11-25T02:03:08.276Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/first-eccomerce:test [omitted]
+[debug] [2023-11-25T02:03:09.058Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/first-eccomerce:test 200
+[debug] [2023-11-25T02:03:09.060Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/first-eccomerce:test {}
+[info] +  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2023-11-25T02:03:09.071Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/versions [none]
+[debug] [2023-11-25T02:03:09.072Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-11-25T02:03:10.594Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/versions 200
+[debug] [2023-11-25T02:03:10.596Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/versions {"name":"projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  firestore: deploying indexes... 
+[debug] [2023-11-25T02:03:10.601Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/first-eccomerce/releases pageSize=10&pageToken=
+[debug] [2023-11-25T02:03:10.603Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/first-eccomerce/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2023-11-25T02:03:11.299Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/first-eccomerce/releases 200
+[debug] [2023-11-25T02:03:11.300Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/first-eccomerce/releases {"releases":[{"name":"projects/first-eccomerce/releases/cloud.firestore","rulesetName":"projects/first-eccomerce/rulesets/b88664ea-9095-4a88-8b6e-9ef111cdc356","createTime":"2023-08-20T01:45:32.480709Z","updateTime":"2023-11-25T02:01:51.266294Z"},{"name":"projects/first-eccomerce/releases/firebase.storage/first-eccomerce.appspot.com","rulesetName":"projects/first-eccomerce/rulesets/a811fa80-77a0-42a5-9325-d140851f61d3","createTime":"2023-08-20T01:08:15.817251Z","updateTime":"2023-08-20T01:49:38.075869Z"}]}
+[debug] [2023-11-25T02:03:11.317Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/first-eccomerce/rulesets/b88664ea-9095-4a88-8b6e-9ef111cdc356 [none]
+[debug] [2023-11-25T02:03:11.508Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/first-eccomerce/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2023-11-25T02:03:11.509Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/first-eccomerce/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2023-11-25T02:03:11.512Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/first-eccomerce/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2023-11-25T02:03:11.695Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/first-eccomerce/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2023-11-25T02:03:11.696Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/first-eccomerce/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/first-eccomerce/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] +  firestore: deployed indexes in firestore.indexes.json successfully for (default) database 
+[debug] [2023-11-25T02:03:12.012Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/first-eccomerce/rulesets/b88664ea-9095-4a88-8b6e-9ef111cdc356 200
+[debug] [2023-11-25T02:03:12.013Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/first-eccomerce/rulesets/b88664ea-9095-4a88-8b6e-9ef111cdc356 [omitted]
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
+[info] i  hosting[first-eccomerce]: beginning deploy... 
+[info] i  hosting[first-eccomerce]: found 7 files in public 
+[debug] [2023-11-25T02:03:12.025Z] [hosting] uploading with 200 concurrency
+[debug] [2023-11-25T02:03:12.026Z] [hosting] hash cache [cHVibGlj] not populated
+[debug] [2023-11-25T02:03:12.045Z] [hosting] hash cache [cHVibGlj] stored for 7 files
+[debug] [2023-11-25T02:03:12.045Z] [hosting][hash queue][FINAL] {"max":11,"min":4,"avg":7.714285714285714,"active":0,"complete":7,"success":7,"errored":0,"retried":0,"total":7,"elapsed":17}
+[debug] [2023-11-25T02:03:12.047Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5:populateFiles [none]
+[debug] [2023-11-25T02:03:12.048Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5:populateFiles {"files":{"/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/index.html":"0ba2ebacf021d0b610cb4f915b94044c3a46898d381da4c603a8ff05cb0bf799","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/logo.png":"4e3e83f2f688b3e7798a8c0b44ded95059898ab34abee001a5211b68b534747c","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b"}}
+[debug] [2023-11-25T02:03:12.306Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5:populateFiles 200
+[debug] [2023-11-25T02:03:12.307Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5:populateFiles {"uploadRequiredHashes":["aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","4e3e83f2f688b3e7798a8c0b44ded95059898ab34abee001a5211b68b534747c","ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","0ba2ebacf021d0b610cb4f915b94044c3a46898d381da4c603a8ff05cb0bf799"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files"}
+[debug] [2023-11-25T02:03:12.315Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [none]
+[debug] [2023-11-25T02:03:12.316Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [stream]
+[debug] [2023-11-25T02:03:12.321Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49 [none]
+[debug] [2023-11-25T02:03:12.322Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49 [stream]
+[debug] [2023-11-25T02:03:12.328Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/4e3e83f2f688b3e7798a8c0b44ded95059898ab34abee001a5211b68b534747c [none]
+[debug] [2023-11-25T02:03:12.329Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/4e3e83f2f688b3e7798a8c0b44ded95059898ab34abee001a5211b68b534747c [stream]
+[debug] [2023-11-25T02:03:12.335Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [none]
+[debug] [2023-11-25T02:03:12.336Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [stream]
+[debug] [2023-11-25T02:03:12.339Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [none]
+[debug] [2023-11-25T02:03:12.340Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [stream]
+[debug] [2023-11-25T02:03:12.342Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9 [none]
+[debug] [2023-11-25T02:03:12.344Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9 [stream]
+[debug] [2023-11-25T02:03:12.347Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/0ba2ebacf021d0b610cb4f915b94044c3a46898d381da4c603a8ff05cb0bf799 [none]
+[debug] [2023-11-25T02:03:12.348Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/0ba2ebacf021d0b610cb4f915b94044c3a46898d381da4c603a8ff05cb0bf799 [stream]
+[debug] [2023-11-25T02:03:12.349Z] [hosting][populate queue][FINAL] {"max":273,"min":273,"avg":273,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":307}
+[debug] [2023-11-25T02:03:12.350Z] [hosting] uploads queued: 7
+[debug] [2023-11-25T02:03:13.638Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/4e3e83f2f688b3e7798a8c0b44ded95059898ab34abee001a5211b68b534747c 200
+[debug] [2023-11-25T02:03:13.640Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/4e3e83f2f688b3e7798a8c0b44ded95059898ab34abee001a5211b68b534747c [stream]
+[debug] [2023-11-25T02:03:13.688Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49 200
+[debug] [2023-11-25T02:03:13.689Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49 [stream]
+[debug] [2023-11-25T02:03:13.737Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9 200
+[debug] [2023-11-25T02:03:13.738Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9 [stream]
+[debug] [2023-11-25T02:03:13.831Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/0ba2ebacf021d0b610cb4f915b94044c3a46898d381da4c603a8ff05cb0bf799 200
+[debug] [2023-11-25T02:03:13.833Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/0ba2ebacf021d0b610cb4f915b94044c3a46898d381da4c603a8ff05cb0bf799 [stream]
+[debug] [2023-11-25T02:03:13.877Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a 200
+[debug] [2023-11-25T02:03:13.878Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [stream]
+[debug] [2023-11-25T02:03:14.001Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 200
+[debug] [2023-11-25T02:03:14.002Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [stream]
+[info] i  hosting: uploading new files [6/7] (85%) 
+[debug] [2023-11-25T02:03:14.343Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b 200
+[debug] [2023-11-25T02:03:14.344Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/first-eccomerce/versions/6be82a5754e1d1a5/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [stream]
+[debug] [2023-11-25T02:03:14.346Z] [hosting][upload queue][FINAL] {"max":2032,"min":1328,"avg":1563.857142857143,"active":0,"complete":7,"success":7,"errored":0,"retried":0,"total":7,"elapsed":2037}
+[info] i  hosting: upload complete 
+[info] +  hosting[first-eccomerce]: file upload complete 
+[debug] [2023-11-25T02:03:14.351Z] [hosting] deploy completed after 2334ms
+[debug] [2023-11-25T02:03:14.352Z] [rules] releasing cloud.firestore/(default) with ruleset projects/first-eccomerce/rulesets/b88664ea-9095-4a88-8b6e-9ef111cdc356
+[debug] [2023-11-25T02:03:14.354Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/first-eccomerce/releases/cloud.firestore/(default) [none]
+[debug] [2023-11-25T02:03:14.356Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/first-eccomerce/releases/cloud.firestore/(default) {"release":{"name":"projects/first-eccomerce/releases/cloud.firestore/(default)","rulesetName":"projects/first-eccomerce/rulesets/b88664ea-9095-4a88-8b6e-9ef111cdc356"}}
+[debug] [2023-11-25T02:03:15.285Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/first-eccomerce/releases/cloud.firestore/(default) 200
+[debug] [2023-11-25T02:03:15.286Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/first-eccomerce/releases/cloud.firestore/(default) {"name":"projects/first-eccomerce/releases/cloud.firestore","rulesetName":"projects/first-eccomerce/rulesets/b88664ea-9095-4a88-8b6e-9ef111cdc356","createTime":"2023-08-20T01:45:32.480709Z","updateTime":"2023-11-25T02:03:15.170008Z"}
+[debug] [2023-11-25T02:03:15.287Z] [rules] updated release projects/first-eccomerce/releases/cloud.firestore
+[info] +  firestore: released rules firestore.rules to cloud.firestore 
+[debug] [2023-11-25T02:03:15.289Z] [
+  {
+    "config": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "first-eccomerce"
+    },
+    "version": "projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5"
+  }
+]
+[info] i  hosting[first-eccomerce]: finalizing version... 
+[debug] [2023-11-25T02:03:15.293Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/versions/6be82a5754e1d1a5 updateMask=status%2Cconfig
+[debug] [2023-11-25T02:03:15.294Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/versions/6be82a5754e1d1a5 {"status":"FINALIZED","config":{}}
+[debug] [2023-11-25T02:03:15.528Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/versions/6be82a5754e1d1a5 200
+[debug] [2023-11-25T02:03:15.529Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/versions/6be82a5754e1d1a5 {"name":"projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-11-25T02:03:09.924189Z","createUser":{"email":"Tomek12Olech@gmail.com"},"finalizeTime":"2023-11-25T02:03:15.421643Z","finalizeUser":{"email":"Tomek12Olech@gmail.com"}}
+[debug] [2023-11-25T02:03:15.532Z] [hosting] finalized version for first-eccomerce:[object Object]
+[info] +  hosting[first-eccomerce]: version finalized 
+[info] i  hosting[first-eccomerce]: releasing new version... 
+[debug] [2023-11-25T02:03:15.534Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/channels/live/releases versionName=projects%2F25843316895%2Fsites%2Ffirst-eccomerce%2Fversions%2F6be82a5754e1d1a5
+[debug] [2023-11-25T02:03:15.535Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/channels/live/releases {}
+[debug] [2023-11-25T02:03:15.802Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/channels/live/releases 200
+[debug] [2023-11-25T02:03:15.804Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/first-eccomerce/channels/live/releases {"name":"projects/25843316895/sites/first-eccomerce/channels/live/releases/1700877795135000","version":{"name":"projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-11-25T02:03:09.924189Z","createUser":{"email":"Tomek12Olech@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocIzHXseOyu5Et-2zr1j59cNIZryslRjI94FwpsuOIKh=mo"},"finalizeTime":"2023-11-25T02:03:15.421643Z","finalizeUser":{"email":"Tomek12Olech@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocIzHXseOyu5Et-2zr1j59cNIZryslRjI94FwpsuOIKh=mo"}},"type":"DEPLOY","releaseTime":"2023-11-25T02:03:15.135Z","releaseUser":{"email":"Tomek12Olech@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocIzHXseOyu5Et-2zr1j59cNIZryslRjI94FwpsuOIKh=mo"}}
+[debug] [2023-11-25T02:03:15.806Z] [hosting] release: {"name":"projects/25843316895/sites/first-eccomerce/channels/live/releases/1700877795135000","version":{"name":"projects/25843316895/sites/first-eccomerce/versions/6be82a5754e1d1a5","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-11-25T02:03:09.924189Z","createUser":{"email":"Tomek12Olech@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocIzHXseOyu5Et-2zr1j59cNIZryslRjI94FwpsuOIKh=mo"},"finalizeTime":"2023-11-25T02:03:15.421643Z","finalizeUser":{"email":"Tomek12Olech@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocIzHXseOyu5Et-2zr1j59cNIZryslRjI94FwpsuOIKh=mo"}},"type":"DEPLOY","releaseTime":"2023-11-25T02:03:15.135Z","releaseUser":{"email":"Tomek12Olech@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocIzHXseOyu5Et-2zr1j59cNIZryslRjI94FwpsuOIKh=mo"}}
+[info] +  hosting[first-eccomerce]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/first-eccomerce/overview
+[info] Hosting URL: https://first-eccomerce.web.app

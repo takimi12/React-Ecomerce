@@ -7,9 +7,25 @@ import HeaderRight from '../components/HeaderRight';
 import SearchHeader from '../components/HeaderSearch';
 import NavigationDefault from '../Navigation/NavigationDefault';
 import { stickyHeader } from '../components/StickyHeader';
+import useFetchCollection from '../../../customHooks/useFetchCollection';
+import { useDispatch, useSelector } from 'react-redux';
+import { GET_PRICE_RANGE, STORE_PRODUCTS, selectProducts } from '../../../redux/slice/productslice'
 
 const Header = () => {
+  const {data, isLoading} = useFetchCollection("products");
+  const list = useSelector(selectProducts)
+  const dispatch = useDispatch()
 
+
+
+  useEffect(() => {
+    dispatch(
+      STORE_PRODUCTS({
+          products: data,
+      })
+      );
+   
+  }, [dispatch, data])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +47,7 @@ const Header = () => {
             <Logo />
           </div>
           <div className="header__center">
-            <SearchHeader />
+            <SearchHeader list={list}/>
           </div>
           <div className="header__right">
             <HeaderRight />

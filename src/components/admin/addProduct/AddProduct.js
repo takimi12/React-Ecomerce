@@ -59,7 +59,7 @@ const AddProduct = () => {
         const file = e.target.files[0];
 
     
-        const storageRef = ref(storage, `Martfcury/${Date.now()}${file.name}`);
+        const storageRef = ref(storage, `first-ecommerce/${Date.now()}${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
     
              uploadTask.on(
@@ -89,7 +89,7 @@ const AddProduct = () => {
 
     const addProduct = (e) => {
         e.preventDefault();
-        // console.log(product);
+        console.log(product);
         setIsLoading(true);
     
         try {

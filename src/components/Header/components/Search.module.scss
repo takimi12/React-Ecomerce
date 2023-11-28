@@ -1,0 +1,62 @@
+.search {
+    height: 100%;
+    border: 1px solid #777;
+    border-radius: 3px;
+    background-color: #fff;
+    display: flex;
+    .categories{
+      position: relative;
+    background-color: #fff;
+    max-width: 160px;
+    vertical-align: top;
+    flex-basis: 100%;
+    border-right: solid 1px #999999;
+    margin-right: 10px;
+    .formControl{
+      padding-right: 30px;
+      height: 40px;
+      padding: 0 10px;
+      position: relative;
+      z-index: 2;
+      max-width: 100%;
+    }
+    }
+    .searchBar{
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .suggestions{
+      background: #fff;
+      position: absolute;
+      width: 100%;
+      z-index: 11;
+      display: flex;
+      flex-direction: column;
+      max-height: 300px;
+      overflow-y:auto;
+      left: 0;
+      top: 40px;
+      .suggestion{
+        width: 100%;
+        display: flex;
+        padding: 2px;
+        .suggestionImage{
+          width: 100px;
+          height: 100px;
+          margin-right: 10px;
+        
+        }
+        .suggestionDetails{
+          padding: 10px;
+        }
+      }
+    }
+    input[type="text"] {
+      display: block;
+      width: 100%;
+      outline: none;
+      height: 100%;
+    }
+  }

@@ -1,7 +1,23 @@
 .search {
     margin: 5px 0;
     position: relative;
-    flex: 1;
+    display: flex;
+ 
+    .searchBar{
+      position: relative;
+    }
+    .suggestion{
+      background: #fff;
+      position: absolute;
+      width: 100%;
+      z-index: 11;
+      display: flex;
+      .suggestionImage{
+        max-width: 150px;
+        padding-right: 5px;
+        object-fit: contain;
+      }
+    }
   
     .icon {
       position: absolute;
@@ -12,11 +28,6 @@
   
     input[type="text"] {
       display: block;
-      font-size: 1.6rem;
-      font-weight: 300;
-      padding: 1rem;
-      padding-left: 3rem;
-      margin: 1rem auto;
       width: 100%;
       border: 1px solid #777;
       border-radius: 3px;
