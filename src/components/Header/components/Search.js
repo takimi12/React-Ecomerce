@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Search.module.scss';
-import { BiSearch } from 'react-icons/bi';
+import { BiSearch, BiChevronDown } from 'react-icons/bi'; // Dodano BiChevronDown
+import { Link } from 'react-router-dom';
 
 const Search = ({ list }) => {
   const [suggestions, setSuggestions] = useState([]);
@@ -19,7 +20,8 @@ const Search = ({ list }) => {
           (item.name.toLowerCase().includes(inputValue) ||
             item.desc.toLowerCase().includes(inputValue) ||
             item.category.toLowerCase().includes(inputValue) ||
-            item.brand.toLowerCase().includes(inputValue)
+            item.brand.toLowerCase().includes(inputValue) ||
+            item.id.toLowerCase().includes(inputValue)
           )
       );
 
@@ -28,18 +30,19 @@ const Search = ({ list }) => {
       setSuggestions([]);
     }
 
-    setInputValue(input); // Ustawia wartość wprowadzoną do stanu
+    setInputValue(input);
   };
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
-    setSuggestions([]); // Czyści sugestie po zmianie kategorii
-    setInputValue(''); // Czyści wartość wprowadzoną po zmianie kategorii
+    setSuggestions([]);
+    setInputValue('');
   };
 
   return (
     <div className={styles.search}>
       <div className={styles.categories}>
+     
         <select
           className={styles.formControl}
           onChange={handleCategoryChange}
@@ -51,35 +54,38 @@ const Search = ({ list }) => {
             </option>
           ))}
         </select>
+        <div className={styles.dropdownIcon}>
+          <BiChevronDown size={20} color=" #999999" />
+        </div>
       </div>
       <div className={styles.searchBar}>
-        <BiSearch size={22} color="orangered" className={styles.icon} />
+ 
         <input
           type="text"
           placeholder={`Search`}
-          value={inputValue} // Ustawia wartość wprowadzoną z stanu
+          value={inputValue}
           onChange={(e) => {
             handleInputChange(e.target.value);
           }}
         />
       </div>
       <div>
-        {suggestions.length > 0 && (
-          <div className={styles.suggestions}>
-            {suggestions.map((item) => (
-              <div key={item.name} className={styles.suggestion}>
-                <div className={styles.suggestionImage}>
-                  <img src={item.image} alt={item.name} className={styles.suggestionImage} />
-                </div>
-                <div className={styles.suggestionDetails}>
-                  <p>{item.name}</p>
-                  <p>{item.brand}</p>
-                  <p>${item.price}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+      { suggestions.length > 0 && (
+  <div className={styles.suggestions}>
+    {suggestions.map((item) => (
+      <Link to={`/product-details/${item.id}`} key={item.id} className={styles.suggestion}>
+        <div className={styles.suggestionImage}>
+          <img src={item.image} alt={item.name} className={styles.suggestionImage} />
+        </div>
+        <div className={styles.suggestionDetails}>
+          <p>{item.name}</p>
+          <p>{item.brand}</p>
+          <p>${item.price}</p>
+        </div>
+      </Link>
+    ))}
+  </div>
+)}
       </div>
     </div>
   );

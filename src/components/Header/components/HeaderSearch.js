@@ -5,7 +5,7 @@ const HeaderSearch = ({ list }) => {
   const [search1, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  console.log("header search",list);
+
 
   // Przygotowanie danych, wybierając tylko określone pola
   const filteredList = list.map(item => ({
@@ -15,6 +15,7 @@ const HeaderSearch = ({ list }) => {
     price: item.price,
     desc: item.desc,
     image: item.imageURL,
+    id: item.id,
   }));
 
 
