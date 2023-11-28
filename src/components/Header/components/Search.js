@@ -73,7 +73,15 @@ const Search = ({ list }) => {
       { suggestions.length > 0 && (
   <div className={styles.suggestions}>
     {suggestions.map((item) => (
-      <Link to={`/product-details/${item.id}`} key={item.id} className={styles.suggestion}>
+      <Link
+        to={`/product-details/${item.id}`}
+        key={item.id}
+        className={styles.suggestion}
+        onClick={() => {
+          setSuggestions([]);
+          setInputValue(''); // Dodano ustawienie wartości inputa na pusty string
+        }}
+      >
         <div className={styles.suggestionImage}>
           <img src={item.image} alt={item.name} className={styles.suggestionImage} />
         </div>
