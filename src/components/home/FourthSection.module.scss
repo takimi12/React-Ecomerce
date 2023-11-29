@@ -1,0 +1,39 @@
+.FourthSection {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @media (max-width: 1680px) {    
+        max-width: 1650px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+}
+
+.wraperItem {
+    display: flex;
+    max-width: 1680px;
+    margin: auto;
+    gap: 40px;
+    width: 100%;
+    
+    @media (max-width: 1680px) {    
+        padding: 0 30px;
+    max-width: 100%;
+    }
+    @media (max-width: 1000px) {    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+.item {
+    @media (max-width: 1000px) {    
+        width: 100%;
+        .image {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+ 
+}
