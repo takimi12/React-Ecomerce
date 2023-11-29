@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Slider from '../../components/slider/Slider'
-import Product from '../../components/product/Product'
+import HomeSecondSection from '../../components/home/SecondSection';
 
 const Home = () => {
   const url = window.location.href;
@@ -15,14 +15,14 @@ const Home = () => {
     }
   }
 
-  // useEffect(() => {
-  //   scrollToProducts()
-  // }, []);
+  useEffect(() => {
+    scrollToProducts()
+  }, []);
   
   return (
     <>
-{/* <Slider /> */}
-<Product />
+<Slider />
+<HomeSecondSection />
     </> 
   )
 }
