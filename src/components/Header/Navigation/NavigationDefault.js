@@ -10,9 +10,6 @@ const NavigationDefault = () => {
     return (
         <nav className="navigation">
             <div className="ps-container">
-                <div className="navigation__left">
-                    <MenuCategoriesDropdown />
-                </div>
                 <div className="navigation__right">
                     <Menu
                         source={menuData.menuPrimary.menu_1}

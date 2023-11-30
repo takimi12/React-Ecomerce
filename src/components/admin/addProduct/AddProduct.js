@@ -13,7 +13,7 @@ const categories = [
     { id: 1, name: "Laptop" },
     { id: 2, name: "Electronics" },
     { id: 3, name: "Fashion" },
-    { id: 4, name: "Phone" },
+    { id: 4, name: "Phone"  },
   ];
 
   const initialState = {
@@ -145,8 +145,9 @@ const AddProduct = () => {
     
   return (
     <div className={styles.product}>
-        <h2>{detectForm(id, "Add New Product", "Edit Product")}</h2>
         <Card cardclass={styles.card}>
+        <h2 className={styles.mainHeading}>{detectForm(id, "Add New Product", "Edit Product")}</h2>
+
             <form onSubmit={detectForm(id, addProduct, editProduct)}>
             <label>Product name:</label>
             <input type="text" 
@@ -156,7 +157,6 @@ const AddProduct = () => {
             onChange={(e) => handleInputChange(e)}/>
 
 <label>Product image:</label>
-            <Card cardClass={styles.group}>
               {uploadProgress === 0 ? null : (
                 <div className={styles.progress}>
                   <div
@@ -186,7 +186,6 @@ const AddProduct = () => {
                   disabled
                 />
               )}
-            </Card>
  
                 <label>Product price:</label>
             <input

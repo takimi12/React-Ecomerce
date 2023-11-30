@@ -3,15 +3,15 @@
     border-radius: 5px;
     box-shadow: var(--box-shadow);
     overflow: hidden;
-    max-width: 430px;
+    max-width: 628px;
     width: 100%;
     margin: auto;
+    padding: 50px;
 }
 
 .header--center {
-    padding-top: 100px;
     min-height: 100vh;
-    background-color: #f6f6f6;
+
     display: flex;
     justify-content: center;
     padding-bottom: 50px;

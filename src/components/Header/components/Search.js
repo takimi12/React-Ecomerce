@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Search.module.scss';
-import { BiSearch, BiChevronDown } from 'react-icons/bi'; // Dodano BiChevronDown
+import { BiSearch, BiChevronDown, BiX } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 const Search = ({ list }) => {
@@ -42,7 +42,6 @@ const Search = ({ list }) => {
   return (
     <div className={styles.search}>
       <div className={styles.categories}>
-     
         <select
           className={styles.formControl}
           onChange={handleCategoryChange}
@@ -59,7 +58,6 @@ const Search = ({ list }) => {
         </div>
       </div>
       <div className={styles.searchBar}>
- 
         <input
           type="text"
           placeholder={`Search`}
@@ -68,32 +66,43 @@ const Search = ({ list }) => {
             handleInputChange(e.target.value);
           }}
         />
+        {inputValue && (
+          <div
+            className={styles.closeIcon}
+            onClick={() => {
+              setSuggestions([]);
+              setInputValue('');
+            }}
+          >
+            <BiX size={20} color="#999999" />
+          </div>
+        )}
       </div>
       <div>
-      { suggestions.length > 0 && (
-  <div className={styles.suggestions}>
-    {suggestions.map((item) => (
-      <Link
-        to={`/product-details/${item.id}`}
-        key={item.id}
-        className={styles.suggestion}
-        onClick={() => {
-          setSuggestions([]);
-          setInputValue(''); // Dodano ustawienie wartości inputa na pusty string
-        }}
-      >
-        <div className={styles.suggestionImage}>
-          <img src={item.image} alt={item.name} className={styles.suggestionImage} />
-        </div>
-        <div className={styles.suggestionDetails}>
-          <p>{item.name}</p>
-          <p>{item.brand}</p>
-          <p>${item.price}</p>
-        </div>
-      </Link>
-    ))}
-  </div>
-)}
+        {suggestions.length > 0 && (
+          <div className={styles.suggestions}>
+            {suggestions.map((item) => (
+              <Link
+                to={`/product-details/${item.id}`}
+                key={item.id}
+                className={styles.suggestion}
+                onClick={() => {
+                  setSuggestions([]);
+                  setInputValue('');
+                }}
+              >
+                <div className={styles.suggestionImage}>
+                  <img src={item.image} alt={item.name} className={styles.suggestionImage} />
+                </div>
+                <div className={styles.suggestionDetails}>
+                  <p>{item.name}</p>
+                  <p>{item.brand}</p>
+                  <p>${item.price}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

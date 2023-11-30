@@ -1,0 +1,13 @@
+.list {
+    display: flex;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #d1d1d1;
+    align-items: center;
+    &:hover{
+      background-color: #fcb800;
+    }
+    svg{
+      margin-right: 10px;
+    }
+  }

@@ -1,53 +1,39 @@
-import React from 'react'
-import styles  from './Navbar.module.scss';
-import { FaUserCircle } from 'react-icons/fa';
+import React from 'react';
+import { FaHome, FaBox, FaPlus, FaShoppingBag, FaFileAlt } from 'react-icons/fa';
+import styles from './Navbar.module.scss';
 import { useSelector } from 'react-redux';
 import { selectUserName } from '../../../redux/slice/authslice';
 import { NavLink } from 'react-router-dom';
 
-
-const activeLink =  ({isActive}) =>
-(isActive ? `${styles.active}` : "")
-
+const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
 const Navbar = () => {
   const userName = useSelector(selectUserName);
+
   return (
-      <div className={styles.navbar}>
-        <div className={styles.user}>
+    <>
+      <NavLink to="/account/home" className={styles.listLink}>
+        <li className={styles.list}>
+          <FaHome /> Home
+        </li>
+      </NavLink>
+      <NavLink to="/account/all-products" className={styles.listLink}>
+        <li className={styles.list}>
+          <FaBox /> All Products
+        </li>
+      </NavLink>
+      <NavLink to="/account/add-product/ADD" className={styles.listLink}>
+        <li className={styles.list}>
+          <FaPlus /> Add Products
+        </li>
+      </NavLink>
+      <NavLink to="/account/orders" className={styles.listLink}>
+        <li className={styles.list}>
+        <FaFileAlt /> Orders
+        </li>
+      </NavLink>
+    </>
+  );
+};
 
-            <FaUserCircle size={40} color="#fff" />
-            <h4>        {userName}</h4>
-    
-        </div>
-      
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/account/home" className={activeLink}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/account/all-products" className={activeLink}>
-              All Products
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/account/add-product/ADD" className={activeLink}>
-              Add Products
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/account/orders" className={activeLink}>
-              Orders
-            </NavLink>
-          </li>
-        </ul>
-
-      </nav>
-      </div>
-  )
-}
-
-export default Navbar
+export default Navbar;

@@ -49,19 +49,16 @@ const Home = () => {
       <h2>Admin Home</h2>
       <div className={styles["info-box"]}>
         <InfoBox
-          cardClass={`${styles.card} ${styles.card1}`}
-          title={"Earnings"}
+         title={"Earnings"}
           count={`$${totalOrderAmount}`}
           icon={earningIcon}
         />
         <InfoBox
-          cardClass={`${styles.card} ${styles.card2}`}
           title={"Products"}
           count={products.length}
           icon={productIcon}
         />
         <InfoBox
-          cardClass={`${styles.card} ${styles.card3}`}
           title={"Orders"}
           count={orders.length}
           icon={ordersIcon}

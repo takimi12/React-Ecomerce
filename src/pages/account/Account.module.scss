@@ -1,13 +1,30 @@
 .admin {
     display: flex;
-  
+    padding: 0px 30px;
+    background-color: #f1f1f1;
+    
     .navbar {
       width: 25%;
-      min-height: 80vh;
+      height: 100%;
+      background-color: #fff;
     }
     .content {
       width: 75%;
       padding: 1rem;
+      overflow: hidden;
     }
   }
   
+  .list {
+    display: flex;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #d1d1d1;
+    align-items: center;
+    &:hover{
+      background-color:#fcb800;
+    }
+    svg{
+      margin-right: 10px;
+    }
+  }

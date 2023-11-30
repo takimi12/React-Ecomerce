@@ -22,15 +22,19 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      &:hover{
+        background-color: var(--color-button);
+        color: #fff;
+      }
     }
     p {
       margin-left: 1rem;
       .page {
-        color: var(--color-danger);
+        color: var(--color-button);
       }
     }
   }
   .active {
-    background-color: var(--color-danger);
+    background-color: var(--color-button);
     color: #fff;
   }
