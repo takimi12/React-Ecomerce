@@ -15,10 +15,12 @@ const maxPrice = useSelector(selectMaxPrice)
 
 const dispatch = useDispatch()
 
+
 const allCategories = [
   "All",
   ...new Set(products.map((product) => product.category)),
 ];
+
 
 const allBrands = [
   "All",
@@ -46,6 +48,11 @@ const filterProducts = (cat) => {
   dispatch(FILTER_BY_CATEGORY({ products, category: cat }));
 };
 
+const filterButtonCattegory = (brand) => {
+  setBrand(brand);
+  dispatch(FILTER_BY_BRAND({ products, brand }));
+};
+
 const clearFilters = () => {
   setCategory("All");
   setBrand("All");
@@ -55,35 +62,42 @@ const clearFilters = () => {
 
 return (
     <div className={styles.filter}>
+      <div className={styles.wrap}>
       <h4>Categories</h4>
-      <div className={styles.category}>
+
         {allCategories.map((cat, index) => {
           return (
             <button
               key={index}
               type="button"
               onClick={() => filterProducts(cat)}
-              className={`${category}` === cat ? `${styles.active}` : null}>
-              &#8250; {cat}
+              className={styles.filterButtonCattegory}>
+              {cat}
               </button>
             )
         }
         )}
-        <button>All</button>
+
     </div>
+    <div className={styles.wrap}>
     <h4>Brand</h4>
-    <div className={styles.brand}>
-        <select value={brand} onChange={(e) => setBrand(e.target.value) }>
+
           {allBrands.map((brand, index) => {
             return (
-              <option key={index} value={brand}>{brand}</option>
+              <button
+              key={index}
+              type="button"
+              onClick={() => filterButtonCattegory(brand)}
+              className={styles.filterButtonCattegory}>
+              {brand}
+              </button>
             )
           })}
-        
-        </select>
-      <h4>Price</h4>
+        </div>  
+        <div className={styles.wrap}>
       <p>{`$${price}`}</p>
-      <div className={styles.price}>
+
+      <h4>Price</h4>
         <input 
         type="range" 
         value={price} 
@@ -92,13 +106,14 @@ return (
         max={maxPrice}
         onChange={(e) => setPice(e.target.value) }
          />
-      </div>
-      <br />
+               <br />
       <button className="btn btn-primary"
       onClick={clearFilters}
       >Clear Filter</button>
+      </div>
+
     </div>
-    </div>
+  
   )
 }
 

@@ -7,6 +7,7 @@ import ProductItem from '../productItem/ProductItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { FILTER_BY_SEARCH, SORT_PRODUCTS, selectFilteredProducts } from '../../../redux/slice/filterslice';
 import Pagination from '../../pagination/Pagination';
+import { MdOutlineArrowDropDown } from "react-icons/md";
 
 
 
@@ -16,19 +17,23 @@ const ProductList = ({products}) => {
   const [sort, setSort] = useState("latest");
   const filteredProducts = useSelector(selectFilteredProducts);
 
-  //Pagination states
+
+  // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const [ProductsPerPage, setProductsPerPage] = useState(2);
-  // Get current Products
-  const indexOfLastProduct = currentPage * ProductsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - ProductsPerPage; 
-  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const [productsPerPage] = useState(10);
+  // Get Current Products
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   const dispatch =  useDispatch()
 
-  // useEffect(() => {
-  //   dispatch(SORT_PRODUCTS({products, sort}));
-  // }, [dispatch, products,sort]);
+  useEffect(() => {
+    dispatch(SORT_PRODUCTS({products, sort}));
+  }, [dispatch, products,sort]);
 
   useEffect(() => {
     dispatch(FILTER_BY_SEARCH({products, search}));
@@ -38,14 +43,8 @@ const ProductList = ({products}) => {
     <div className={styles['product-list']} id="product">
       <div className={styles.top}>
         <div className={styles.icon}>
-          <BsFillGridFill
-            size={22}
-            color="orangered"
-            onClick={() => setGrid(true)}
-          />
-          <FaListAlt size={22} onClick={() => setGrid(false)} />
           <p>
-            <b>{filteredProducts.length}</b> Products found
+            <strong className={styles.strong}>{filteredProducts.length}</strong> Products found
           </p>
         </div>
         <div>
@@ -54,15 +53,24 @@ const ProductList = ({products}) => {
           </p>
         </div>
         <div className={styles.sort}>
-          <label htmlFor="sort">Sort by</label>
           <select calue={sort} onChange={(e) => setSort(e.target.value)}>
-            <option value="latest">Latest</option>
-            <option value="lowest-price">Lowest Price</option>
-            <option value="highest-price">Highest Price</option>
-            <option value="a-z">A-Z</option>
-            <option value="z-a">Z-A</option>
+            <option value="latest">Sort by Latest</option>
+            <option value="lowest-price">Sort by Lowest Price</option>
+            <option value="highest-price">Sort by Highest Price</option>
+            <option value="a-z">Sort by A-Z</option>
+            <option value="z-a">Sort by Z-A</option>
           </select>
+          <MdOutlineArrowDropDown size={22} />
         </div>
+
+        
+        <div className={styles.site}>
+        <BsFillGridFill
+            size={22}
+            onClick={() => setGrid(true)}
+          />
+          <FaListAlt size={22} onClick={() => setGrid(false)} />
+          </div>
       </div>
       <div className={grid ? styles.grid : styles.list}>
         {products.lenght === 0 ? (
@@ -71,15 +79,20 @@ const ProductList = ({products}) => {
           <>
             {currentProducts.map((product) => {
               return (
-                <div key={product.id}>
                   <ProductItem {...product} grid={grid} product={product} />
-                </div>
+              
               );
             })}
           </>
         )}
+  
       </div>
- 
+      <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          productsPerPage={productsPerPage}
+          totalProducts={filteredProducts.length}
+        />
     </div>
   );
 };

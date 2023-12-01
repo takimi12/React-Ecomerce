@@ -66,7 +66,7 @@ const navigate = useNavigate();
 
   return(
   <section>
-    <div className={`container ${styles.table}`}>
+    <div className={` ${styles.table}`}>
         <h2>Shopping Cart</h2>
         {cartItems.length === 0 ? (
             <>
@@ -83,7 +83,7 @@ const navigate = useNavigate();
             <table>
                 <thead>
                         <tr>
-                            <th>s/n</th>
+
                             <th>Product</th>
                             <th>Price</th>
                             <th>Quantity</th>
@@ -96,7 +96,7 @@ const navigate = useNavigate();
                         const {id, name, price,imageURL, cartQuantity} = cart;
                         return (
                             <tr key={id}>
-                                <td>{index +1}</td>
+
                                 <td>
                                     <p>
                                         <b>
@@ -107,11 +107,11 @@ const navigate = useNavigate();
                                 </td>
                                 <td>{price}</td>
                                 <td><div className={styles.count}>
-                                    <button className='--btn' onClick={() => decreaseCart(cart)}>-</button>
+                                    <button className='' onClick={() => decreaseCart(cart)}>-</button>
                                     <p>
                                         <b>{cartQuantity}</b>
                                     </p>
-                                    <button className='--btn' onClick={() => increaseCart(cart)}>+</button>
+                                    <button className='' onClick={() => increaseCart(cart)}>+</button>
                                     </div></td>
                                 <td>
                                     {(price *cartQuantity).toFixed(2)}
@@ -128,17 +128,23 @@ const navigate = useNavigate();
                 </tbody>
             </table>
             <div className={styles.summary}>
-                <button className='--btn --btn-danger'
-                onClick={ClearCart}
-                >Clear Cart</button>
-                <div className={styles.checkout}>
+              
+                <div className={styles.action}>
                     <div>
                         <Link to="/#products">
                             &larr; Continue shopping
                         </Link>
                     </div>
+                    <div>
+                    <button className='--btn --btn-danger'
+                onClick={ClearCart}
+                >Clear Cart</button>
+                    </div>
+                    </div>
                     <br />
-                    <Card cardClass={styles.card}>
+                    </div>
+                    <div className={styles.summaryone}>
+                    <div className={styles.checdkout}>
                         <p><b>{`Cart otems(s): ${cartTotalQuantity}`}</b></p>
                         <div className={styles.text}>
                             <h4>Subtotal:</h4>
@@ -149,9 +155,9 @@ const navigate = useNavigate();
                         <button className='--btn --btn-primary --btn-block'
                         onClick={Checkout}
                         >Checkout</button>
-                    </Card>
                 </div>
                 </div>
+          
         </>
         )}
  </div>

@@ -4,7 +4,6 @@ import { Header, Footer } from './components';
 import { Login, Register, Reset, Admin } from './pages';
 import Breadcrumbs from './components/breadcrumbs/Breadcrumbs';
 import Account from './pages/account/Account';
-import AdminOnlyRoute from './components/adminOnlyRoute/AdminOnlyRoute';
 import UserLogin from './components/userOnlyRoute/userOnlyRoute';
 import Home from './pages/home/Home';
 import ProductDetails from './components/product/productDetails/ProductDetails';
@@ -14,6 +13,7 @@ import Checkout from './pages/checkout/Checkout';
 import CheckoutSuccess from './pages/checkout/CheckoutSucces';
 import OrderHistory from './pages/orderHistory/OrderHistory';
 import OrderDetails from './pages/orderDetails/OrderDetails';import ReviewProducts from './components/reviewProducts/ReviewProducts';
+import Product from './components/product/Product';
 
 function App() {
   return (
@@ -31,8 +31,10 @@ function App() {
               <Account />
             </UserLogin>
           } />
+          
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/shop"  element={<Product />} />
           <Route path="/checkout-details" element={<CheckoutDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />

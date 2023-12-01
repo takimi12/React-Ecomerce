@@ -1,0 +1,13 @@
+.product{
+    display: flex;
+    overflow: hidden;
+    justify-content: space-around;
+}
+.content{
+    max-width: 75%;
+    width: 100%;
+}
+.filter {
+    max-width: 20%;
+    width: 100%;
+}

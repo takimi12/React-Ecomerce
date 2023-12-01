@@ -6,7 +6,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      // flex-wrap: wrap;
+      margin-bottom: 50px;
       .icons {
         display: flex;
         justify-content: center;
@@ -18,46 +18,34 @@
       }
   
       .sort {
+          border: none;
+        outline: none;
+        background: #fff;
+        position: relative;
+        border: solid 1px #ddd;
         label {
-          font-size: 1.4rem;
           font-weight: 500;
           margin: 0 5px;
         }
-        select {
-          font-size: 1.6rem;
-          font-weight: 300;
-          border: none;
-          // border-bottom: 1px solid #777;
-          outline: none;
+        select{
+          width: 100%;
+          min-height: 50px;
+        text-align: center;
+        }
+        svg{
+          position: absolute;
+          top: 15px;
+          right:0;
+        }
+     
         }
       }
+      
+    .strong{
+      font-weight: bold;
+      font-size: 16px;
     }
-  
-    // .search {
-    //   margin: 5px 0;
-    //   position: relative;
-    //   flex: 1;
-  
-    //   .icon {
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 1rem;
-    //     transform: translateY(-50%);
-    //   }
-  
-    //   input[type="text"] {
-    //     display: block;
-    //     font-size: 1.6rem;
-    //     font-weight: 300;
-    //     padding: 1rem;
-    //     padding-left: 3rem;
-    //     margin: 1rem auto;
-    //     width: 100%;
-    //     border: 1px solid #777;
-    //     border-radius: 3px;
-    //     outline: none;
-    //   }
-    // }
+
     @media screen and (max-width: 800px) {
       .top {
         flex-direction: column;
@@ -72,9 +60,13 @@
   
   .grid {
     display: flex;
-    justify-content: space-around;
-  
     flex-wrap: wrap;
-    // padding: 1rem 0;
-    background-color: #fffdf7;
+  justify-content: space-between;
+  }
+
+  .site {
+    display: flex;
+    svg {
+      margin-right: 5px;
+    }
   }

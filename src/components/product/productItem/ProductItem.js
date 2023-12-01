@@ -1,52 +1,80 @@
-import React from 'react'
-import styles from './ProductItem.module.scss'
-import Card from "../../card/Card"
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY } from '../../../redux/slice/cartslice'
+import React from 'react';
+import styles from './ProductItem.module.scss';
+import Card from "../../card/Card";
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { ADD_TO_CART, ADD_TO_COMPARE, ADD_TO_WISHLIST, CALCULATE_TOTAL_QUANTITY } from '../../../redux/slice/cartslice';
+import { IoBarChartOutline, IoBagCheckOutline, IoEyeOutline } from "react-icons/io5";
+import { CiHeart } from "react-icons/ci";
 
-
-
-const ProductItem = ({product,grid,id,name,price,desc, imageURL}) => {
+const ProductItem = ({ category, grid, id, name, price, desc, imageURL }) => {
   const dispatch = useDispatch();
 
   const shortenText = (text, n) => {
-if (text.lenght > n) {
-  const shortenedText = text.substring(0, n).concat("...");
-  return shortenedText;
-  };  
-  return text
+    if (text.length > n) {
+      const shortenedText = text.substring(0, n).concat("...");
+      return shortenedText;
+    }
+    return text;
   };
 
   const addToCart = (product) => {
-  dispatch(ADD_TO_CART(product));
-  dispatch(CALCULATE_TOTAL_QUANTITY());
-  }
+    dispatch(ADD_TO_CART(product));
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+  };
 
- 
+  const addToCompare = (product) => {
+    dispatch(ADD_TO_COMPARE(product));
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+
+  };
+  const addToWishlist = (product) => {
+    dispatch(ADD_TO_WISHLIST(product));
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+
+  };
+
   return (
-    <Card cardClass={ grid ?  `${styles.grid}` : `${styles.list}`}>
-      
-      <Link to={`/product-details/${id}`}>
-      <div className={styles.img}>
-        <img src={imageURL} alt={name} /> 
-      </div>
-      </Link>
+    <Card>
+      <div className={styles.card}>
+        <Link to={`/product-details/${id}`}>
+          <div className={styles.img}>
+            <img className={styles.productItemImage} src={imageURL} alt={name} />
+          </div>
+        </Link>
         <div className={styles.content}>
           <div className={styles.details}>
-            <p>{`$${price}`}</p>
-            <h4>{shortenText(name, 15)}</h4>
+            <p className={styles.category}>{category}</p>
+            <h4 className={styles.productTitle}>{shortenText(name, 15)}</h4>
+            <p className={styles.price}>{`$${price}`}</p>
+            <ul className={styles.listActions}>
+              <li>
+                <a href="#!" data-toggle="tooltip" data-placement="top" title="Add To Cart" onClick={() => addToCart({ id, name, price, imageURL })}>
+                  <IoBagCheckOutline size={22} />
+                </a>
+              </li>
+              <li>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Quick View">
+                  <IoEyeOutline size={22} />
+                </a>
+              </li>
+              <li>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist" onClick={() => addToWishlist({ id, name, price, imageURL })}>
+                  <CiHeart size={22} />
+                </a>
+              </li>
+              <li>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Compare" onClick={() => addToCompare({ id, name, price, imageURL })}>
+                  <IoBarChartOutline size={22} />
+                </a> 
+              </li>
+            </ul>
           </div>
           {!grid && <p className={styles.desc}>{shortenText(desc, 200)}</p>}
-       <button className='--btn --brn-danger'
-       onClick={() => addToCart(product)}
-       >
-        Add to cart
-       </button>
         </div>
-    
+      </div>
     </Card>
-  )
-}
+  );
+};
 
-export default ProductItem
+export default ProductItem;

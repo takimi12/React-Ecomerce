@@ -11,8 +11,11 @@ import {
 } from '../../../redux/slice/authslice';
 import {  selectEmail, selectDisplayName } from '../../../redux/slice/authslice';
 import ShowOnLogin, { ShowOnLogOut } from '../../hidden/hiddenLink';
-import { CALCULATE_TOTAL_QUANTITY, selectCartTotalQuantity } from '../../../redux/slice/cartslice';
-
+import { 
+  CALCULATE_TOTAL_QUANTITY, 
+  selectCartTotalQuantity,
+  selectCompareItems,
+  selectWishlistItems } from '../../../redux/slice/cartslice';
 
 
 const HeaderRight = () => {
@@ -22,6 +25,9 @@ const HeaderRight = () => {
 
   /// cart amount visible 
 const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+const compareItems = useSelector(selectCompareItems);
+const wishlistItems = useSelector(selectCompareItems);
+
 
 useEffect(()  => {
   dispatch(CALCULATE_TOTAL_QUANTITY());
@@ -78,21 +84,21 @@ useEffect(()  => {
         <div className={styles['parent']}>
           <a className={styles['header--extra']} href="/compare">
             <i className={`${styles.icon} icon-chart-bars`}>
-              <span className={styles.counter}></span>
+              <span className={styles.counter}>{compareItems.length}</span>
             </i>
           </a>
         </div>
         <div className={styles['parent']}>
           <a className={styles['header--extra']} href="/compare">
             <i className={`${styles.icon} icon-heart`}>
-              <span className={styles.counter}></span>
+              <span className={styles.counter}>{wishlistItems.length}</span>
             </i>
           </a>
         </div>
         <div className={styles['parent']}>
           <a className={styles['header--extra']} href="/compare">
             <i className={`${styles.icon} icon-bag2`}>
-              <span className={styles.counter}></span>
+              <span className={styles.counter}>{cartTotalQuantity}</span>
             </i>
           </a>
         </div>
