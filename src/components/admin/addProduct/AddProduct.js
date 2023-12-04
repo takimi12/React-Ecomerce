@@ -14,6 +14,7 @@ const categories = [
     { id: 2, name: "Electronics" },
     { id: 3, name: "Fashion" },
     { id: 4, name: "Phone"  },
+    { id: 5, name: "Other"  },
   ];
 
   const initialState = {
