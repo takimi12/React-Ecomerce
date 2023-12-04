@@ -9,7 +9,7 @@ const CheckoutSuccess = () => {
         <br />
 
         <button className="--btn --btn-primary">
-          <Link to="/order-history">View Order Status</Link>
+          <Link to="/account/orders">View Order Status</Link>
         </button>
       </div>
     </section>

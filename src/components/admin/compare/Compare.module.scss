@@ -18,7 +18,7 @@ background-color: #f2f2f2;
   
       th,
       td {
-        vertical-align: top;
+       
         text-align: left;
         padding: 8px;
         &.icons {
@@ -125,4 +125,14 @@ color: #666;
 .button{
   max-width: 500px;
   margin-top: 20px;
+}
+.btn {
+max-width: 50%;
+width: 100%;
+
+display: flex!important;
+align-items: center;
+justify-content: center;
+margin: auto;
+
 }

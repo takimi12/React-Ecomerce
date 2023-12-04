@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../../components/loader/Loader";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
-
-import {
-  selectOrderHistory,
-  STORE_ORDERS,
-} from "../../../redux/slice/orderslice";
-import Loader from "../../loader/Loader";
+import { selectUserID } from "../../../redux/slice/authslice";
+import { selectOrderHistory, STORE_ORDERS } from "../../../redux/slice/orderslice";
 import styles from "./Orders.module.scss";
 
-const Orders = () => {
+const OrderHistory = () => {
   const { data, isLoading } = useFetchCollection("orders");
   const orders = useSelector(selectOrderHistory);
+  const userID = useSelector(selectUserID);
+
+
+
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,21 +23,25 @@ const Orders = () => {
   }, [dispatch, data]);
 
   const handleClick = (id) => {
-    navigate(`/admin/order-details/${id}`);
+    navigate(`/order-details/${id}`);
   };
 
+  const filteredOrders = orders.filter((order) => order.userID === userID);
+
+  console.log("filtered", filteredOrders)
+
   return (
-    <>
-      <div className={styles.order}>
+    <section>
+      <div className={`container ${styles.order}`}>
         <h2>Your Order History</h2>
         <p>
-          Open an order to <b>Change order status</b>
+          Open an order to leave a <b>Product Review</b>
         </p>
         <br />
         <>
           {isLoading && <Loader />}
           <div className={styles.table}>
-            {orders.length === 0 ? (
+            {filteredOrders.length === 0 ? (
               <p>No order found</p>
             ) : (
               <table>
@@ -50,7 +55,7 @@ const Orders = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {orders.map((order, index) => {
+                  {filteredOrders.map((order, index) => {
                     const {
                       id,
                       orderDate,
@@ -89,8 +94,8 @@ const Orders = () => {
           </div>
         </>
       </div>
-    </>
+    </section>
   );
 };
 
-export default Orders;
+export default OrderHistory;

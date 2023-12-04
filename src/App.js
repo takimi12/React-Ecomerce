@@ -14,6 +14,8 @@ import CheckoutSuccess from './pages/checkout/CheckoutSucces';
 import OrderHistory from './pages/orderHistory/OrderHistory';
 import OrderDetails from './pages/orderDetails/OrderDetails';import ReviewProducts from './components/reviewProducts/ReviewProducts';
 import Product from './components/product/Product';
+import Compare from './components/admin/compare/Compare';
+import Wishlist from './components/admin/wishlist/WishList';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/compare" element={<Compare />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/shop"  element={<Product />} />
           <Route path="/checkout-details" element={<CheckoutDetails />} />
           <Route path="/checkout" element={<Checkout />} />

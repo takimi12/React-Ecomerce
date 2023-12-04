@@ -8,155 +8,160 @@ import {
 import styles from "./CheckoutForm.module.scss";
 import Card from "../card/Card";
 import CheckoutSummary from "../checkoutSummary/CheckoutSummary";
-import spinnerImg from "../../assets/img/spinner.jpg";
+import spinnerImg from "../../assets/img/spinner.jpg"
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEmail, selectUserID } from "../../redux/slice/authslice";
-import {
-  CLEAR_CART,
-  selectCartItems,
-  selectCartTotalAmount,
-} from "../../redux/slice/cartslice";
-import { selectShippingAddress } from "../../redux/slice/checkoutSlice";
-import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { CLEAR_CART, selectCartItems, selectCartTotalAmount } from "../../redux/slice/cartslice";
+import { selectShippingAddress } from "../../redux/slice/checkoutslice";
+import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
+
+
 
 const CheckoutForm = () => {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
   const stripe = useStripe();
   const elements = useElements();
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+const dispatch = useDispatch();
+const navigate = useNavigate();
 
-  const userID = useSelector(selectUserID);
-  const userEmail = useSelector(selectEmail);
-  const cartItems = useSelector(selectCartItems);
-  const cartTotalAmount = useSelector(selectCartTotalAmount);
-  const shippingAddress = useSelector(selectShippingAddress);
+const userID = useSelector(selectUserID);
+const userEmail = useSelector(selectEmail);
+const cartItems = useSelector(selectCartItems);
+const cartTotalAmount = useSelector(selectCartTotalAmount);
+const shippingAddress = useSelector(selectShippingAddress);
+
 
   useEffect(() => {
     if (!stripe) {
-      // Handle the case where Stripe is not yet available.
-      // You might want to show a loading spinner or some message to the user.
       return;
     }
-
-    // Get the client secret from the query parameters, if needed.
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
-
     if (!clientSecret) {
-      // Handle the case where the client secret is missing.
-      // You might want to show an error message to the user.
       return;
     }
   }, [stripe]);
 
-  const saveOrder = async () => {
-    const today = new Date();
-    const date = today.toDateString();
-    const time = today.toLocaleTimeString();
+  const saveOrder = () => {
+    const today = new Date ()
+    const date = today.toDateString()
+    const time = today.toLocaleTimeString()
     const orderConfig = {
-      userID,
-      userEmail,
-      orderDate: date,
-      orderTime: time,
-      orderAmount: cartTotalAmount,
-      orderStatus: "Order Placed...",
-      cartItems,
-      shippingAddress,
-      createdAt: Timestamp.now().toDate(),
-    };
+        userID,
+        userEmail,
+        orderDate:date,
+        orderTime:time,
+        orderAmount:cartTotalAmount,
+        orderStatus:"Order Placed...",
+        cartItems,
+        shippingAddress,
+        createdAt: Timestamp.now().toDate()
+
+    }
+
 
     try {
-      await addDoc(collection(db, "orders"), orderConfig);
+       addDoc(collection(db, "orders"), orderConfig);
       dispatch(CLEAR_CART());
-      toast.success("Order saved");
-      navigate("/checkout-success");
+       toast.success("Order Saved");
+       navigate("/checkout-success");
     } catch (error) {
+
       toast.error(error.message);
+      console.log(error);
     }
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage(null);
 
     if (!stripe || !elements) {
-      // Handle the case where Stripe or Elements are not available.
-      // You might want to show an error message or disable the submit button.
+      // Stripe.js hasn't yet loaded.
+      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
     setIsLoading(true);
 
-    try {
-      const result = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          // Make sure to change this to your payment completion page
-          return_url: "http://localhost:3000/checkout-success",
-        },
-        redirect: "if_required",
-      });
+  
 
-      if (result.error) {
-        toast.error(result.error.message);
-        setMessage(result.error.message);
-      } else if (result.paymentIntent && result.paymentIntent.status === "succeeded") {
-        toast.success("Payment successful");
-        saveOrder();
-      }
-    } catch (error) {
-      toast.error(error.message);
-    }
+    const confirmPayment = await stripe
+    .confirmPayment({
+      elements,
+      confirmParams: {
+        // Make sure to change this to your payment completion page
+        return_url: "http://localhost:3000/checkout-success",
+      },
+      redirect: "if_required"
+    })
+    .then((result) => {
+        if (result.error){
+            toast.error(result.error.message)
+            setMessage(result.error.message)
+            return;
+        }
+        if (result.paymentIntent){
+            if (result.paymentIntent.status === "succeeded"){
+                setIsLoading(false)
+                toast.success("Payment Successfull")
+                saveOrder()
+            }
+        } 
+    });
+
 
     setIsLoading(false);
   };
 
+  const paymentElementOptions = {
+    layout: "tabs"
+  }
+
   return (
     <section>
-      <div className={`container ${styles.checkout}`}>
-        <h2>Checkout</h2>
+      <div className={`container ${styles.container}` }>
+        <h2> Checkout</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <Card cardClass={styles.card}>
-              <CheckoutSummary />
+          <Card cardClass={styles.card}>
+            <CheckoutSummary />
             </Card>
-          </div>
-          <div>
-            <Card cardClass={`${styles.card} ${styles.pay}`}>
-              <h3>Stripe Checkout</h3>
-              <PaymentElement id={styles["payment-element"]} />
-              <button
-                disabled={isLoading || !stripe || !elements}
-                id="submit"
-                className={styles.button}
-              >
-                <span id="button-text">
-                  {isLoading ? (
-                    <img
-                      src={spinnerImg}
-                      alt="Loading..."
-                      style={{ width: "20px" }}
-                    />
-                  ) : (
-                    "Pay now"
-                  )}
-                </span>
-              </button>
-              {/* Show any error or success messages */}
-              {message && <div id={styles["payment-message"]}>{message}</div>}
-            </Card>
-          </div>
+            </div>
+            <div>
+              <Card cardClass={`${styles.card}${styles.pay}`} >
+               <h3>Stripe Checkout</h3>
+               <PaymentElement id={styles["payment-element"]} />
+      <button
+       disabled={isLoading || !stripe || !elements} 
+       id="submit"
+       className={styles.button}
+       >
+        <span id="button-text">
+          {isLoading ? (<img 
+          src={spinnerImg} 
+          style={{width: "20px", height: "20px"}}
+          alt="Loading..." /> ): "Pay now"}
+        </span>
+      </button>
+      {/* Show any error or success messages */}
+      {message && <div id={styles["payment-message"]}>{message}</div>}
+                </Card>
+            </div>
         </form>
+
       </div>
     </section>
+
   );
-};
+}
 
 export default CheckoutForm;

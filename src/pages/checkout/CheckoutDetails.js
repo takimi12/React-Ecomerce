@@ -7,7 +7,7 @@ import CheckoutSummary from "../../components/checkoutSummary/CheckoutSummary.js
 import {
   SAVE_BILLING_ADDRESS,
   SAVE_SHIPPING_ADDRESS,
-} from "../../redux/slice/checkoutSlice";
+} from "../../redux/slice/checkoutslice.js";
 import styles from "./CheckoutDetails.module.scss";
 
 const initialAddressState = {
@@ -57,11 +57,10 @@ const CheckoutDetails = () => {
 
   return (
     <section>
-      <div className={`container ${styles.checkout}`}>
-        <h2>Checkout Details</h2>
+      <div className={` ${styles.checkout}`}>
         <form onSubmit={handleSubmit}>
           <div>
-            <Card cardClass={styles.card}>
+
               <h3>Shipping Address</h3>
               <label>Recipient Name</label>
               <input
@@ -139,9 +138,9 @@ const CheckoutDetails = () => {
                 value={shippingAddress.phone}
                 onChange={(e) => handleShipping(e)}
               />
-            </Card>
+
             {/* BILLING ADDRESS */}
-            <Card cardClass={styles.card}>
+
               <h3>Billing Address</h3>
               <label>Recipient Name</label>
               <input
@@ -222,14 +221,13 @@ const CheckoutDetails = () => {
               <button type="submit" className="--btn --btn-primary">
                 Proceed To Checkout
               </button>
-            </Card>
-          </div>
-          <div>
-            <Card cardClass={styles.card}>
-              <CheckoutSummary />
-            </Card>
+ 
           </div>
         </form>
+        <div className={styles.CheckoutSummary}>
+ 
+ <CheckoutSummary />
+</div>
       </div>
     </section>
   );

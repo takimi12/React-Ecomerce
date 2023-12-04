@@ -12,7 +12,6 @@ import { ADD_TO_CART,
      selectCartTotalQuantity } from '../../redux/slice/cartslice';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import Card from '../../components/card/Card';
 import { selectIsLoggedIn } from '../../redux/slice/authslice';
 
 
@@ -127,7 +126,7 @@ const navigate = useNavigate();
                     })}
                 </tbody>
             </table>
-            <div className={styles.summary}>
+            <div className={styles.cartAction}>
               
                 <div className={styles.action}>
                     <div>
@@ -145,17 +144,30 @@ const navigate = useNavigate();
                     </div>
                     <div className={styles.summaryone}>
                     <div className={styles.checdkout}>
-                        <p><b>{`Cart otems(s): ${cartTotalQuantity}`}</b></p>
+
                         <div className={styles.text}>
-                            <h4>Subtotal:</h4>
-                            <h3>{`$${cartTotalAmount.toFixed(2)}`}</h3>
+                            <h4 className={styles.lighterText}>Subtotal:</h4>
+                            <h3 className={styles.lighterSummary}> {`$${cartTotalAmount.toFixed(2)}`}</h3>
                         </div>
-                        <p>Tax an shipping calculated at checkout
-                        </p>
-                        <button className='--btn --btn-primary --btn-block'
+                        <div className={styles.details}>
+                        {cartItems.map((cart, index) => {
+                        const {id, name,  cartQuantity} = cart;
+                        return (
+                            <div key={id}>
+                                <p>{`${name} x ${cartQuantity}`}</p>
+                            </div>
+                        )
+                    }
+                    )}
+                    </div>
+                    <div className={styles.text}>
+                       <h4 className={styles.strongerText}>Total </h4>  <h3 className={styles.strongerSummary}>{`$${cartTotalAmount.toFixed(2)}`}</h3>
+                       </div>
+                       
+                </div>
+                <button className={`${'--btn --btn-primary --btn-block'} ${styles.button}`}
                         onClick={Checkout}
                         >Checkout</button>
-                </div>
                 </div>
           
         </>

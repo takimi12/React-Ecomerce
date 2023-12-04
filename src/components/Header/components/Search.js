@@ -40,6 +40,7 @@ const Search = ({ list }) => {
   };
 
   return (
+    
     <div className={styles.search}>
       <div className={styles.categories}>
         <select

@@ -127,6 +127,18 @@ const cartSlice = createSlice({
       }
       localStorage.setItem("compareItems", JSON.stringify(state.compareItems));
     },
+    REMOVE_FROM_COMPARE(state, action) {
+      const newCompareItems = state.compareItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+    
+      state.compareItems = newCompareItems;
+      toast.success(`${action.payload.name} removed from compare`, {
+        position: "top-left",
+      });
+    
+      localStorage.setItem("compareItems", JSON.stringify(state.compareItems));
+    },
     ADD_TO_WISHLIST(state, action) {
       const existsInWishlist = state.wishlistItems.some(
         (item) => item.id === action.payload.id
@@ -156,6 +168,7 @@ export const {
   CALCULATE_TOTAL_QUANTITY,
   SAVE_URL,
   ADD_TO_COMPARE,
+  REMOVE_FROM_COMPARE,
   ADD_TO_WISHLIST,
 } = cartSlice.actions;
 

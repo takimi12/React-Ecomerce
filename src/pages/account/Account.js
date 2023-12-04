@@ -9,15 +9,12 @@ import Orders from '../../components/admin/orders/Orders';
 import AdminOnlyRoute from '../../components/adminOnlyRoute/AdminOnlyRoute';
 import ProductDetails from '../../components/product/productDetails/ProductDetails';
 import OrderDetails from '../../components/admin/orderDetails/OrderDetails';
-import { FaUser, FaBell, FaFileAlt, FaPowerOff, FaHeart,FaChartBar } from 'react-icons/fa';
+import {  FaFileAlt, FaPowerOff} from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER, selectEmail } from '../../redux/slice/authslice';
 import { toast } from 'react-toastify';
-
-
-
 
 const Account = () => {
   const [displayName, setdisplayName] = useState("");
@@ -69,22 +66,12 @@ const Account = () => {
               <AdminOnlyRoute>
                 <Navbar />
               </AdminOnlyRoute>
-
-              {/* <Link to="/account/user-information" className={styles.listLink}>
-                <li className={styles.list}>
-                  <FaUser /> Account information
-                </li>
-              </Link> */}
-              <Link to="/account/notifications" className={styles.listLink}>
-                <li className={styles.list}>
-                  <FaChartBar/> Compare
-                </li>
-              </Link>
-              <Link to="/account/notifications" className={styles.listLink}>
-                <li className={styles.list}>
-                  <FaHeart /> Wishlist
-                </li>
-              </Link>
+         
+              <Link to="/account/orders" className={styles.listLink}>
+        <li className={styles.list}>
+        <FaFileAlt /> Orders
+        </li>
+      </Link>
               <Link 
               onClick={logoutUser}
               to="/"

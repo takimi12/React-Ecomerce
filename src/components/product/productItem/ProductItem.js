@@ -3,7 +3,7 @@ import styles from './ProductItem.module.scss';
 import Card from "../../card/Card";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { ADD_TO_CART, ADD_TO_COMPARE, ADD_TO_WISHLIST, CALCULATE_TOTAL_QUANTITY } from '../../../redux/slice/cartslice';
+import { ADD_TO_CART,  ADD_TO_COMPARE,  ADD_TO_WISHLIST,  CALCULATE_TOTAL_QUANTITY } from '../../../redux/slice/cartslice';
 import { IoBarChartOutline, IoBagCheckOutline, IoEyeOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 

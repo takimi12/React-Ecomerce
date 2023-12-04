@@ -3,7 +3,7 @@ import authReducer from "./slice/authslice";
 import productReducer from "./slice/productslice";
 import filterReducer from "./slice/filterslice";
 import cartReducer from "./slice/cartslice";
-import checkoutReducer from "./slice/checkoutSlice";
+import checkoutReducer from "./slice/checkoutslice";
 import orderReducer from "./slice/orderslice";
 
 const rootReducer = combineReducers({
@@ -11,17 +11,16 @@ const rootReducer = combineReducers({
   product: productReducer,
   filter: filterReducer,
   cart: cartReducer,
-  checkoout: checkoutReducer,
+  checkout: checkoutReducer,
   orders: orderReducer,
-  // Dodaj inny reducer, jeśli jest dostępny
 });
 
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware({
-    serializableCheck: false,
-  }),
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;

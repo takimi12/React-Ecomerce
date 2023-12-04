@@ -14,7 +14,6 @@ const categories = [
     { id: 2, name: "Electronics" },
     { id: 3, name: "Fashion" },
     { id: 4, name: "Phone"  },
-    { id: 5, name: "Other"  },
   ];
 
   const initialState = {
@@ -146,7 +145,6 @@ const AddProduct = () => {
     
   return (
     <div className={styles.product}>
-        <Card cardclass={styles.card}>
         <h2 className={styles.mainHeading}>{detectForm(id, "Add New Product", "Edit Product")}</h2>
 
             <form onSubmit={detectForm(id, addProduct, editProduct)}>
@@ -247,8 +245,7 @@ const AddProduct = () => {
               {detectForm(id, "Save Product", "Edit Product")}
             </button>
           </form>
-        </Card>
-      </div>
+       </div>
 
 
   )

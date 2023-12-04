@@ -6,8 +6,6 @@ const HeaderSearch = ({ list }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
 
-
-  // Przygotowanie danych, wybierając tylko określone pola
   const filteredList = list.map(item => ({
     name: item.name,
     brand: item.brand,
@@ -22,8 +20,7 @@ const HeaderSearch = ({ list }) => {
  return (
     <form className="ps-form--quick-search" method="get" action="/">
       <div className="ps-form__input">
-        {/* Pass selectedCategory to the Search component */}
-        <Search
+         <Search
           list={filteredList}
           onChange={(e) => setSearch(e.target.value)}
           category={selectedCategory}

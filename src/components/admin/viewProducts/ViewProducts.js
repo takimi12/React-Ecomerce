@@ -22,16 +22,16 @@ const ViewProducts = () => {
   const products = useSelector(selectProducts)
   const filteredProducts = useSelector(selectFilteredProducts)
   
-  //Pagination states
-  const [currentPage, setCurrentPage] = useState(1);
-  const [ProductsPerPage, setProductsPerPage] = useState(2);
-  // Get current Products
-  const indexOfLastProduct = currentPage * ProductsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - ProductsPerPage; 
-  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-
-
-  
+ // Pagination states
+ const [currentPage, setCurrentPage] = useState(1);
+ const [productsPerPage] = useState(10);
+ // Get Current Products
+ const indexOfLastProduct = currentPage * productsPerPage;
+ const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+ const currentProducts = filteredProducts.slice(
+   indexOfFirstProduct,
+   indexOfLastProduct
+ );
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -158,12 +158,12 @@ const ViewProducts = () => {
           </tbody> 
       </table>
     )}
-          <Pagination
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
-        ProductsPerPage={ProductsPerPage}
-      totalProducts={filteredProducts.length}
-      />
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          productsPerPage={productsPerPage}
+          totalProducts={filteredProducts.length}
+        />
    </div>
   </>
   )

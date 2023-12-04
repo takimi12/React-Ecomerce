@@ -1,7 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
+  CALCULATE_TOTAL_QUANTITY,
   selectCartItems,
   selectCartTotalAmount,
   selectCartTotalQuantity,
@@ -10,14 +10,25 @@ from "../../redux/slice/cartslice";
 import Card from "../card/Card";
 import styles from "./CheckoutSummary.module.scss";
 
+import { useDispatch, useSelector } from 'react-redux';
+
 const CheckoutSummary = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotalAmount = useSelector(selectCartTotalAmount);
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
 
+  const dispatch = useDispatch(); 
+
+
+  useEffect(() => {
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+  }, [cartItems, dispatch]);
+
+
+
   return (
     <div>
-      <h3>Checkout Summary</h3>
+ 
       <div>
         {cartItems.lenght === 0 ? (
           <>
@@ -28,24 +39,28 @@ const CheckoutSummary = () => {
           </>
         ) : (
           <div>
-            <p>
-              <b>{`Cart item(s): ${cartTotalQuantity}`}</b>
-            </p>
-            <div className={styles.text}>
-              <h4>Subtotal:</h4>
-              <h3>{cartTotalAmount.toFixed(2)}</h3>
-            </div>
+            
+            <div className={styles.summary}>
+            <h3>Checkout Summary</h3>
             {cartItems.map((item, index) => {
               const { id, name, price, cartQuantity } = item;
               return (
                 <Card key={id} cardClass={styles.card}>
                   <h4>Product: {name}</h4>
                   <p>Quantity: {cartQuantity}</p>
-                  <p>Unit price: {price}</p>
                   <p>Set price: {price * cartQuantity}</p>
                 </Card>
               );
             })}
+            <p>
+              <b>{`Cart item(s): ${cartTotalQuantity}`}</b>
+            </p>
+            <div className={styles.text}>
+              <h4>Total:</h4>
+              <h3>{cartTotalAmount.toFixed(2)}</h3>
+            </div>
+            </div>
+       
           </div>
         )}
       </div>

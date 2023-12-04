@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHome, FaBox, FaPlus, FaShoppingBag, FaFileAlt } from 'react-icons/fa';
+import { FaHome, FaBox, FaPlus,  FaFileAlt } from 'react-icons/fa';
 import styles from './Navbar.module.scss';
 import { useSelector } from 'react-redux';
 import { selectUserName } from '../../../redux/slice/authslice';
@@ -27,11 +27,7 @@ const Navbar = () => {
           <FaPlus /> Add Products
         </li>
       </NavLink>
-      <NavLink to="/account/orders" className={styles.listLink}>
-        <li className={styles.list}>
-        <FaFileAlt /> Orders
-        </li>
-      </NavLink>
+   
     </>
   );
 };

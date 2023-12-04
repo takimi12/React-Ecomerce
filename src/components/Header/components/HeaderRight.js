@@ -89,14 +89,14 @@ useEffect(()  => {
           </a>
         </div>
         <div className={styles['parent']}>
-          <a className={styles['header--extra']} href="/compare">
+          <a className={styles['header--extra']} href="/wishlist">
             <i className={`${styles.icon} icon-heart`}>
               <span className={styles.counter}>{wishlistItems.length}</span>
             </i>
           </a>
         </div>
         <div className={styles['parent']}>
-          <a className={styles['header--extra']} href="/compare">
+          <a className={styles['header--extra']} href="/cart">
             <i className={`${styles.icon} icon-bag2`}>
               <span className={styles.counter}>{cartTotalQuantity}</span>
             </i>
@@ -114,7 +114,7 @@ useEffect(()  => {
     <NavLink to="/" onClick={logoutUser}>
       Logout
     </NavLink>
-    <p>{cartTotalQuantity}</p>
+
   </div>
  
   </ShowOnLogin>
@@ -127,7 +127,7 @@ useEffect(()  => {
       <a href="/login">Login</a>
       <a href="/register">Register</a>
     </div>
-    <p>{cartTotalQuantity}</p>
+
   </div>
 </ShowOnLogOut>
           </>

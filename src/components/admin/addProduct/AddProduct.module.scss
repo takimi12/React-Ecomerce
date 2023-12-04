@@ -1,8 +1,9 @@
 .product {
     .card {
       width: 100%;
-      max-width: 500px;
-      padding: 1rem;
+      max-width: 75%;
+      width: 100%;
+      margin: auto;
     }
     .mainHeading{
       margin-bottom: 50px;
@@ -30,10 +31,6 @@
         border-radius: 3px;
         outline: none;
       }
-  
-      // textarea {
-      //   width: 100%;
-      // }
   
       .progress {
         background-color: #aaa;
