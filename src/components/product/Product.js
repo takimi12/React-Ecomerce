@@ -17,7 +17,6 @@ const Product = () => {
   
 
 
-
     useEffect(() => {
       dispatch(
         STORE_PRODUCTS({

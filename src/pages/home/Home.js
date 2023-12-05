@@ -4,6 +4,7 @@ import HomeSecondSection from '../../components/home/SecondSection';
 import FourthSection from '../../components/home/FourthSection';
 import TenSection from '../../components/home/TenSection';
 import ThirdSection from '../../components/home/ThirdSection';
+import HomeFivethSection from '../../components/home/FiveSection';
 
 const Home = () => {
   const url = window.location.href;
@@ -28,6 +29,7 @@ const Home = () => {
 <HomeSecondSection />
 <ThirdSection />
 <FourthSection />
+<HomeFivethSection />
 <TenSection />
     </> 
   )
