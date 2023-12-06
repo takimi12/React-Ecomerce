@@ -42,7 +42,7 @@ const AddProduct = () => {
 
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
-
+    setProduct({ ...product, category: selectedCategory});
 
     // Show the new category input only if "Add New Category" is selected
     setShowNewCategoryInput(selectedCategory === 'Add New Category');

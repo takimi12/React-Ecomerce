@@ -1,0 +1,21 @@
+.SixthSection {
+    padding-bottom: 20px;
+.SixthSection__TopInfo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #e3e3e3;
+    min-height: 50px;
+    @media (max-width: 1680px){
+      padding: 0 30px;
+      max-width: 100%;
+  }
+      &__Container{
+          .singleproduct__wrapper{
+              padding-right: 5px;
+              
+          }}}
+        }

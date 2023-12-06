@@ -1,0 +1,62 @@
+.sectionTitle{
+    padding-bottom: 80px;
+}
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.product {
+    display: flex;
+    min-height: 120px;
+    align-items: center;
+}
+
+.title{
+    font-size: 14px;
+    color: #06c;
+}
+
+.productLink{
+    min-width: 25%;
+    padding: 20px 0px;
+}
+.productInfo{
+    margin-left: 20px;
+}
+
+.productURL{
+    max-width: 100px;
+    max-height: 100px;;
+}
+
+
+.price{
+    font-size: 16px;
+    color: #000;
+}
+
+.TopInfo{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #e3e3e3;
+    min-height: 50px;
+}
+
+.rightSide{
+    display: flex;
+}
+
+.titleCollection{
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.Maintitle{
+    font-size: 20px;
+    font-weight: 900;
+}
