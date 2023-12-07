@@ -1,0 +1,50 @@
+
+.reviewContainer{
+    width: 100%;
+    max-width: 30%;
+    svg {
+        fill:#fcb800;
+        margin-right: 5px;
+    }
+}
+.review{
+svg {
+    fill: gold;
+}
+
+}
+
+.widthParent {
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+.starParent{
+    display: flex;
+    p {
+        margin-right: 5px;
+        min-width: 10px;
+    }
+}
+.width
+{
+    position: relative;
+    height: 10px;
+    width: 150px;
+    background-color: #f1f1f1;
+    margin-left: 10px;
+    
+}
+.overageInner{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+
+.overageRating{
+    font-size: 58px;
+    font-weight: 500;
+    color: #690;
+    line-height: 1;
+}
+

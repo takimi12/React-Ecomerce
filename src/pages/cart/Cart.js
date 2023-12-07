@@ -24,15 +24,17 @@ const Cart = () => {
     const dispatch = useDispatch(); 
     const isLoggedIn = useSelector(selectIsLoggedIn);
 
+console.log(cartTotalQuantity);
+
 const navigate = useNavigate();
 
-    const increaseCart = (cart) => {
-        dispatch(ADD_TO_CART(cart));
-    };
-    const decreaseCart = (cart) => {
-        dispatch(DECREASE_CART(cart));
-    };
-
+const increaseCart = (cart) => {
+    dispatch(ADD_TO_CART({ ...cart, cartQuantity: 1 }));
+  };
+  
+  const decreaseCart = (cart) => {
+    dispatch(DECREASE_CART({ ...cart, cartQuantity: 1 }));
+  };
     const removeFromCart = (cart) => {
         dispatch(REMOVE_FROM_CART(cart));
     };

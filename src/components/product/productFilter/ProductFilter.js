@@ -107,9 +107,7 @@ return (
         onChange={(e) => setPice(e.target.value) }
          />
                <br />
-      <button className="btn btn-primary"
-      onClick={clearFilters}
-      >Clear Filter</button>
+   
       </div>
 
     </div>

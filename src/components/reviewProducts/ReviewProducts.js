@@ -49,25 +49,12 @@ const ReviewProducts = () => {
   };
 
   return (
-    <section>
-      <div className={`container ${styles.review}`}>
-        <h2>Review Products</h2>
-        {product === null ? (
-          <img src={spinnerImg} alt="Loading..." style={{ width: "50px" }} />
-        ) : (
-          <>
-            <p>
-              <b>Product name:</b> {product.name}
-            </p>
-            <img
-              src={product.imageURL}
-              alt={product.name}
-              style={{ width: "100px" }}
-            />
-          </>
-        )}
 
-        <Card cardClass={styles.card}>
+      <div className={` ${styles.review}`}>
+        <h2 className={styles.submitHeading}>SUBMIT YOUR REVIEW</h2>
+    
+
+
           <form onSubmit={(e) => submitReview(e)}>
             <label>Rating:</label>
             <StarsRating
@@ -88,9 +75,8 @@ const ReviewProducts = () => {
               Submit Review
             </button>
           </form>
-        </Card>
       </div>
-    </section>
+
   );
 };
 
