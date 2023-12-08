@@ -1,0 +1,32 @@
+.container{
+    max-width: 80%;
+    margin: auto;
+.tableResponsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  
+    .tableFaqs{
+        width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    .heading{
+        width: 270px;
+        border: none;
+        padding: 30px 15px;
+        vertical-align: top;
+        h4 {
+            color: #fcb800;
+        }
+    }
+    .question{
+        color: #000;
+        font-size: 16px;
+        width: 300px;
+        font-weight: 900;
+        border: none;
+        padding: 30px 15px;
+    
+    }
+}
+}}

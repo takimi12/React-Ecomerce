@@ -15,29 +15,57 @@ import ReviewProducts from '../../reviewProducts/ReviewProducts';
 import ReviewComponent from '../../reviewProducts/ReviewComment';
 import spinnerImg from '../../../assets/img/spinner.jpg';
 import styles from './ProductDetails.module.scss';
+import { selectProducts } from '../../../redux/slice/productslice';
+import Produkt from '../../home/components/Product';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [sameBrandProducts, setSameBrandProducts] = useState([]);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const { document } = useFetchDocument('products', id);
   const { data } = useFetchCollection('reviews');
   const [activeTab, setActiveTab] = useState('description'); // Default active tab
-
+  const products = useSelector(selectProducts)
   const filteredReviews = data.filter((review) => review.productID === id);
 
-  useEffect(() => {
-    setProduct(document);
-  }, [document]);
 
 
+  
   const opinionsCount = filteredReviews.length;
 
   useEffect(() => {
     setProduct(document);
   }, [document]);
+
+  useEffect(() => {
+    if (product) {
+      const filteredProducts = products
+        .filter((p) => p.brand === product.brand && p.id !== product.id)
+        .slice(0, 2);
+      setSameBrandProducts(filteredProducts);
+    }
+  }, [product, products]);
+  const [sameCategoryProducts, setSameCategoryProducts] = useState([]);
+
+
+
+useEffect(() => {
+  if (product) {
+    // Filter products by category and exclude the current product
+    const filteredProducts1 = products
+      .filter((p) => p.category === product.category && p.id !== product.id)
+      .slice(0, 5);
+    setSameCategoryProducts(filteredProducts1);
+  }
+  
+}, [product, products]);
+
+
+
+
 
 
   const addToCart = () => {
@@ -64,6 +92,7 @@ const ProductDetails = () => {
   };
 
   return (
+    <>
     <section className={styles.section}>
       <div className={styles.leftSide}>
       <div className={styles.mainWrapper} >
@@ -108,19 +137,19 @@ const ProductDetails = () => {
 
                   <div className={styles.socialMedia}>
                     <a className="facebook" href="#">
-                      <FaFacebook color="#1877f2" size={25} />
+                      <FaFacebook color="#1877f2" size={30} />
                     </a>
                     <a className="twitter" href="#">
-                      <FaTwitter color="#1da1f2" size={25} />
+                      <FaTwitter color="#1da1f2" size={30} />
                     </a>
                     <a className="google" href="#">
-                      <FaGooglePlus color="#dd4b39" size={25} />
+                      <FaGooglePlus color="#dd4b39" size={30} />
                     </a>
                     <a className="linkedin" href="#">
-                      <FaLinkedin color="#0077b5" size={25} />
+                      <FaLinkedin color="#0077b5" size={30} />
                     </a>
                     <a className="instagram" href="#">
-                      <FaInstagram color="#bc2a8d" size={25} />
+                      <FaInstagram color="#bc2a8d" size={30} />
                     </a>
                   </div>
                 </div>
@@ -231,18 +260,54 @@ const ProductDetails = () => {
       </div>
       <div className={styles.rightSide}>
       <aside className={styles.asideOne}>
-  <p><FaNetworkWired /> Shipping worldwide</p>
-  <p><LuRotate3D /> Free 7-day return if eligible, so easy</p>
-  <p><FaReceipt /> Supplier gives bills for this product</p>
-  <p><FaCreditCard /> Pay online or when receiving goods</p>
+  <p className={styles.asideOneContent}><FaNetworkWired size={30}/> <span>Shipping worldwide</span></p>
+  <p className={styles.asideOneContent}><LuRotate3D size={30} /> <span>Free 7-day return if eligible, so easy</span></p>
+  <p className={styles.asideOneContent}><FaReceipt size={30} /><span> Supplier gives bills for this product</span></p>
+  <p className={styles.asideOneContent}><FaCreditCard size={30} /><span> Pay online or when receiving goods</span></p>
 </aside>
 <aside className={styles.asideTwo}>
   <p>
     <FaStore /> Sell on Martfury? <Link to="/account/register">Register Now !</Link>
   </p>
 </aside>
+<aside className={styles.sameBrand}>
+  <h3 className={styles.sameBrandTitle}>Same brand</h3>
+  <div className={styles.sameBrandWrapper}>
+    <div className={styles.sameBrandWrapperInner}>
+  {sameBrandProducts.map((product) => (
+      <Produkt 
+      key={product.id}
+      id={product.id}
+      obrazek={product.imageURL}
+      tekstOdnośnika={product.name}
+      cena={product.price}
+     />
+  ))}
+  </div>
+  </div>
+</aside>
+
         </div>
+
     </section>
+    <section className={styles.relatedProducts}>
+    <div class={styles.relatedProductsHeader}>
+      <h3>Related products</h3>
+      </div>
+      <div className={styles.relatedProductsWrapper}>
+    {sameCategoryProducts.map((product) => (
+
+          <Produkt 
+            key={product.id}
+            id={product.id}
+            obrazek={product.imageURL}
+            tekstOdnośnika={product.name}
+            cena={product.price}
+           />
+  ))}
+  </div>
+    </section>
+    </>
   );
 };
 

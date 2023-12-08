@@ -1,0 +1,88 @@
+.contactInfo{
+    padding: 90px 0px;
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        max-width: 75%;
+        margin: auto;
+        .mainHeading{
+            margin-bottom: 60px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+        }
+        .row{
+            display: flex;
+            padding: 30px 0px;
+            justify-content: space-between;
+            .content {
+                display: flex;
+                max-width: 250px;
+                width: 100%;
+            }
+        }
+    }
+    .sectionContent{
+        width: 100%;
+   
+    }
+ 
+}
+
+.contactForm{
+    padding: 100px 0;
+    background-color: #f6f6f6;
+    .container{  display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        max-width: 75%;
+        margin: auto;
+    form {
+        width: 100%;
+        .formHeading{
+            margin-bottom: 90px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #000;
+            line-height: 1em;
+        }
+        .row {
+            display: flex;
+            width: 100%;
+            margin: 20px;
+            .rowChild{
+                display: flex;
+                width: 100%;
+                .formGroup{
+                    width: 100%;
+                    margin-right: 20px;
+                }
+                input {
+                    background: #fff;
+                    width: 100%;
+                    min-height: 50px;
+                    padding: 10px;
+                }
+            }
+            textarea {
+                background: #fff;
+                width: 100%;
+                min-height: 150px;
+                padding: 10px;
+            }
+
+        }
+        .submit{
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    } 
+     
+  
+}

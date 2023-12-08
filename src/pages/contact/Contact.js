@@ -1,98 +1,99 @@
-import { useRef } from "react";
-import Card from "../../components/card/Card";
-import styles from "./Contact.module.scss";
-import { FaPhoneAlt, FaEnvelope, FaTwitter } from "react-icons/fa";
-import { GoLocation } from "react-icons/go";
-import emailjs from "@emailjs/browser";
-import { toast } from "react-toastify";
+import React from 'react';
+import styles from './Contact.module.scss';
 
-const Contact = () => {
-  const form = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    console.log(form.current);
-
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        "template_7xyhwen",
-        form.current,
-        "user_hKs2aRfLoozcqA28UpUyz"
-      )
-      .then(
-        (result) => {
-          toast.success("Message sent successfully");
-        },
-        (error) => {
-          toast.error(error.text);
-        }
-      );
-    e.target.reset();
-  };
-
+const ContactUs = () => {
   return (
-    <section>
-      <div className={`container ${styles.contact}`}>
-        <h2>Contact Us</h2>
-        <div className={styles.section}>
-          <form ref={form} onSubmit={sendEmail}>
-            <Card cardClass={styles.card}>
-              <label>Name</label>
-              <input
-                type="text"
-                name="user_name"
-                placeholder="Full Name"
-                required
-              />
-              <label>Email</label>
-              <input
-                type="email"
-                name="user_email"
-                placeholder="Your active email"
-                required
-              />
-              <label>Subject</label>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                required
-              />
-              <label>Message</label>
-              <textarea name="message" cols="30" rows="10"></textarea>
-              <button className="--btn --btn-primary">Send Message</button>
-            </Card>
-          </form>
-
-          <div className={styles.details}>
-            <Card cardClass={styles.card2}>
-              <h3>Our Contact Information</h3>
-              <p>Fill the form or contact us via other channels listed below</p>
-              <div className={styles.icons}>
-                <span>
-                  <FaPhoneAlt />
-                  <p>+234 705 141 6545</p>
-                </span>
-                <span>
-                  <FaEnvelope />
-                  <p>Support@eshop.com</p>
-                </span>
-                <span>
-                  <GoLocation />
-                  <p>Abuja, Nigeria</p>
-                </span>
-                <span>
-                  <FaTwitter />
-                  <p>@ZinoTrust</p>
-                </span>
+    <div className="" id="contact-us">
+      <div className="">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14049.340485982573!2d-0.12031301106485542!3d51.50228117351734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ce176ac979%3A0x42af85654e23a0b4!2sThe%20National%20Gallery!5e0!3m2!1sen!2s!4v1582441665587!5m2!1sen!2s" height="500"></iframe>
+      </div>
+      <div className={styles.contactInfo}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h3 className={styles.mainHeading}>Contact Us For Any Questions</h3>
+          </div>
+          <div className={styles.sectionContent}>
+            <div className={styles.row}>
+              <div className={styles.content}>
+                <div className="">
+                  <h4>Contact Directly</h4>
+                  <p><a href="mailto:contact@martfury.com">contact@martfury.com</a><span>(+004) 912-3548-07</span></p>
+                </div>
               </div>
-            </Card>
+              <div className={styles.content}>
+                <div className="">
+                  <h4>Head Quater</h4>
+                  <p><span>17 Queen St, Southbank, Melbourne 10560, Australia</span></p>
+                </div>
+              </div>
+              <div className={styles.content} >
+                <div className="">
+                  <h4>Work With Us</h4>
+                  <p><span>Send your CV to our email:</span><a href="#">career@martfury.com</a></p>
+                </div>
+              </div>
+              </div>
+              <div className={styles.row}>
+              <div className={styles.content}>
+                <div className="">
+                  <h4>Customer Service</h4>
+                  <p><a href="#">customercare@martfury.com</a><span>(800) 843-2446</span></p>
+                </div>
+              </div>
+              <div className={styles.content}>
+                <div className="">
+                  <h4>Media Relations</h4>
+                  <p><a href="#">media@martfury.com</a><span>(801) 947-3564</span></p>
+                </div>
+              </div>
+              <div className={styles.content}>
+                <div className="">
+                  <h4>Vendor Support</h4>
+                  <p><a href="#">vendorsupport@martfury.com</a><span>(801) 947-3100</span></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+      <div className={styles.contactForm}>
+        <div className={styles.container}>
+          <form className="" action="/" method="get">
+            <h3 className={styles.formHeading}>Get In Touch</h3>
+            <div className={styles.row}>
+              <div className={styles.rowChild}>
+                <div className={styles.formGroup}>
+                  <input className="" type="text" placeholder="Name *" />
+                </div>
+              </div>
+              <div className={styles.rowChild}>
+                <div className={styles.formGroup}>
+                  <input className="" type="text" placeholder="Email *" />
+                </div>
+              </div>
+              </div>
+              <div className={styles.row}>
+              <div className={styles.rowChild}>
+                <div className={styles.formGroup}>
+                  <input className="" type="text" placeholder="Subject *" />
+                </div>
+              </div>
+              </div>
+              <div className={styles.row}>
+              <div className={styles.rowChild}>
+                <div className={styles.formGroup}>
+                  <textarea className="" rows="5" placeholder="Message"></textarea>
+                </div>
+              </div>
+            </div>
+            <div className={styles.submit}>
+              <button className="--btn">Send message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Contact;
+export default ContactUs;

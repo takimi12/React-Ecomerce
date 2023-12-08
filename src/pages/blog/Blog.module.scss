@@ -1,0 +1,17 @@
+.blogLinks{
+    display: flex;
+    justify-content: space-between;
+    .blogLinksAnchor{
+        font-size: 18px;
+        font-weight: 600;
+        color: #999;
+        line-height: 1.2em;
+    
+    }
+    .active{
+        .blogLinksAnchor{
+
+        color: #000;
+        }
+    }
+}

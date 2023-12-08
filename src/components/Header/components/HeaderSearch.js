@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Search from './Search';
+import Navigation from '../Navigation/Navigation';
 
 const HeaderSearch = ({ list }) => {
   const [search1, setSearch] = useState("");
@@ -18,7 +19,7 @@ const HeaderSearch = ({ list }) => {
 
 
  return (
-    <form className="ps-form--quick-search" method="get" action="/">
+  <>    <form className="ps-form--quick-search" method="get" action="/">
       <div className="ps-form__input">
          <Search
           list={filteredList}
@@ -31,6 +32,8 @@ const HeaderSearch = ({ list }) => {
         <div className="ps-panel__content"></div>
       </div>
     </form>
+    <Navigation />
+    </>
   );
 };
 
