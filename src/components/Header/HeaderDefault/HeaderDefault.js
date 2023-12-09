@@ -54,8 +54,9 @@ const Header = () => {
             <HeaderRight />
           </div>
                </div>
+
       </div>
- 
+      <Navigation /> 
     </header>
   );
 };

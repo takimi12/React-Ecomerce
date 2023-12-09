@@ -32,7 +32,7 @@ const About = () => {
     <div className={styles.About}>
       <div className={styles.ourTeam}>
         <div className={styles.container}>
-          <div className="ps-section__header">
+          <div className={styles.sectionHeader}>
             <h3>Meet Our Leaders</h3>
           </div>
           <div className={styles.content}>

@@ -185,7 +185,7 @@
     }
   
     &__left {
-      max-width: 300px;
+      max-width: 20%;
       display: flex;
       align-items: center;
       width: 100%;
@@ -267,7 +267,7 @@
     }
   
     &__right {
-      max-width: 370px;
+    max-width: 30%;
     width: 100%;
     .Header__actions {
         display: flex;
@@ -549,7 +549,7 @@
   
   .header__top {
     padding-top: 25px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
     transition: padding 0.3s, background-color 0.3s;
   }
   

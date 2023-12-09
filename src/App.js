@@ -20,6 +20,7 @@ import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import FAQComponent from './pages/faq/FAQ';
 import Blog from './pages/blog/Blog';
+import NotFoundPage from './pages/404/404';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
           <Route path="/order-history" element={<OrderHistory />} />
           <Route path="/order-details/:id" element={<OrderDetails />} />
           <Route path="/review-product/:id" element={<ReviewProducts />} />
+          <Route path="*" element={<NotFoundPage />} />
           {/* Dodaj Route dla Home na stronie głównej */}
           <Route path="/" element={<Home />} />
         </Routes>

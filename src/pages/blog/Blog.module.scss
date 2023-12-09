@@ -1,67 +1,35 @@
+.blog{
 .categoryWrapper{
     max-width: 80%;
     display: flex;
 margin: auto;
 flex-wrap: wrap;
-    .category{
-        font-size: 16px;
-        font-weight: 800;
-        margin-right: 20px;
-        color:#666;
-    }
+padding-top: 70px;
+display: flex;
+justify-content: center;
+span{
+    font-size: 18px;
 }
 
+.activeTab{
+    font-weight: 900;
+    color:#000;
+    margin-right: 20px;
+   
+   }
+   .inactiveTab{
+       color: #666;
+       margin-right: 20px;
+   }
 .single{
     max-width: 30%;
     margin-right: 30px;
 }
-
-// .blogLinks{
-//     display: flex;
-//     justify-content: space-between;
-//     .blogLinksAnchor{
-//         font-size: 18px;
-//         font-weight: 600;
-//         color: #999;
-//         line-height: 1.2em;
-    
-//     }
-//     .active{
-//         .blogLinksAnchor{
-
-//         color: #000;
-//         }
-//     }
-// }
-
-.row{
-    max-width: 80%;
-    margin: auto;
-     .item{
-        display: flex;
-        justify-content: space-between;
-     
-    }
-}
-
-
-.activeTab{
- font-weight: 900;
- color:#000;
- margin-right: 20px;
-
-}
-.inactiveTab{
-    color: #666;
-    margin-right: 20px;
 }
 .pagination{
     display: flex;
     justify-content: center;
-}
-
-ul{
-
+    margin: 40px 0px;
     .selected{
         a{
         border:solid 1px #1890ff;
@@ -85,10 +53,21 @@ ul{
             border:solid 1px #ddd;
         }
     }
-}
 
+    
 .disabled {
     cursor: not-allowed;
      opacity: 0.6;
 
 }
+}
+
+}
+
+
+
+
+
+
+
+

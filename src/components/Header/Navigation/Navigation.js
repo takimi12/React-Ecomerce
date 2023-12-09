@@ -6,8 +6,10 @@ const NavigationDefault = () => {
 
 
     return (
-        <nav className={styles.navigation}>
-           
+        <>
+
+        <nav className={styles.navigationMain}>
+
                 <div className={styles.navigation}>
                     <Link to="/shop" className={styles.navigationLink}>
                         Shop
@@ -25,7 +27,10 @@ const NavigationDefault = () => {
                        Blog
                     </Link>
                  </div>
+   
         </nav>
+
+        </>
     );
 };
 

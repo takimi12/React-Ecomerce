@@ -30,7 +30,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div className={styles.category}>
+    <div className={styles.blog}>
       <div className={styles.categoryWrapper}>
         {/* Render category tabs */}
         {['All', ...new Set(blogPosts.flatMap(post => post.category))].map((category, index) => (

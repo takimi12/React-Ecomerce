@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Search from './Search';
-import Navigation from '../Navigation/Navigation';
+import NavigationDefault from '../Navigation/Navigation';
 
 const HeaderSearch = ({ list }) => {
   const [search1, setSearch] = useState("");
@@ -32,7 +32,7 @@ const HeaderSearch = ({ list }) => {
         <div className="ps-panel__content"></div>
       </div>
     </form>
-    <Navigation />
+
     </>
   );
 };
