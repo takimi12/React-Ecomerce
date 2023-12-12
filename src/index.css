@@ -172,3 +172,7 @@ a {
   transition: all 0.2s;
 }
 
+.multi-range-slider
+{
+  width: 100%;
+}

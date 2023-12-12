@@ -67,6 +67,8 @@ const Product = ({ id, name, price,imageURL, cartQuantity }) => {
           </ul>
         </div>
         <div className={styles.singleProductWrapperText}>
+          <div className={styles.store}> GLOBAL STORE </div>
+
           <a className={styles['singleproduct__wrapper__text--anchor']}>{name}</a>
           <div className={styles.psRating}>
             <span >
@@ -82,6 +84,8 @@ const Product = ({ id, name, price,imageURL, cartQuantity }) => {
         </div>
       </div>
     </div>
+
+
   );
 };
 
