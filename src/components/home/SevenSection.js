@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { selectProducts } from '../../redux/slice/productslice';
 import { useSelector } from 'react-redux';
-import styles from './SixSection.module.scss';
+import styles from './SevenSection.module.scss';
 import Produkt from './components/Product';
 
 const SixSection = () => {
@@ -18,7 +18,7 @@ const SixSection = () => {
 
 
 
-  const phoneProducts1 = products.filter((product) => product.category === 'Laptop' );
+  const Laptop = products.filter((product) => product.category === 'Laptop' );
 
 
   const ustawieniaKaruzeli = {
@@ -84,21 +84,21 @@ const SixSection = () => {
 
 
 return (
-  <section className={styles.SixthSection}>
-    <div className={styles.SixthSection__TopInfo}>
-      <div className={styles.SixthSection__TopInfo}>
+  <section className={styles.SeventhSection}>
+    <div className={styles.SeventhSection__TopInfo}>
+      <div>
         <h3>Laptop</h3>
       </div>
     </div>
-    <div className={styles.SixthSection__Container}>
+    <div className={styles.SeventhSection__Container}>
       <Slider {...ustawieniaKaruzeli}>
-        {/* Bezpośrednie użycie komponentu Produkt z odpowiednimi propsami */}
-        {phoneProducts1.map((product) => (
+        {Laptop.map((product) => (
           <Produkt 
-          className='tr'
-            key={product.id}
+          key={product.id}
             id={product.id}
-            obrazek={product.imageURL}
+            price={product.price}
+            name = {product.name}
+            imageURL={product.imageURL}
             tekstOdnośnika={product.name}
             cena={product.price}
            />

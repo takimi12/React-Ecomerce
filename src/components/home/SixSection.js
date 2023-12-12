@@ -82,26 +82,23 @@ const SixSection = () => {
   };
   
 
- // Usuń import Produkt z Twojego komponentu, ponieważ już go importujesz
-
-// ...
 
 return (
   <section className={styles.SixthSection}>
     <div className={styles.SixthSection__TopInfo}>
-      <div className={styles.SixthSection__TopInfo}>
-        <h3>Phone</h3>
+      <div>
+        <h3 className={styles.mainHeading}>Phone</h3>
       </div>
     </div>
     <div className={styles.SixthSection__Container}>
-      <Slider {...ustawieniaKaruzeli}>
-        {/* Bezpośrednie użycie komponentu Produkt z odpowiednimi propsami */}
+      <Slider {...ustawieniaKaruzeli}  className={styles.slick}>
         {phoneProducts.map((product) => (
           <Produkt 
-          className='tr'
             key={product.id}
             id={product.id}
-            obrazek={product.imageURL}
+            price={product.price}
+            name = {product.name}
+            imageURL={product.imageURL}
             tekstOdnośnika={product.name}
             cena={product.price}
            />

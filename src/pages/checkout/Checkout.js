@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { useDispatch, useSelector } from "react-redux";
 import { CALCULATE_SUBTOTAL, CALCULATE_TOTAL_QUANTITY, selectCartItems, selectCartTotalAmount } from "../../redux/slice/cartslice";
 import { selectEmail } from "../../redux/slice/authslice";
-import { selectBillingAddress, selectShippingAddress } from "../../redux/slice/checkoutslice";
+import { selectBillingAddress, selectShippingAddress } from "../../redux/slice/checkoutSlice";
 import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
 import { toast } from "react-toastify";
 

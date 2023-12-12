@@ -1,6 +1,6 @@
-.SixthSection {
-    padding-bottom: 20px;
-.SixthSection__TopInfo {
+.SeventhSection {
+    padding-bottom: 80px;
+.SeventhSection__TopInfo {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -9,6 +9,13 @@
     background-color: #f4f4f4;
     border-bottom: 1px solid #e3e3e3;
     min-height: 50px;
+    margin-bottom: 55px;
+    h3{
+        margin: 0;
+        display: block;
+        font-size: 14px;
+        overflow: hidden;
+    }
     @media (max-width: 1680px){
       padding: 0 30px;
       max-width: 100%;

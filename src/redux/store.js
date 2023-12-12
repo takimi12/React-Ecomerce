@@ -3,7 +3,7 @@ import authReducer from "./slice/authslice";
 import productReducer from "./slice/productslice";
 import filterReducer from "./slice/filterslice";
 import cartReducer from "./slice/cartslice";
-import checkoutReducer from "./slice/checkoutslice";
+import checkoutReducer from "./slice/checkoutSlice";
 import orderReducer from "./slice/orderslice";
 
 const rootReducer = combineReducers({

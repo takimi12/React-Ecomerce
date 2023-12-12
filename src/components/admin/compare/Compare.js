@@ -31,12 +31,14 @@ const navigate = useNavigate();
     const removeFromCompare = (cart) => {
         dispatch(REMOVE_FROM_COMPARE(cart));
     };
-
-    const addToCart = (cart) => {
-        dispatch(ADD_TO_CART(cart));
-        dispatch(CALCULATE_TOTAL_QUANTITY(cart));
-       };
-
+    const addToCart = (product) => {
+        const { id, name, price, imageURL } = product;
+        const actionPayload = { id, name, price, imageURL, cartQuantity: 1 };
+      
+        dispatch(ADD_TO_CART(actionPayload));
+        dispatch(CALCULATE_TOTAL_QUANTITY());
+      };
+      
     useEffect(() => {
         dispatch(CALCULATE_SUBTOTAL());
         dispatch(CALCULATE_TOTAL_QUANTITY());

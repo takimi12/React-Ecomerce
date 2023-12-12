@@ -18,7 +18,7 @@ const EightSection = () => {
 
 
 
-  const phoneProducts1 = products.filter((product) => product.category === 'Electronics' );
+  const phoneProducts = products.filter((product) => product.category === 'Electronics' );
 
 
   const ustawieniaKaruzeli = {
@@ -86,21 +86,21 @@ const EightSection = () => {
 return (
   <section className={styles.SixthSection}>
     <div className={styles.SixthSection__TopInfo}>
-      <div className={styles.SixthSection__TopInfo}>
+      <div>
         <h3>Laptop</h3>
       </div>
     </div>
     <div className={styles.SixthSection__Container}>
       <Slider {...ustawieniaKaruzeli}>
-        {/* Bezpośrednie użycie komponentu Produkt z odpowiednimi propsami */}
-        {phoneProducts1.map((product) => (
+        {phoneProducts.map((product) => (
           <Produkt 
-          className='tr'
-            key={product.id}
-            id={product.id}
-            obrazek={product.imageURL}
-            tekstOdnośnika={product.name}
-            cena={product.price}
+          key={product.id}
+          id={product.id}
+          price={product.price}
+          name = {product.name}
+          imageURL={product.imageURL}
+          tekstOdnośnika={product.name}
+          cena={product.price}
            />
         ))}
       </Slider>

@@ -24,9 +24,12 @@ const HeaderRight = () => {
   const dispatch = useDispatch();
 
   /// cart amount visible 
+
 const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+
+
 const compareItems = useSelector(selectCompareItems);
-const wishlistItems = useSelector(selectCompareItems);
+const wishlistItems = useSelector(selectWishlistItems);
 
 
 useEffect(()  => {

@@ -9,9 +9,14 @@
     background-color: #f4f4f4;
     border-bottom: 1px solid #e3e3e3;
     min-height: 50px;
-    h3{
-        margin: auto;
+    margin-bottom: 55px;
+    .mainHeading{
+        margin: 0;
+        display: block;
+        font-size: 14px;
+        overflow: hidden;
     }
+
     @media (max-width: 1680px){
       padding: 0 30px;
       max-width: 100%;
@@ -22,3 +27,23 @@
               
           }}}
         }
+
+
+
+.slick{
+    .slick-dots li button:before {
+        font-family: 'slick';
+        font-size: 6px;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        content: '•';
+        text-align: center;
+        opacity: .25;
+        color: red!important;
+        -webkit-font-smoothing: antialiased;
+}
+}

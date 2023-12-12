@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEmail, selectUserID } from "../../redux/slice/authslice";
 import { CLEAR_CART, selectCartItems, selectCartTotalAmount } from "../../redux/slice/cartslice";
-import { selectShippingAddress } from "../../redux/slice/checkoutslice";
+import { selectShippingAddress } from "../../redux/slice/checkoutSlice";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";

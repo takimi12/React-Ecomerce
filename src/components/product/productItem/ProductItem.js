@@ -19,10 +19,13 @@ const ProductItem = ({ category, grid, id, name, price, desc, imageURL }) => {
   };
 
   const addToCart = (product) => {
-    dispatch(ADD_TO_CART(product));
+    const { id, name, price, imageURL } = product;
+    const actionPayload = { id, name, price, imageURL, cartQuantity: 1 };
+  
+    dispatch(ADD_TO_CART(actionPayload));
     dispatch(CALCULATE_TOTAL_QUANTITY());
   };
-
+  
   const addToCompare = (product) => {
     dispatch(ADD_TO_COMPARE(product));
     dispatch(CALCULATE_TOTAL_QUANTITY());

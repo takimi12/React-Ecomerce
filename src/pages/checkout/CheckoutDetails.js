@@ -7,7 +7,7 @@ import CheckoutSummary from "../../components/checkoutSummary/CheckoutSummary.js
 import {
   SAVE_BILLING_ADDRESS,
   SAVE_SHIPPING_ADDRESS,
-} from "../../redux/slice/checkoutslice.js";
+} from "../../redux/slice/checkoutSlice.js";
 import styles from "./CheckoutDetails.module.scss";
 
 const initialAddressState = {

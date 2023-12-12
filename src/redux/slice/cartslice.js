@@ -156,9 +156,23 @@ const cartSlice = createSlice({
         });
       }
       localStorage.setItem("wishlistItems", JSON.stringify(state.wishlistItems));
+
+    },
+    REMOVE_FROM_WISHLIST(state, action) {
+      const newWishlistItems = state.wishlistItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+
+      state.wishlistItems = newWishlistItems;
+      toast.success(`${action.payload.name} removed from wishlist`, {
+        position: "top-left",
+      });
+
+      localStorage.setItem("wishlistItems", JSON.stringify(state.wishlistItems));
     },
   },
 });
+
 
 export const {
   ADD_TO_CART,
@@ -167,6 +181,7 @@ export const {
   CLEAR_CART,
   CALCULATE_SUBTOTAL,
   CALCULATE_TOTAL_QUANTITY,
+  REMOVE_FROM_WISHLIST,
   SAVE_URL,
   ADD_TO_COMPARE,
   REMOVE_FROM_COMPARE,

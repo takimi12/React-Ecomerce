@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from "./Cart.module.scss";
+import styles from "./cart.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import { ADD_TO_CART, 
   CALCULATE_SUBTOTAL, 
@@ -24,7 +24,6 @@ const Cart = () => {
     const dispatch = useDispatch(); 
     const isLoggedIn = useSelector(selectIsLoggedIn);
 
-console.log(cartTotalQuantity);
 
 const navigate = useNavigate();
 

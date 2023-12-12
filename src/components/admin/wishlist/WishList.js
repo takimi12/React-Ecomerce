@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ADD_TO_CART, 
   CALCULATE_SUBTOTAL, 
   CALCULATE_TOTAL_QUANTITY,
-   REMOVE_FROM_COMPARE, 
+   REMOVE_FROM_WISHLIST, 
    SAVE_URL,
     selectCartItems, 
     selectCartTotalAmount,
      selectCartTotalQuantity, 
-     selectCompareItems} from '../../../redux/slice/cartslice';
+     selectCompareItems,
+     selectWishlistItems} from '../../../redux/slice/cartslice';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { selectIsLoggedIn } from '../../../redux/slice/authslice';
@@ -28,14 +29,18 @@ const Cart = () => {
 
 const navigate = useNavigate();
 
-    const removeFromCompare = (cart) => {
-        dispatch(REMOVE_FROM_COMPARE(cart));
+    const removeFromWishlist = (cart) => {
+        dispatch(REMOVE_FROM_WISHLIST(cart));
     };
 
-    const addToCart = (cart) => {
-        dispatch(ADD_TO_CART(cart));
-        dispatch(CALCULATE_TOTAL_QUANTITY(cart));
-       };
+    const addToCart = (product) => {
+        const { id, name, price, imageURL } = product;
+        const actionPayload = { id, name, price, imageURL, cartQuantity: 1 };
+      
+        dispatch(ADD_TO_CART(actionPayload));
+        dispatch(CALCULATE_TOTAL_QUANTITY());
+      };
+      
 
     useEffect(() => {
         dispatch(CALCULATE_SUBTOTAL());
@@ -43,7 +48,7 @@ const navigate = useNavigate();
         dispatch(SAVE_URL(""));
     }, [cartItems, dispatch]);
 
-    const wishlistItems = useSelector(selectCompareItems);
+    const wishlistItems = useSelector(selectWishlistItems);
 
    
 
@@ -81,7 +86,7 @@ const navigate = useNavigate();
                 </thead>
                 <tbody>
                     {wishlistItems.map((cart, index) => {
-                        const {id, name, price,imageURL, } = cart;
+                        const {id, name, price,imageURL } = cart;
                         return (
                             <tr key={id}>
 
@@ -98,7 +103,7 @@ const navigate = useNavigate();
                              
                                 <td className={styles.icons}>
                                     <FaTrashAlt size={30} color="red"
-                                    onClick={() => removeFromCompare(cart)}
+                                    onClick={() => removeFromWishlist(cart)}
                                     />
                                 </td>
                                 <td>
