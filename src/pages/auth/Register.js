@@ -81,7 +81,7 @@ const Register = () => {
 
   return (
     <>
-         <Card >
+
         {isLoading && <Loader />}
         <Form
           onSubmit={registerUser}
@@ -250,7 +250,7 @@ const Register = () => {
             </form>
           )}
         />
- </Card>
+
  
         </>
   );

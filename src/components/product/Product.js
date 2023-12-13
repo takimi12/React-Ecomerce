@@ -6,6 +6,7 @@ import useFetchCollection from '../../customHooks/useFetchCollection'
 import { useDispatch, useSelector } from 'react-redux'
 import { GET_PRICE_RANGE, STORE_PRODUCTS, selectProducts } from '../../redux/slice/productslice'
 import spinner from '../../assets/img/spinner.jpg'
+import TopProduct from './topProduct/TopProduct'
 
 
 
@@ -28,7 +29,9 @@ const Product = () => {
     }, [dispatch, data])
   
   return (
-    <section>
+    <>
+    <TopProduct />
+        <section>
         <div className={styles.product}>
             <aside className={styles.filter}>
               {isLoading ? null : <ProductFilter />}
@@ -49,6 +52,7 @@ const Product = () => {
             </div>
 
     </section>
+    </>
   )
 }
 

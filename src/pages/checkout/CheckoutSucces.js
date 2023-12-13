@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import styles from "./CheckoutSucces.module.scss"
 
 const CheckoutSuccess = () => {
   return (
-    <section>
+    <section className={styles.checkoutSucces}>
       <div className="container">
         <h2>Checkout Successful</h2>
         <p>Thank you for your purchase</p>

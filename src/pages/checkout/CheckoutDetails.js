@@ -2,7 +2,6 @@ import { useState } from "react";
 import { CountryDropdown } from "react-country-region-selector";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Card from "../../components/card/Card";
 import CheckoutSummary from "../../components/checkoutSummary/CheckoutSummary.js";
 import {
   SAVE_BILLING_ADDRESS,
@@ -139,7 +138,7 @@ const CheckoutDetails = () => {
                 onChange={(e) => handleShipping(e)}
               />
 
-            {/* BILLING ADDRESS */}
+               <div className={styles.billingAddress} >  
 
               <h3>Billing Address</h3>
               <label>Recipient Name</label>
@@ -218,6 +217,7 @@ const CheckoutDetails = () => {
                 value={billingAddress.phone}
                 onChange={(e) => handleBilling(e)}
               />
+              </div>
               <button type="submit" className="--btn --btn-primary">
                 Proceed To Checkout
               </button>

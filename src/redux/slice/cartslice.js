@@ -196,3 +196,4 @@ export const selectCompareItems = (state) => state.cart.compareItems;
 export const selectWishlistItems = (state) => state.cart.wishlistItems;
 
 export default cartSlice.reducer;
+

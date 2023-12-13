@@ -6,6 +6,7 @@ import { ADD_TO_CART, ADD_TO_COMPARE, ADD_TO_WISHLIST, CALCULATE_TOTAL_QUANTITY 
 import { useDispatch } from 'react-redux';
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 
 
@@ -42,7 +43,10 @@ const Product = ({ id, name, price,imageURL, cartQuantity }) => {
     <div className={styles.singleproduct__wrapper} id={`product-${id}`}>
       <div className={styles.inner}>
         <div className={styles.singleproduct__wraper__image}>
+          <Link to={`/product-details/${id}`}>
+          
           <img className={styles.image} src={imageURL} alt={`Produkt ${id}`} />
+          </Link>
           <ul className={styles.listActions}>
             <li className={styles.list}>
               <a className={styles.anchor} href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="Add To Cart" onClick={() => addToCart({ id, name, price, imageURL })}>

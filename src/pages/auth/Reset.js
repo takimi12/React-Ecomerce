@@ -42,7 +42,7 @@ const Reset = () => {
     <>
       <ToastContainer />
       {isLoading && <Loader />}
-      <Card>
+     
         <Form
           onSubmit={resetPassword}
           validate={validate}
@@ -102,7 +102,7 @@ const Reset = () => {
             </form>
           )}
         />
-      </Card>
+  
     </>
   );
 };

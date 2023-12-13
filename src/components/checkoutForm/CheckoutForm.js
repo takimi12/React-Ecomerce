@@ -75,7 +75,6 @@ const shippingAddress = useSelector(selectShippingAddress);
     } catch (error) {
 
       toast.error(error.message);
-      console.log(error);
     }
   };
 
@@ -127,14 +126,12 @@ const shippingAddress = useSelector(selectShippingAddress);
   }
 
   return (
-    <section>
+    <section className={styles.sectionCheckout}>
       <div className={`container ${styles.container}` }>
-        <h2> Checkout</h2>
+        <h2 className={styles.mainHeading}> Checkout</h2>
         <form onSubmit={handleSubmit}>
           <div>
-          <Card cardClass={styles.card}>
             <CheckoutSummary />
-            </Card>
             </div>
             <div>
               <Card cardClass={`${styles.card}${styles.pay}`} >

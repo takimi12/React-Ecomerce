@@ -277,10 +277,10 @@ useEffect(() => {
   {sameBrandProducts.map((product) => (
       <Produkt 
       key={product.id}
-      id={product.id}
-      obrazek={product.imageURL}
-      tekstOdnośnika={product.name}
-      cena={product.price}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            imageURL={product.imageURL}
      />
   ))}
   </div>
@@ -300,9 +300,9 @@ useEffect(() => {
           <Produkt 
             key={product.id}
             id={product.id}
-            obrazek={product.imageURL}
-            tekstOdnośnika={product.name}
-            cena={product.price}
+            name={product.name}
+            price={product.price}
+            imageURL={product.imageURL}
            />
   ))}
   </div>

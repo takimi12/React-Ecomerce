@@ -15,6 +15,10 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER, selectEmail } from '../../redux/slice/authslice';
 import { toast } from 'react-toastify';
+import { CiHeart } from 'react-icons/ci';
+import { IoBarChartOutline } from 'react-icons/io5';
+import ReviewProducts from '../../components/reviewProducts/ReviewProducts';
+import OrderHistory from '../orderHistory/OrderHistory';
 
 const Account = () => {
   const [displayName, setdisplayName] = useState("");
@@ -72,6 +76,21 @@ const Account = () => {
         <FaFileAlt /> Orders
         </li>
       </Link>
+      <Link 
+              to="/wishlist"
+               className={styles.listLink}>
+                <li className={styles.list}>
+                <CiHeart  /> WishList
+                </li>
+              </Link>
+      <Link 
+              to="/compare"
+               className={styles.listLink}>
+                <li className={styles.list}>
+                 <IoBarChartOutline  /> Compare
+                </li>
+              </Link>
+
               <Link 
               onClick={logoutUser}
               to="/"
@@ -80,6 +99,7 @@ const Account = () => {
                   <FaPowerOff /> Logout
                 </li>
               </Link>
+
             </ul>
           </div>
         </div>
@@ -92,7 +112,10 @@ const Account = () => {
           <Route path="add-product/:id" element={<AddProduct />} />
           <Route path="orders" element={<Orders />} />
           <Route path="orders-details/:id" element={<OrderDetails />} />
+          <Route path="/review-product/:id" element={<ReviewProducts />} />
           <Route path="/product-details/:id" element={<ProductDetails />} />
+          <Route path="/order-history" element={<OrderHistory />} />
+        
         </Routes>
       </div>
     </div>

@@ -260,7 +260,7 @@ const AddProduct = () => {
           onChange={(e) => handleInputChange(e)}
         />
 
-        <button type="submit" disabled={isLoading}>
+        <button className='--btn' type="submit" disabled={isLoading}>
           {detectForm(id, 'Add Product', 'Save Changes')}
         </button>
       </form>

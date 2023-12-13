@@ -109,7 +109,7 @@ const Login = () => {
     <>
        {isLoading && <Loader />}
 
-      <Card>
+
         <form className="form--account" onSubmit={loginUser}>
           <h4 className="TitleHeading">Login</h4>
           <div className="panel" id="sign-in">
@@ -186,8 +186,7 @@ const Login = () => {
             </div>
           
         </form>
-      </Card>
-    </>
+          </>
   );
 };
 
