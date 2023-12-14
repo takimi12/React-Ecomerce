@@ -16,12 +16,25 @@ import {
   selectCartTotalQuantity,
   selectCompareItems,
   selectWishlistItems } from '../../../redux/slice/cartslice';
-
+import CartHover from './CartHover';
 
 const HeaderRight = () => {
   const [displayName, setdisplayName] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [isCartHovered, setIsCartHovered] = useState(false); // New state
+
+// ... (existing code)
+
+const handleCartHover = () => {
+  setIsCartHovered(true);
+};
+
+const handleCartLeave = () => {
+  setIsCartHovered(false);
+};
+
 
   /// cart amount visible 
 
@@ -30,6 +43,10 @@ const cartTotalQuantity = useSelector(selectCartTotalQuantity);
 
 const compareItems = useSelector(selectCompareItems);
 const wishlistItems = useSelector(selectWishlistItems);
+
+
+
+
 
 
 useEffect(()  => {
@@ -99,12 +116,21 @@ useEffect(()  => {
           </a>
         </div>
         <div className={styles['parent']}>
-          <a className={styles['header--extra']} href="/cart">
-            <i className={`${styles.icon} icon-bag2`}>
-              <span className={styles.counter}>{cartTotalQuantity}</span>
-            </i>
-          </a>
+        <a
+          className={`${styles['header--extra']} ${styles['cart-hover']}`}
+          href="/cart"
+          onMouseEnter={handleCartHover}
+          onMouseLeave={handleCartLeave}
+        >
+          <i className={`${styles.icon} icon-bag2`}>
+            <span className={styles.counter}>{cartTotalQuantity}</span>
+          </i>
+        </a>
+
+        <div className={`cart--box ${isCartHovered ? 'active' : ''}`}>
+          <CartHover active={isCartHovered} />
         </div>
+      </div>
 
 
           <>

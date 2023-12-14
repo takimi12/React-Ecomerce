@@ -1,0 +1,97 @@
+.topContent{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    .topContentInner{
+        margin-right: 20px;
+    }
+}
+
+.active{
+    position: absolute;
+    background: white;
+    min-width: 400px;
+    left: 1050px;
+    z-index: 200;
+    transition: 0.4s;
+    opacity: 1;
+}
+.minibox{
+    display: block;
+}
+
+.cartBox{
+    position: absolute;
+    background: white;
+    min-width: 400px;
+    left: 1050px;
+    z-index: 200;
+    opacity: 0;
+    transition: 0.4s;
+    top: 80px;
+    z-index: -100;
+}
+.productCartContent{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+
+
+.cartCount {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+ 
+ 
+}
+
+.cartCountInner{
+ display: flex;
+ align-items: center;
+gap: 40px;
+ .cartCountSet{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    b
+    {background: white;
+      padding: 1px 10px;
+      border: solid 1px #666;
+      margin: 0px 10px;
+      
+    }
+    p{
+      font-size: 16px;
+    }
+    button {
+        font-size: 20px;
+    }
+}
+}
+
+.cartCountName{
+    color: #06c;
+    font-weight: 400;
+    margin-bottom: 20px;
+    &:hover{
+        color: #fcb800;
+    }
+}
+
+.bottomCheckout{
+    padding:  20px;
+    background-color: #fff;
+    border-top: 1px solid #e1e1e1;
+
+}
+.bottomCheckoutWrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.bottomCheckoutBtn{
+    display: flex;
+    gap: 30px;
+}

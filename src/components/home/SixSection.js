@@ -18,8 +18,10 @@ const SixSection = () => {
 
 
 
+
   const phoneProducts = products.filter((product) => product.category === 'Phone');
 
+  console.log(phoneProducts);
 
   const ustawieniaKaruzeli = {
     dots: true,
@@ -98,9 +100,11 @@ return (
             id={product.id}
             price={product.price}
             name = {product.name}
+            desc = {product.desc}
+            brand = {product.brand}
             imageURL={product.imageURL}
-            tekstOdnośnika={product.name}
-            cena={product.price}
+            category={product.category}
+
            />
         ))}
       </Slider>
