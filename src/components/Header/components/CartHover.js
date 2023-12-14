@@ -16,10 +16,14 @@ const Cart = ({ active }) => {
 
   const [isCartHovered, setIsCartHovered] = useState(false);
 
-  const handleCartHover = () => {
-    setIsCartHovered(true);
-  };
 
+  const handleCartHover = () => {
+    if (active === true) {
+      setIsCartHovered(true);
+    } else {
+      setIsCartHovered(false);
+    }
+  };
   const handleCartLeave = () => {
     setIsCartHovered(false);
   };
@@ -110,7 +114,7 @@ const Cart = ({ active }) => {
                 <h3>{`$${cartTotalAmount.toFixed(2)}`}</h3>
               </div>
               <div className={styles.bottomCheckoutBtn}>
-                <Link className={`${'--btn --btn-primary --btn-block'} ${styles.button}`}>
+                <Link to="/cart" className={`${'--btn --btn-primary --btn-block'} ${styles.button}`}>
                   View Cart
                 </Link>
                 <button

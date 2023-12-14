@@ -1,0 +1,68 @@
+.slick {
+    display: block;
+    .slick-prev {
+        left: -25px;
+    }
+}
+
+.topCarousel{
+    margin-top: 20px;
+}
+.bottomImage{
+    margin: 20px 0px;
+}
+.productWrapper{
+    display: flex;
+    a{
+        padding-right: 70px;
+    }
+}
+
+.slider {
+    padding-top: 30px;
+    margin-bottom: 30px;
+    .container {
+      display: flex;
+      height: 100%;
+      padding: 0 30px;
+      max-width: 100%;
+      .SectionLeft {
+        max-width: 100%;
+        position: relative;
+        .slide {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 750ms ease 0s, visibility 750ms ease 0s;
+    
+            &.current {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        .arrow {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+          width: 40px;
+          height: 40px;
+          border: none;
+          background-color: #fcb800;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 0;
+          z-index: 100;
+          transition: opacity 750ms ease 0s, visibility 750ms ease 0s;
+  
+          &.left-arrow {
+            left: 0;
+          }
+  
+          &.right-arrow {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
