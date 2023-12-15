@@ -5,10 +5,7 @@ import Navbar from '../../components/admin/navbar/Navbar';
 import ViewProducts from '../../components/admin/viewProducts/ViewProducts';
 import AddProduct from '../../components/admin/addProduct/AddProduct';
 import Home from '../../components/admin/home/Home';
-import Orders from '../../components/admin/orders/Orders';
 import AdminOnlyRoute from '../../components/adminOnlyRoute/AdminOnlyRoute';
-import ProductDetails from '../../components/product/productDetails/ProductDetails';
-import OrderDetails from '../../components/admin/orderDetails/OrderDetails';
 import {  FaFileAlt, FaPowerOff} from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
@@ -17,8 +14,9 @@ import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER, selectEmail } from '../../redux/sl
 import { toast } from 'react-toastify';
 import { CiHeart } from 'react-icons/ci';
 import { IoBarChartOutline } from 'react-icons/io5';
-import ReviewProducts from '../../components/reviewProducts/ReviewProducts';
-import OrderHistory from '../orderHistory/OrderHistory';
+import Orders from '../../components/admin/orders/Orders';
+import ProductDetails from '../../components/product/productDetails/ProductDetails';
+import OrderDetails from '../../components/admin/orderDetails/OrderDetails';
 
 const Account = () => {
   const [displayName, setdisplayName] = useState("");
@@ -110,12 +108,9 @@ const Account = () => {
           <Route path="home" element={<Home />} />
           <Route path="all-products" element={<ViewProducts />} />
           <Route path="add-product/:id" element={<AddProduct />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="orders-details/:id" element={<OrderDetails />} />
-          <Route path="/review-product/:id" element={<ReviewProducts />} />
+          <Route path="orders" element={<Orders />} />   
           <Route path="/product-details/:id" element={<ProductDetails />} />
-          <Route path="/order-history" element={<OrderHistory />} />
-        
+          <Route path="/orders-details/:id" element={<OrderDetails />} />
         </Routes>
       </div>
     </div>

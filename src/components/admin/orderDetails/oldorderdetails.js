@@ -11,12 +11,11 @@ const OrderDetails = () => {
   const { id } = useParams();
   const { document } = useFetchDocument("orders", id);
 
+console.log(document);
 
   useEffect(() => {
     setOrder(document);
   }, [document]);
-
-
   
 
   return (

@@ -6,6 +6,8 @@ import { db } from "../firebase/config";
 const useFetchDocument = (collectionName, documentID) => {
   const [document, setDocument] = useState(null);
 
+
+
   const getDocument = async () => {
     const docRef = doc(db, collectionName, documentID);
     const docSnap = await getDoc(docRef);

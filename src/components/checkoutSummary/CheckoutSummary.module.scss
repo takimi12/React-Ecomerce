@@ -20,4 +20,11 @@
   .summary{
     background: #ddd;
     padding: 20px;
+    .summaryInner{
+      margin: 20px 0px;
+    }
+  }
+
+  .cartTotalQuantity{
+    font-weight: 900;
   }

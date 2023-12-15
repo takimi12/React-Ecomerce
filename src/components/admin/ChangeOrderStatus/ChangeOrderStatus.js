@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { db } from "../../../firebase/config";
-import Card from "../../card/Card";
 import Loader from "../../loader/Loader";
 import styles from "./ChangeOrderStatus.module.scss";
 
@@ -45,7 +44,7 @@ const ChangeOrderStatus = ({ order, id }) => {
       {isLoading && <Loader />}
 
       <div className={styles.status}>
-        <Card cardClass={styles.card}>
+
           <h4>Update Status</h4>
           <form onSubmit={(e) => editOrder(e, id)}>
             <span>
@@ -68,7 +67,7 @@ const ChangeOrderStatus = ({ order, id }) => {
               </button>
             </span>
           </form>
-        </Card>
+ 
       </div>
     </>
   );

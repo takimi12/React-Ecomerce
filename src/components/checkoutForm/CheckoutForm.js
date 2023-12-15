@@ -133,15 +133,13 @@ const shippingAddress = useSelector(selectShippingAddress);
           <div>
             <CheckoutSummary />
             </div>
-            <div>
-              <Card cardClass={`${styles.card}${styles.pay}`} >
-               <h3>Stripe Checkout</h3>
+            <div className={styles.stripeCheckout}>
+
                <PaymentElement id={styles["payment-element"]} />
       <button
        disabled={isLoading || !stripe || !elements} 
        id="submit"
-       className={styles.button}
-       >
+       className={`${styles["payment-button"]} --btn`}>
         <span id="button-text">
           {isLoading ? (<img 
           src={spinnerImg} 
@@ -151,7 +149,7 @@ const shippingAddress = useSelector(selectShippingAddress);
       </button>
       {/* Show any error or success messages */}
       {message && <div id={styles["payment-message"]}>{message}</div>}
-                </Card>
+                
             </div>
         </form>
 

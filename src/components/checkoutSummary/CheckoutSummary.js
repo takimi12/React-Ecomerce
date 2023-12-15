@@ -45,15 +45,15 @@ const CheckoutSummary = () => {
             {cartItems.map((item, index) => {
               const { id, name, price, cartQuantity } = item;
               return (
-                <Card key={id} cardClass={styles.card}>
+                  <div className={styles.summaryInner}>
                   <h4>Product: {name}</h4>
                   <p>Quantity: {cartQuantity}</p>
                   <p>Set price: {price * cartQuantity}</p>
-                </Card>
+                  </div>
               );
             })}
             <p>
-              <b>{`Cart item(s): ${cartTotalQuantity}`}</b>
+              <b className={styles.cartTotalQuantity}>{`Cart item(s): ${cartTotalQuantity}`}</b>
             </p>
             <div className={styles.text}>
               <h4>Total:</h4>
