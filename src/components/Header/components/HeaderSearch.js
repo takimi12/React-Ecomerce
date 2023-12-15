@@ -27,7 +27,7 @@ const HeaderSearch = ({ list }) => {
           category={selectedCategory}
         />
       </div>
-      <button>Szukaj</button>
+
       <div>
         <div className="ps-panel__content"></div>
       </div>

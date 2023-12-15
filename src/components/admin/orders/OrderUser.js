@@ -1,25 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Loader from "../../../components/loader/Loader";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
-import { selectEmail, selectUserID } from "../../../redux/slice/authslice";
+import { selectUserID } from "../../../redux/slice/authslice";
 import {
   selectOrderHistory,
   STORE_ORDERS,
 } from "../../../redux/slice/orderslice";
 import styles from "./Orders.module.scss";
-import ChangeOrderStatus from "./ChangeOrderStatus";
 
 const OrderHistory = () => {
   const { data, isLoading } = useFetchCollection("orders");
-  const [AdminOnly, setAdminOnly] = useState(false);  
   const orders = useSelector(selectOrderHistory);
   const userID = useSelector(selectUserID);
-  const email = useSelector(selectEmail);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     dispatch(STORE_ORDERS(data));
@@ -27,22 +23,7 @@ const OrderHistory = () => {
 
 
 
-  let filteredOrders;
-
-  useEffect(() => {
-    if (email === "test@gmail.com") {
-      setAdminOnly(true);
-    }
-  }, [email]);
-  
-  
-  if (email === "test@gmail.com") {
-     filteredOrders = orders;
-
-  } else {
-     filteredOrders = orders.filter((order) => order.userID === userID);
-  }
-
+  const filteredOrders = orders.filter((order) => order.userID === userID);
 
 
   return (
@@ -68,8 +49,6 @@ const OrderHistory = () => {
                       <th>Order ID</th>
                       <th>Order Amount</th>
                       <th>Order Status</th>
-                      {AdminOnly &&
-                      <th>Change  Status</th>}
                     </tr>
                   </thead>
                   <tbody>
@@ -106,7 +85,6 @@ const OrderHistory = () => {
                             </p>
                           </td>
                      
-{AdminOnly &&  <td>  <ChangeOrderStatus order={order} id={id}  /> </td>}
                         </tr> 
 
                          

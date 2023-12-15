@@ -17,6 +17,8 @@ import { IoBarChartOutline } from 'react-icons/io5';
 import Orders from '../../components/admin/orders/Orders';
 import ProductDetails from '../../components/product/productDetails/ProductDetails';
 import OrderDetails from '../../components/admin/orderDetails/OrderDetails';
+import OrdersUser from '../../components/admin/orders/OrderUser';
+import    Change from '../../components/change/Change';
 
 const Account = () => {
   const [displayName, setdisplayName] = useState("");
@@ -68,7 +70,12 @@ const Account = () => {
               <AdminOnlyRoute>
                 <Navbar />
               </AdminOnlyRoute>
-         
+              <Link to="/account/info" className={styles.listLink}>
+        <li className={styles.list}>
+        <FaFileAlt /> Account Information
+        </li>
+      </Link>
+
               <Link to="/account/orders" className={styles.listLink}>
         <li className={styles.list}>
         <FaFileAlt /> Orders
@@ -97,6 +104,7 @@ const Account = () => {
                   <FaPowerOff /> Logout
                 </li>
               </Link>
+           
 
             </ul>
           </div>
@@ -109,6 +117,8 @@ const Account = () => {
           <Route path="all-products" element={<ViewProducts />} />
           <Route path="add-product/:id" element={<AddProduct />} />
           <Route path="orders" element={<Orders />} />   
+          <Route path="info" element={<Change />} />   
+          <Route path="yourOrders" element={<OrdersUser />} />   
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/orders-details/:id" element={<OrderDetails />} />
         </Routes>

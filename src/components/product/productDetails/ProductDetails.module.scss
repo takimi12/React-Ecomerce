@@ -1,8 +1,10 @@
 .section{
  padding-bottom: 80px;
  display: flex;
+ margin-top: 50px;
  .leftSide{
     max-width: 75%;
+    width: 100%;
  }
  .rightSide{
     max-width: 25%;
@@ -176,7 +178,7 @@ width: 100%;
         margin-bottom: 70px;
         .sameBrandWrapperInner {
             display: flex;
-            justify-self: center;
+            flex-direction: column;
         }
     }
 }

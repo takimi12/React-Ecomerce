@@ -32,7 +32,8 @@
   
       tr {
         border-bottom: 1px solid #ccc;
-       }
+        cursor: pointer;
+      }
   
       tr:nth-child(even) {
         background-color: #eee;
