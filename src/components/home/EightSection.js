@@ -87,7 +87,7 @@ return (
   <section className={styles.SixthSection}>
     <div className={styles.SixthSection__TopInfo}>
       <div>
-        <h3>Laptop</h3>
+        <h3 className={styles.mainHeading}>Electronics</h3>
       </div>
     </div>
     <div className={styles.SixthSection__Container}>

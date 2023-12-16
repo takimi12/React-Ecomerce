@@ -64,18 +64,12 @@ useEffect(() => {
 }, [product, products]);
 
 
-
-
-
-
-  const addToCart = () => {
-    const updatedProduct = { ...product, cartQuantity: quantity };
-    dispatch(ADD_TO_CART(updatedProduct));
-    dispatch(CALCULATE_TOTAL_QUANTITY(updatedProduct));
-    toast.success(`${product.name} added to cart`, {
-      position: 'top-left',
-    });
-  };
+const addToCart = () => {
+  const updatedProduct = { ...product, cartQuantity: quantity };
+  dispatch(ADD_TO_CART(updatedProduct));
+  dispatch(CALCULATE_TOTAL_QUANTITY(updatedProduct));
+  setQuantity(1); // Ustaw quantity na 1 po dodaniu do koszyka
+};
 
   const handleDecrease = () => {
     if (quantity > 1) {

@@ -19,3 +19,14 @@
               
           }}}
         }
+
+        .mainHeading{
+            margin: 0;
+            display: block;
+            font-size: 14px;
+            overflow: hidden;
+            svg{
+                color: #fcb800;
+                width: 20px;
+            }
+        }

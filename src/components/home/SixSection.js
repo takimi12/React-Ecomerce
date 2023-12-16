@@ -21,7 +21,6 @@ const SixSection = () => {
 
   const phoneProducts = products.filter((product) => product.category === 'Phone');
 
-  console.log(phoneProducts);
 
   const ustawieniaKaruzeli = {
     dots: true,

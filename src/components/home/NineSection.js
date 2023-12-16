@@ -3,6 +3,8 @@ import { selectProducts } from '../../redux/slice/productslice';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './NineSection.module.scss';
+import { CiStar } from 'react-icons/ci';
+import { FaStar } from 'react-icons/fa';
 
 const EightSection = () => {
   const [activeTab, setActiveTab] = useState('Hot-New-Arrival');
@@ -42,7 +44,7 @@ const EightSection = () => {
     <section className={styles.sectionTitle}>
       <div className={styles.TopInfo}>
         <div className='leftSide'>
-          <h3 className={styles.Maintitle} onClick={() => handleTabClick('Hot-New-Arrival')}>HOT NEW ARRIVALS</h3>
+          <h3 className={styles.Maintitle} onClick={() => handleTabClick('Hot-New-Arrival')}>Hot New Arrivals</h3>
         </div>
         <div className={styles.rightSide}>
           <h3 className={styles.titleCollection} onClick={() => handleTabClick('Collection 1')}>Collection 1</h3>
@@ -59,10 +61,20 @@ const EightSection = () => {
                 <div className={styles.productURL}>
                   <img src={product.imageURL} alt={product.name} />
                 </div>
+            
                 <div className={styles.productInfo}>
                   <Link to={`/product-details/${product.id}`}>
                     <h4 className={styles.title}>{product.name}</h4>
                   </Link>
+                  <div className={styles.psRating}>
+            <span>
+              <FaStar className={styles.FaStar} />
+              <FaStar className={styles.FaStar} />
+              <FaStar className={styles.FaStar} />
+              <FaStar className={styles.FaStar} />
+              <CiStar className={styles.Cistar} />
+            </span>
+          </div>
                   <p className={styles.price}>Price: ${product.price}</p>
                 </div>
               </div>

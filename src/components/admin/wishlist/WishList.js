@@ -90,6 +90,7 @@ const navigate = useNavigate();
                         return (
                             <tr key={id}>
 
+<Link to={`/product-details/${id}`} className={styles.link}> 
                                 <td>
                                     <p>
                                         <b>
@@ -98,6 +99,7 @@ const navigate = useNavigate();
                                     </p>
                                     <img src={imageURL} alt={name} style={{width:"100px"}} />
                                 </td>
+                                </Link>
                                 <td>{price}</td>
                               
                              

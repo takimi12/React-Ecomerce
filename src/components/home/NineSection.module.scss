@@ -52,6 +52,7 @@
 
 .rightSide{
     display: flex;
+    cursor: pointer;
 }
 
 .titleCollection{
@@ -64,3 +65,17 @@
     font-size: 20px;
     font-weight: 900;
 }
+
+
+    .psRating{
+        margin-top: 5px;
+        .FaStar{
+            fill: gold;
+            width: 20px;
+        }
+        .Cistar{
+            fill: #ccc;
+            width: 20px;
+        }
+        
+    }
