@@ -7,6 +7,49 @@ flex-wrap: wrap;
 padding-top: 70px;
 display: flex;
 justify-content: center;
+@media (max-width: 1199px) {
+    max-width: 90%;
+    }
+@media (max-width: 650px) {
+    display: flex;
+    flex-direction: column;
+    }
+
+span{
+    font-size: 18px;
+    @media (max-width: 800px) {
+        padding: 20px 0px;
+        }
+}
+
+.activeTab{
+    font-weight: 900;
+    color:#000;
+    margin-right: 20px;
+   
+   }
+   .inactiveTab{
+       color: #666;
+       margin-right: 20px;
+   }
+.single{
+    max-width: 30%;
+    margin-right: 30px;
+   
+}
+}
+.categoryWrapperPost{
+    max-width: 80%;
+    display: flex;
+margin: auto;
+flex-wrap: wrap;
+padding-top: 70px;
+display: flex;
+justify-content: space-between;
+@media (max-width: 999px) {
+    max-width: 90%;
+    }
+
 span{
     font-size: 18px;
 }
@@ -23,7 +66,17 @@ span{
    }
 .single{
     max-width: 30%;
-    margin-right: 30px;
+    margin-bottom: 30px;
+    .category{
+        padding: 20px 0px;
+    }
+    @media (max-width: 999px) {
+        max-width: 45%;
+        }
+        @media (max-width: 650px) {
+            max-width: 100%;
+            }
+    
 }
 }
 .pagination{

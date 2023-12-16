@@ -5,7 +5,7 @@ import styles from './Blog.module.scss';
 import blogPosts from './data.json';
 
 const BlogPage = () => {
-  const postsPerPage = 3;
+  const postsPerPage = 6;
   const [currentTab, setCurrentTab] = useState('All');
   const [currentPage, setCurrentPage] = useState(0);
   
@@ -46,7 +46,7 @@ const BlogPage = () => {
         ))}
       </div>
 
-      <div className={styles.categoryWrapper}>
+      <div className={styles.categoryWrapperPost}>
         {/* Render paginated posts for the current category */}
         {paginatedPosts.map((post, index) => (
           <div className={styles.single} key={index}>

@@ -3,13 +3,11 @@
     padding: 170px 0px 100px;
 }
 .container {
-    max-width: 1320px;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    .sectionHeader{
+  height: 100%;
+  padding: 0 40px;
+  max-width: 100%;
+  
+  .sectionHeader{
       h3{
         margin: 30px 0px;
       }
@@ -25,6 +23,12 @@
         width: 100%;
         max-width: 25%;
         padding: 0 15px;
+        @media (max-width: 999px) {
+          max-width: 33%;
+          }
+        @media (max-width: 768px) {
+          max-width: 50%;
+          }
   
         .ourTeam {
           position: relative;
@@ -96,6 +100,9 @@
     .awards{
         padding: 120px 0;
         background-color: #f5f5f5;
+        .imageContent{
+          margin: 20px;
+        }
         .awardsHeading{
             margin-bottom: 65px;
             font-size: 36px;
@@ -113,3 +120,5 @@
         justify-content: space-between;
         margin-top: 20px;
     }
+
+    
