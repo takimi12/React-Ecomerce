@@ -35,7 +35,7 @@ const Checkout = () => {
 
     useEffect(() => {
       // Create PaymentIntent as soon as the page loads
-      fetch("https://react-ecomerce-vjbc.vercel.app//create-payment-intent", {
+      fetch("/api/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -58,6 +58,7 @@ const Checkout = () => {
         .catch((error) => {
             setMessage("Failed to initialize checkout")
             toast.error("Something went wrong")
+            console.log(error)
         })
     }, []);
   
