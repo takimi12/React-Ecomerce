@@ -7,21 +7,46 @@
         align-items: center;
         max-width: 75%;
         margin: auto;
+        @media (max-width: 1199px) {
+            max-width: 90%;
+            }
+        @media (max-width: 768px) {
+            max-width: 90%;
+            }
         .mainHeading{
             margin-bottom: 60px;
             text-align: center;
             font-size: 36px;
             font-weight: 600;
+            @media (max-width: 991px) {
+                font-size: 24px;
+            }
         }
         .row{
             display: flex;
             padding: 30px 0px;
             justify-content: space-between;
+            flex-wrap: wrap;
+            @media (max-width: 768px) {
+                flex-wrap: wrap;
+            }
+
             .content {
                 display: flex;
-                max-width: 250px;
+                flex-direction: column;
+                max-width: 33%;
                 width: 100%;
-            }
+                margin-bottom: 40px;
+                @media (max-width: 768px) {
+                    max-width: 48%;
+                    }
+                @media (max-width: 576px) {
+                    max-width: 100%;
+                    display: flex;
+                    align-items: center;
+                    }
+                }
+
         }
     }
     .sectionContent{
@@ -40,23 +65,37 @@
         align-items: center;
         max-width: 75%;
         margin: auto;
+
     form {
         width: 100%;
         .formHeading{
-            margin-bottom: 90px;
+            margin-bottom: 60px;
             text-align: center;
             font-size: 36px;
             font-weight: 600;
             color: #000;
-            line-height: 1em;
+            @media (max-width: 991px) {
+                font-size: 24px;
+            }
+           
+            @media (max-width: 768px) {
+                text-align: start;
+             }
         }
         .row {
             display: flex;
             width: 100%;
             margin: 20px;
+            @media (max-width: 768px) {
+                display: block;
+                margin: 0;
+            }
             .rowChild{
                 display: flex;
                 width: 100%;
+                @media (max-width: 768px) {
+                   margin-bottom: 20px;
+                }
                 .formGroup{
                     width: 100%;
                     margin-right: 20px;
@@ -80,6 +119,9 @@
             margin: 20px;
             display: flex;
             justify-content: center;
+            .btn{
+                max-width: 300px!important;
+            }
         }
     }
     } 

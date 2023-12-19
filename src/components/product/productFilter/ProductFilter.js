@@ -87,8 +87,8 @@ return (
           })}
         </div>  
         <div className={styles.wrap}>
-        <p>{`$${priceRange[0]} - $${priceRange[1]}`}</p>
-          <h4>Cena</h4>
+
+          <h4>By Price</h4>
           <Slider
             range
             min={minPrice}
@@ -96,6 +96,7 @@ return (
             value={priceRange}
             onChange={(values) => setPriceRange(values)}
           />
+                  <p>{`$${priceRange[0]} - $${priceRange[1]}`}</p>
         </div>
 
                <br />

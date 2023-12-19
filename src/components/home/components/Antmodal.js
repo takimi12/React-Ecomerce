@@ -33,7 +33,7 @@ const QuickViewModal = ({ isModalVisible, handleOk, handleCancel, id, name, pric
         const updatedProduct = { id, name, price, imageURL, cartQuantity: quantity };
         dispatch(ADD_TO_CART(updatedProduct));
         dispatch(CALCULATE_TOTAL_QUANTITY(updatedProduct));
-     
+        setQuantity(1); // Ustaw quantity na 1 po dodaniu do koszyka
       };
     
       const handleDecrease = () => {

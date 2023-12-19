@@ -1,3 +1,21 @@
 .checkoutSucces{
     margin: 40px 0px;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 80%;
+    margin: auto;
+    button {
+        max-width: 300px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        a{
+            font-weight: bold;
+        }
+    }
+
+}
 }

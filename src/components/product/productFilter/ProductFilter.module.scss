@@ -1,7 +1,4 @@
-.filter{
 
- 
-}
 .wrap{
     background: #f5f5f5;
       display: flex;
@@ -10,11 +7,14 @@
     margin-left: 10px;
     padding: 10px;
     margin: 10px;
+    h4 {
+      padding: 20px 10px;
+    }
 }
 
 
 .filterButtonCattegory {
-    padding: 5px;
+    padding: 5px 10px;
     font-size: 16px;
 }
 
@@ -43,4 +43,9 @@
 }
 .wrap{
   width: 100%;
+  p{
+    max-width: 90%;
+    font-weight: bold;
+    margin: 10px;
+  }
 }

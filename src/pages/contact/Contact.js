@@ -15,44 +15,32 @@ const ContactUs = () => {
           <div className={styles.sectionContent}>
             <div className={styles.row}>
               <div className={styles.content}>
-                <div className="">
                   <h4>Contact Directly</h4>
                   <p><a href="mailto:contact@martfury.com">contact@martfury.com</a><span>(+004) 912-3548-07</span></p>
-                </div>
               </div>
               <div className={styles.content}>
-                <div className="">
                   <h4>Head Quater</h4>
                   <p><span>17 Queen St, Southbank, Melbourne 10560, Australia</span></p>
-                </div>
               </div>
               <div className={styles.content} >
-                <div className="">
                   <h4>Work With Us</h4>
                   <p><span>Send your CV to our email:</span><a href="#">career@martfury.com</a></p>
-                </div>
               </div>
-              </div>
-              <div className={styles.row}>
+          
               <div className={styles.content}>
-                <div className="">
                   <h4>Customer Service</h4>
                   <p><a href="#">customercare@martfury.com</a><span>(800) 843-2446</span></p>
                 </div>
-              </div>
               <div className={styles.content}>
-                <div className="">
                   <h4>Media Relations</h4>
                   <p><a href="#">media@martfury.com</a><span>(801) 947-3564</span></p>
-                </div>
               </div>
               <div className={styles.content}>
-                <div className="">
                   <h4>Vendor Support</h4>
                   <p><a href="#">vendorsupport@martfury.com</a><span>(801) 947-3100</span></p>
-                </div>
+              
               </div>
-            </div>
+              </div>
           </div>
         </div>
       </div>
@@ -87,7 +75,8 @@ const ContactUs = () => {
               </div>
             </div>
             <div className={styles.submit}>
-              <button className="--btn">Send message</button>
+<button className={`--btn ${styles.btn}`}>Send message</button>
+
             </div>
           </form>
         </div>

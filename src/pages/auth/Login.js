@@ -5,7 +5,6 @@ import styles from './auth.module.scss';
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from '../../firebase/config';
 import { ToastContainer, toast } from 'react-toastify';
-import Card from '../../components/card/Card';
 import Loader from '../../components/loader/Loader';
 import { useDispatch } from 'react-redux'; 
 import { SET_ACTIVE_USER } from '../../redux/slice/authslice'; 

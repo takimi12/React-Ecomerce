@@ -9,7 +9,6 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import Card from "../card/Card";
 import styles from "./Chart.module.scss";
 import { selectOrderHistory } from "../../redux/slice/orderslice";
 import { useSelector } from "react-redux";

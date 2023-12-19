@@ -8,19 +8,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FILTER_BY_SEARCH, SORT_PRODUCTS, selectFilteredProducts } from '../../../redux/slice/filterslice';
 import Pagination from '../../pagination/Pagination';
 import { MdOutlineArrowDropDown } from "react-icons/md";
+import { selectProducts } from '../../../redux/slice/productslice';
 
 
 
-const ProductList = ({products}) => {
+const ProductList = () => {
   const [grid, setGrid] = useState(true);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("latest");
   const filteredProducts = useSelector(selectFilteredProducts);
+  const products = useSelector(selectProducts);
+
 
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(4);
+  const [productsPerPage] = useState(25);
   // Get Current Products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -79,7 +82,19 @@ const ProductList = ({products}) => {
           <>
             {currentProducts.map((product) => {
               return (
-                  <ProductItem {...product} grid={grid} product={product} />
+                <ProductItem
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                imageURL={product.imageURL}
+                cartQuantity={product.cartQuantity} // Tu dodaj odpowiednie pole, jeśli nie istnieje w oryginalnym obiekcie
+                desc={product.desc}
+                brand={product.brand}
+                category={product.category}
+                grid={grid} // Pamiętaj o zdefiniowaniu zmiennej grid
+                product={product}
+              />
               
               );
             })}

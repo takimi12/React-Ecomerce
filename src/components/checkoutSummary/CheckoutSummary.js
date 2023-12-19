@@ -7,7 +7,6 @@ import {
   selectCartTotalQuantity,
 } 
 from "../../redux/slice/cartslice";
-import Card from "../card/Card";
 import styles from "./CheckoutSummary.module.scss";
 
 import { useDispatch, useSelector } from 'react-redux';

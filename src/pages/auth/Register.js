@@ -6,7 +6,7 @@ import { auth } from '../../firebase/config';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { Form, Field } from 'react-final-form';
 import styles from './auth.module.scss';
-import Card from '../../components/card/Card';
+
 import Loader from '../../components/loader/Loader';
 
 

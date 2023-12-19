@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './auth.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
-import Card from '../../components/card/Card';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 import Loader from '../../components/loader/Loader';

@@ -1,27 +1,35 @@
 .pagination {
     list-style: none;
-    margin-top: 1rem;
-    padding-top: 1rem;
     border-top: 2px solid #ccc;
-  
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px;
   
     .hidden {
-      display: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      border: solid 1px #ddd;
+      &:hover{
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
     }
   
     li {
-      font-size: 1.4rem;
       border: 1px solid #ccc;
-      min-width: 3rem;
-      height: 3rem;
-      padding: 3px;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      margin: 0px 5px;
       &:hover{
         background-color: var(--color-button);
         color: #fff;
@@ -35,6 +43,6 @@
     }
   }
   .active {
-    background-color: var(--color-button);
-    color: #fff;
+    border: solid 1px #1890ff!important;
+    color: #000;
   }

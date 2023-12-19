@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectUserID, selectUserName } from "../../redux/slice/authslice";
-import Card from "../card/Card";
 import styles from "./ReviewProducts.module.scss";
 import StarsRating from "react-star-rate";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { toast } from "react-toastify";
 import useFetchDocument from "../../customHooks/useFetchDocument";
-import spinnerImg from "../../assets/img/spinner.jpg";
 
 const ReviewProducts = () => {
   const [rate, setRate] = useState(0);

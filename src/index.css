@@ -177,3 +177,8 @@ a {
   width: 100%;
 }
 
+.rc-slider {
+
+  width: 90%!important;
+  margin: auto!important;
+}

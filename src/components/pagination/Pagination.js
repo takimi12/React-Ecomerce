@@ -9,40 +9,43 @@ const Pagination = ({
 }) => {
   const pageNumbers = [];
   const totalPages = totalProducts / productsPerPage;
-  // Limit the page Numbers shown
   const [pageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
-  // Paginate
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+    // Scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // GO to next page
   const paginateNext = () => {
-    setCurrentPage(currentPage + 1);
-    // Show next set of pageNumbers
-    if (currentPage + 1 > maxPageNumberLimit) {
-      setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
-      setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+      if (currentPage + 1 > maxPageNumberLimit) {
+        setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+        setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+      }
+      // Scroll to the top of the page
+      window.scrollTo({ top: 300, behavior: "smooth" });
     }
   };
 
-  // GO to prev page
   const paginatePrev = () => {
-    setCurrentPage(currentPage - 1);
-    // Show prev set of pageNumbers
-    if ((currentPage - 1) % pageNumberLimit === 0) {
-      setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
-      setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      if ((currentPage - 1) % pageNumberLimit === 0) {
+        setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+        setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+      }
+      // Scroll to the top of the page
+      window.scrollTo({ top: 300, behavior: "smooth" });
     }
   };
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);
   }
-  // console.log(pageNumbers);
 
   return (
     <ul className={styles.pagination}>
@@ -50,7 +53,7 @@ const Pagination = ({
         onClick={paginatePrev}
         className={currentPage === pageNumbers[0] ? `${styles.hidden}` : null}
       >
-        Prev
+        {"<"}
       </li>
 
       {pageNumbers.map((number) => {
@@ -75,14 +78,14 @@ const Pagination = ({
             : null
         }
       >
-        Next
+        {">"}
       </li>
-
+{/* 
       <p>
         <b className={styles.page}>{`page ${currentPage}`}</b>
         <span>{` of `}</span>
         <b>{`${Math.ceil(totalPages)}`}</b>
-      </p>
+      </p> */}
     </ul>
   );
 };

@@ -9,8 +9,6 @@ import { db } from '../../../firebase/config';
 import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY, DECREASE_CART, selectCartItems } from '../../../redux/slice/cartslice';
 import useFetchDocument from '../../../customHooks/useFetchDocument';
 import useFetchCollection from '../../../customHooks/useFetchCollection';
-import Card from '../../card/Card';
-import StarsRating from 'react-star-rate';
 import ReviewProducts from '../../reviewProducts/ReviewProducts';
 import ReviewComponent from '../../reviewProducts/ReviewComment';
 import spinnerImg from '../../../assets/img/spinner.jpg';
@@ -31,6 +29,8 @@ const ProductDetails = () => {
   const products = useSelector(selectProducts)
   const filteredReviews = data.filter((review) => review.productID === id);
 
+  const [sameCategoryProducts, setSameCategoryProducts] = useState([]);
+
 
 
   
@@ -39,6 +39,9 @@ const ProductDetails = () => {
   useEffect(() => {
     setProduct(document);
   }, [document]);
+  useEffect(() => {
+    window.scrollTo(0, 0); // Przewiń stronę do góry po renderowaniu komponentu
+  }, []); 
 
   useEffect(() => {
     if (product) {
@@ -48,8 +51,6 @@ const ProductDetails = () => {
       setSameBrandProducts(filteredProducts);
     }
   }, [product, products]);
-  const [sameCategoryProducts, setSameCategoryProducts] = useState([]);
-
 
 
 useEffect(() => {

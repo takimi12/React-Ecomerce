@@ -14,8 +14,12 @@ const Product = () => {
 
     const {data, isLoading} = useFetchCollection("products");
     const products = useSelector(selectProducts)
+
+
     const dispatch = useDispatch()
-  
+    useEffect(() => {
+      window.scrollTo(0, 0); 
+    }, []); 
 
     useEffect(() => {
       dispatch(
@@ -30,7 +34,7 @@ const Product = () => {
   
   return (
     <>
-    <TopProduct />
+ <TopProduct /> 
         <section>
         <div className={styles.product}>
             <aside className={styles.filter}>

@@ -19,7 +19,6 @@ import Contact from './pages/contact/Contact';
 import FAQComponent from './pages/faq/FAQ';
 import Blog from './pages/blog/Blog';
 import NotFoundPage from './pages/404/404';
-import ProductPopUp from './components/product/productPopUp/ProductPopUp';
 import OrderDetails from './components/admin/orderDetails/OrderDetails';
 
 function App() {
@@ -55,7 +54,7 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
         <Footer />
-        <ProductPopUp />
+
       </BrowserRouter>
     </>
   );

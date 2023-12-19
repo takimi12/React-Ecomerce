@@ -119,9 +119,9 @@ const Search = ({ list }) => {
         </div>
       </div>
       <div className={styles.searchButton}>
-        <button >
-          <Link  onClick={handleSearch}>Search</Link>
-          </button>
+       
+          <Link  onClick={handleSearch}> <button >Search  </button></Link>
+        
       </div>
     </>
   );

@@ -6,7 +6,6 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 import styles from "./CheckoutForm.module.scss";
-import Card from "../card/Card";
 import CheckoutSummary from "../checkoutSummary/CheckoutSummary";
 import spinnerImg from "../../assets/img/spinner.jpg"
 import { toast } from "react-toastify";

@@ -7,6 +7,7 @@ import { selectProducts } from '../../redux/slice/productslice';
 const HomeFivethSection = () => {
   const products = useSelector(selectProducts);
 
+
   // Create a map to store the first product for each category
   const categoryMap = new Map();
 

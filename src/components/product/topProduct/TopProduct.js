@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { sliderData } from './slider-data';
-import { RightSection } from './slider-data';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 import styles from './TopProduct.module.scss';
 import obrazek1 from '../../../assets/img/shop/top/1 (4).jpg';
@@ -62,7 +61,8 @@ const Slider = () => {
 
         </div>
       </div>
-      <section className={styles.bottomImage}>
+      <div className={styles.bottomImage}>
+        <div className={styles.container}>
       <div className={styles.productWrapper}>
         <a href="/shop"><img src={obrazek1} alt="martfury" /></a>
         <a href="/shop"><img src={obrazek2} alt="martfury" /></a>
@@ -73,7 +73,8 @@ const Slider = () => {
         <a href="/shop"><img src={obrazek7} alt="martfury" /></a>
         <a href="/shop"><img src={obrazek8} alt="martfury" /></a>
       </div>
-    </section>
+    </div>
+    </div>
     </>
   );
 };

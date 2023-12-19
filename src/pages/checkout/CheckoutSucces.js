@@ -4,7 +4,7 @@ import styles from "./CheckoutSucces.module.scss"
 const CheckoutSuccess = () => {
   return (
     <section className={styles.checkoutSucces}>
-      <div className="container">
+      <div className={styles.container}>
         <h2>Checkout Successful</h2>
         <p>Thank you for your purchase</p>
         <br />
