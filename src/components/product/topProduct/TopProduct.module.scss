@@ -10,6 +10,9 @@
 }
 .bottomImage{
     margin: 20px 0px;
+    @media screen and (max-width: 1199px) {
+      display: none;
+      }
 }
 .productWrapper{
     display: flex;
@@ -22,6 +25,9 @@
 .slider {
     padding-top: 30px;
     margin-bottom: 30px;
+    @media screen and (max-width: 1199px) {
+    display: none;
+    }
     .container {
       display: flex;
       height: 100%;

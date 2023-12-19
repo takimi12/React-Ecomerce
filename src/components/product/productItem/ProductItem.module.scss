@@ -15,7 +15,22 @@
         width: 100%;
         border: solid 1px #ddd;
         max-width: 31%;
+        margin: 20px 0px;
     }
+    @media screen and (max-width: 768px) {
+        max-width: 48%;
+        position: relative;
+    }
+    @media screen and (max-width: 768px) {
+        max-width: 100%;
+     
+    }
+    .img{
+     @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
+}
     .listActions{
        display: flex;
        justify-content: space-between;
@@ -23,7 +38,14 @@
        padding: 5px 0px;
        position: absolute;
        width: 100%;
-       transform: translateY(30px);
+       transform: translateY(100px);
+       @media screen and (max-width: 768px) {
+        width: 90%;
+        transform: translateY(-65px);
+        background-color: #fff;
+        border: solid 1px #ddd;
+        padding: 10px;
+    }
    }
    &:hover{
     border: solid 1px grey;
@@ -45,8 +67,16 @@
 
 .content {
     position: relative;
+    @media screen and (max-width: 768px) {
+        position: static;    
+    }
      .details{
-      
+        @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        }
         .category{
             border-bottom: solid 1px #ddd;
             padding-bottom: 5px;
@@ -79,9 +109,7 @@ margin-bottom: 10px;
     display: flex;
     margin: 20px 0px;
     justify-content: space-between;
-    .img{
-        min-width: 10%;
-    }
+
 
         
         .ctaparent{

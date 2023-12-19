@@ -7,10 +7,16 @@
 }
     .row {
   display: flex;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+}
   .imgParent{
     width: 100%;
     max-width: 50%;
     min-width: 30%;
+    @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 }
 .content{
   min-width: 50%;
@@ -48,6 +54,9 @@
 
 .socialMedia {
   margin-top: 30px;
+  a{
+    margin-right: 5px;
+  }
 }
 
 .quantity{

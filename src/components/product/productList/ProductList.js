@@ -45,7 +45,7 @@ const ProductList = () => {
   return (
     <div className={styles['product-list']} id="product">
       <div className={styles.top}>
-        <div className={styles.icon}>
+        <div className={styles.found}>
           <p>
             <strong className={styles.strong}>{filteredProducts.length}</strong> Products found
           </p>
