@@ -43,15 +43,24 @@ const EightSection = () => {
   return (
     <section className={styles.sectionTitle}>
       <div className={styles.TopInfo}>
-        <div className='leftSide'>
-          <h3 className={styles.Maintitle} onClick={() => handleTabClick('Hot-New-Arrival')}>Hot New Arrivals</h3>
+        <div className={styles.leftSide}>
+          <h3 className={styles.Maintitle} >Hot New Arrivals</h3>
         </div>
         <div className={styles.rightSide}>
-          <h3 className={styles.titleCollection} onClick={() => handleTabClick('Collection 1')}>Collection 1</h3>
-          <h3 className={styles.titleCollection} onClick={() => handleTabClick('Collection 2')}>Collection 2</h3>
-          <h3 className={styles.titleCollection} onClick={() => handleTabClick('Collection 3')}>Collection 3</h3>
-          <h3 className={styles.titleCollection} onClick={() => handleTabClick('View All')}>View All</h3>
-        </div>
+
+  <h3 className={`${styles.titleCollection} ${activeTab === 'Collection 1' ? styles.active : ''}`} onClick={() => handleTabClick('Collection 1')}>
+    Collection 1
+  </h3>
+  <h3 className={`${styles.titleCollection} ${activeTab === 'Collection 2' ? styles.active : ''}`} onClick={() => handleTabClick('Collection 2')}>
+    Collection 2
+  </h3>
+  <h3 className={`${styles.titleCollection} ${activeTab === 'Collection 3' ? styles.active : ''}`} onClick={() => handleTabClick('Collection 3')}>
+    Collection 3
+  </h3>
+  <h3 className={`${styles.titleCollection} ${activeTab === 'View All' ? styles.active : ''}`} onClick={() => handleTabClick('View All')}>
+    View All
+  </h3>
+</div>
       </div>
       <div>
         <div className={styles.productContainer}>

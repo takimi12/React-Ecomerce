@@ -50,7 +50,7 @@ const Slider = () => {
             })}
           </div>
 
-          <div className={Styles.SectionRight}>
+          <div className={Styles.sectionRight}>
   {RightSection.map((right, index) => {
     const { image, link } = right;
     return (

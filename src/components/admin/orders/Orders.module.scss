@@ -7,7 +7,17 @@
       border-collapse: collapse;
       width: 100%;
       font-size: 1.4rem;
-  
+      span {
+        width: 100%;
+    display: block;
+      select {
+        background-color: #fff;
+        padding: 20px;
+        border: solid 1px #ddd;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+    }
       thead {
         border-top: 2px solid var(--light-blue);
         border-bottom: 2px solid var(--light-blue);
@@ -47,3 +57,4 @@
       }
     }
   }
+

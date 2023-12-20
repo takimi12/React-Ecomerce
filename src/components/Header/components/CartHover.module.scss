@@ -95,3 +95,25 @@ gap: 40px;
     display: flex;
     gap: 30px;
 }
+
+.empty{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .btn{
+        width: 300px;
+        padding: 20px 0px!important;
+    }
+}
+
+.btnActive{
+    font-weight: 900!important;
+    font-size: 16px!important;
+    width: 170px!important;
+    text-align: center;
+    display: flex!important;
+    justify-content: center;
+    min-height: 54px;
+    align-items: center;
+}

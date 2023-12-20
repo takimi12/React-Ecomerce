@@ -136,14 +136,22 @@ useEffect(()  => {
           <>
          <ShowOnLogin>
   <div className={styles['user--header']}>
+  <p className={styles.welcome}>Witaj <br/> <span className={styles.WelcomeSpan}>{displayName}</span></p>
     <div className={styles['block--left']}>
-      <i className={`${styles.icon} icon-user`}></i>
+    <NavLink to="/account" >
+    <i className={`${styles.icon} icon-user`}></i>
+    </NavLink>
+ 
     </div>
-    <p className={styles.welcome}>Witaj <br/> <span className={styles.WelcomeSpan}>{displayName}</span></p>
+   
+    <div className={styles.acountActions}>
     <NavLink to="/" onClick={logoutUser}>
       Logout
     </NavLink>
-
+    <NavLink to="/account" >
+    Account
+    </NavLink>
+    </div>
   </div>
  
   </ShowOnLogin>

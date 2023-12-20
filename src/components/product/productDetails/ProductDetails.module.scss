@@ -1,14 +1,23 @@
 .section{
- padding-bottom: 80px;
- display: flex;
- margin-top: 50px;
- .leftSide{
+    display: flex;
+    max-width: 90%;
+    margin: 50px auto;
+  .leftSide{
     max-width: 75%;
     width: 100%;
+    @media screen and (max-width: 1199px) {
+       max-width: 100%;
+        }
+    @media screen and (max-width: 768px) {
+        overflow: hidden;
+        }
  }
  .rightSide{
     max-width: 25%;
     margin-left: 20px;
+    @media screen and (max-width: 1199px) {
+    display: none;
+    }
     .asideOneContent{
         padding: 20px 0px;
         display: flex;
@@ -26,13 +35,29 @@
 .details{
     display: flex;
 width: 100%;
+@media screen and (max-width: 768px) {
+ flex-wrap: wrap;
+ img{
+    width: 100%;
+}
+
+}
 }
 .img{
     width: 50%;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    
+ 
+    }
    
 }
 .content{
     width: 50%;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    
+    }
 }
 .name {
     margin-bottom: 10px;
@@ -115,6 +140,11 @@ width: 100%;
     margin-top: 100px;
     padding-bottom: 10px;
     border-bottom: solid 1px #ddd;
+    @media screen and (max-width: 768px) {
+        overflow: scroll;
+    
+    }    
+
   
     &:hover {
         cursor: pointer;
@@ -123,7 +153,12 @@ width: 100%;
         font-size: 14px;
     margin-right: 10px;
     font-weight: 100;
-    }
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        min-width: 160px;
+    
+    }    
+}
 
 }
 .reviewsContent{
@@ -187,6 +222,12 @@ width: 100%;
 }
 
 .relatedProducts{
+
+    margin-top: 50px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 0px 40px;
+
     .relatedProductsHeader{
         font-size: 20px;
         font-weight: 600;

@@ -1,12 +1,13 @@
 .table {
-  padding: 5px;
-  width: 100%;
-  overflow-x: auto;
+  max-width: 80%;
+  margin: auto;
+  padding: 40px 0px;
 
   table {
     border-collapse: collapse;
     width: 100%;
     font-size: 1.4rem;
+
 
     thead {
       border-top: 2px solid var(--light-blue);
@@ -69,4 +70,12 @@
   & > * {
     margin-right: 1rem;
   }
+}
+.orderStatus{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btnParent{
+  max-width: 300px;
 }

@@ -41,6 +41,7 @@
         display: flex;
       flex-flow: row nowrap;
       align-items: center;
+      margin: 0px 20px;
       .icon{
         font-size: 30px;
         line-height: 42px;
@@ -55,6 +56,10 @@
       line-height: 18px;
     } 
     } 
+    .acountActions{
+      display: flex;
+      flex-direction: column;
+    }
   }
   }    
   

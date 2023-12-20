@@ -59,7 +59,7 @@ const navigate = useNavigate();
   return(
   <section>
     <div className={` ${styles.table}`}>
-        <h2>Compare Product</h2>
+        <h2 className={styles.mainHeading}>Compare Product</h2>
         {compareItems.length === 0 ? (
             <>
             <p>Your cart is currently empty!</p>

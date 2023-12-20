@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../../components/loader/Loader";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
 import { selectEmail, selectUserID } from "../../../redux/slice/authslice";
@@ -47,7 +47,7 @@ const OrderHistory = () => {
 
   return (
     <>
-      <section>
+      <div>
         <div className={`container ${styles.order}`}>
           <h2>Your Order History</h2>
           <p>
@@ -89,7 +89,9 @@ const OrderHistory = () => {
                           <td>
                             {orderDate} at {orderTime}
                           </td>
+                          <Link to={`/orders-details/${id}`}>
                           <td>{id}</td>
+                          </Link>
                           <td>
                             {"$"}
                             {orderAmount}
@@ -119,7 +121,7 @@ const OrderHistory = () => {
             </div>
           </>
         </div>
-      </section>
+      </div>
     </>
   );
 };

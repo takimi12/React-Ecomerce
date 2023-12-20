@@ -15,10 +15,9 @@ import { toast } from 'react-toastify';
 import { CiHeart } from 'react-icons/ci';
 import { IoBarChartOutline } from 'react-icons/io5';
 import Orders from '../../components/admin/orders/Orders';
-import ProductDetails from '../../components/product/productDetails/ProductDetails';
 import OrderDetails from '../../components/admin/orderDetails/OrderDetails';
-import OrdersUser from '../../components/admin/orders/OrderUser';
-import    Change from '../../components/change/Change';
+import { TbListDetails } from "react-icons/tb";
+
 
 const Account = () => {
   const [displayName, setdisplayName] = useState("");
@@ -70,13 +69,13 @@ const Account = () => {
               <AdminOnlyRoute>
                 <Navbar />
               </AdminOnlyRoute>
-              <Link to="/account/info" className={styles.listLink}>
+              <Link to="/info" className={styles.listLink}>
         <li className={styles.list}>
         <FaFileAlt /> Account Information
         </li>
       </Link>
 
-              <Link to="/account/orders" className={styles.listLink}>
+              <Link to="orders" className={styles.listLink}>
         <li className={styles.list}>
         <FaFileAlt /> Orders
         </li>
@@ -93,6 +92,13 @@ const Account = () => {
                className={styles.listLink}>
                 <li className={styles.list}>
                  <IoBarChartOutline  /> Compare
+                </li>
+              </Link>
+      <Link 
+              to="/orders-details/:id"
+               className={styles.listLink}>
+                <li className={styles.list}>
+                 <TbListDetails /> Orders Details 
                 </li>
               </Link>
 
@@ -117,10 +123,7 @@ const Account = () => {
           <Route path="all-products" element={<ViewProducts />} />
           <Route path="add-product/:id" element={<AddProduct />} />
           <Route path="orders" element={<Orders />} />   
-          <Route path="info" element={<Change />} />   
-          <Route path="yourOrders" element={<OrdersUser />} />   
-          <Route path="/product-details/:id" element={<ProductDetails />} />
-          <Route path="/orders-details/:id" element={<OrderDetails />} />
+
         </Routes>
       </div>
     </div>

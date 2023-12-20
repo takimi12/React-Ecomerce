@@ -75,7 +75,7 @@ const user = auth.currentUser;
           <form className="form--account" onSubmit={handleSubmit}>
             <h4 className="TitleHeading">Change Password and Email</h4>
             <div className="panel" id="change-password-email">
-              <div className="content">
+              <div className={styles.content}>
                 <h5 className="heading">Change Your Password and Email</h5>
 
             
@@ -145,10 +145,6 @@ const user = auth.currentUser;
                   >
                     Save Changes
                   </button>
-                </div>
-
-                <div className={styles['Alt-log']}>
-                  <Link to="/profile">Back to Profile</Link>
                 </div>
               </div>
             </div>

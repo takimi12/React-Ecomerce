@@ -67,14 +67,14 @@ const increaseCart = (cart) => {
   return(
   <section>
     <div className={` ${styles.table}`}>
-        <h2>Shopping Cart</h2>
+        <h2 className={styles.mainHeading}>Shopping Cart</h2>
         {cartItems.length === 0 ? (
             <>
             <p>Your cart is currently empty!</p>
             
             <br />
             <div>
-                <Link to="/#products">&larr; Continue shopping</Link>
+                <Link to="/#products" className={`--btn ${styles.btnActive}`}>&larr; Continue shopping</Link>
             </div>
 
             </>
@@ -130,16 +130,14 @@ const increaseCart = (cart) => {
             <div className={styles.cartAction}>
               
                 <div className={styles.action}>
-                    <div>
-                        <Link to="/#products">
+                        <Link to="/#products" className={styles.btnActive1}>
                             &larr; Continue shopping
                         </Link>
-                    </div>
-                    <div>
-                    <button className='--btn --btn-danger'
+                    
+                     <Link className={`'--btn --btn-danger ${styles.btnActive}`}
                 onClick={ClearCart}
-                >Clear Cart</button>
-                    </div>
+                >Clear Cart</Link>
+               
                     </div>
                     <br />
                     </div>

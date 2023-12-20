@@ -21,6 +21,9 @@
     text-align: center;
     font-size: 30px;
     font-weight: 600;
+    @media screen and (max-width: 768px) {
+       font-size: 20px;
+         }
 }
 
 .panel {
@@ -112,7 +115,8 @@
 .Alt-log {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin: 20px 0px;
+
     .NewAccount {
         display: flex;
         align-items: center;
@@ -166,4 +170,20 @@
     font-size: 16px;
     }
 
+}
+
+.panel{
+    max-width: 50%;
+    margin: auto;
+    @media screen and (max-width: 991px) {
+        max-width: 75%;
+    }
+    @media screen and (max-width: 576px) {
+        max-width: 100%;
+    }
+    button {
+        @media screen and (max-width: 576px) {
+         font-size: 12px;
+        }   
+    }
 }

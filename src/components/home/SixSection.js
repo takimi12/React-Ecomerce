@@ -59,14 +59,14 @@ const SixSection = () => {
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 991,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
         }
       },
       {
-        breakpoint: 550,
+        breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,

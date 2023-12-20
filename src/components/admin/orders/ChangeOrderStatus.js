@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../../firebase/config";
 import { toast } from "react-toastify";
-
+import styles from "./ChangeOrderStatus.module.scss";
 
 const ChangeOrderStatus = ({ order, id }) => {
     const [status, setStatus] = useState("");
@@ -48,7 +48,7 @@ const ChangeOrderStatus = ({ order, id }) => {
       <>
 
         <div className>
-          <h4>Update Status</h4>
+          <h4 className={styles.updateStatus}>Update Status</h4>
           <form onSubmit={(e) => editOrder(e, id)}>
             <span>
               <select
@@ -65,7 +65,7 @@ const ChangeOrderStatus = ({ order, id }) => {
               </select>
             </span>
             <span>
-              <button type="submit" className="--btn --btn-primary">
+              <button type="submit" className={` --btn --btn-primary ${styles.btn}`}>
                 Update Status
               </button>
             </span>

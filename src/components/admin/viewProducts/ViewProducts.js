@@ -96,7 +96,7 @@ const ViewProducts = () => {
     <div className={styles.table}>
     <h2>All Products</h2>
     
-    <div className={styles.searcj}>
+    <div className={styles.search}>
       <p>
         <b>{filteredProducts.length}</b> products found
       </p>

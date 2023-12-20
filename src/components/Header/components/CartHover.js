@@ -66,14 +66,14 @@ const Cart = ({ active }) => {
       <div
         onMouseEnter={handleCartHover}
         onMouseLeave={handleCartLeave}
-        className={`${isCartHovered || active ? styles.active : styles.cartBox}`}
+        className={`${styles.empty} ${isCartHovered || active ? styles.active : styles.cartBox}`}
       >
         {cartItems.length === 0 ? (
           <>
             <p>Your cart is currently empty!</p>
             <br />
             <div>
-              <Link to="/#products">&larr; Continue shopping</Link>
+              <Link to="/shop"><button className={`${styles.btn} --btn`}>&larr; Continue shopping</button></Link>
             </div>
           </>
         ) : (
@@ -114,15 +114,17 @@ const Cart = ({ active }) => {
                 <h3>{`$${cartTotalAmount.toFixed(2)}`}</h3>
               </div>
               <div className={styles.bottomCheckoutBtn}>
-                <Link to="/cart" className={`${'--btn --btn-primary --btn-block'} ${styles.button}`}>
-                  View Cart
+                <Link to="/cart" className={`
+                ${styles.btnActive}                 
+                ${'--btn --btn-primary --btn-block'} ${styles.button}`}>
+                  ViewCart
                 </Link>
-                <button
-                  className={`${'--btn --btn-primary --btn-block'} ${styles.button}`}
+                <Link
+                  className={` ${styles.btnActive} ${'--btn --btn-primary --btn-block'} ${styles.button}`}
                   onClick={handleCheckout}
                 >
                   Checkout
-                </button>
+                </Link>
               </div>
             </div>
           </>

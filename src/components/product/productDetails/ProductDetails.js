@@ -15,6 +15,7 @@ import spinnerImg from '../../../assets/img/spinner.jpg';
 import styles from './ProductDetails.module.scss';
 import { selectProducts } from '../../../redux/slice/productslice';
 import Produkt from '../../home/components/Product';
+import Slider from 'react-slick';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -39,6 +40,7 @@ const ProductDetails = () => {
   useEffect(() => {
     setProduct(document);
   }, [document]);
+  
   useEffect(() => {
     window.scrollTo(0, 0); // Przewiń stronę do góry po renderowaniu komponentu
   }, []); 
@@ -85,10 +87,73 @@ const addToCart = () => {
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
+  const ustawieniaKaruzeli = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    centerMode: false,
+    autoplay: false,
+    swipe: true,
+    responsive: [
+      {
+        breakpoint: 2000,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1750,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1350,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1250,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 450,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      },
+    ]
+  };
+  
 
+
+
+  
   return (
     <>
-    <section className={styles.section}>
+    <div className={styles.section}>
       <div className={styles.leftSide}>
       <div className={styles.mainWrapper} >
         {product === null ? (
@@ -284,24 +349,28 @@ const addToCart = () => {
 
         </div>
 
-    </section>
-    <section className={styles.relatedProducts}>
+    </div>
+    <div className={styles.relatedProducts}>
     <div class={styles.relatedProductsHeader}>
       <h3>Related products</h3>
       </div>
-      <div className={styles.relatedProductsWrapper}>
-    {sameCategoryProducts.map((product) => (
-
+      <Slider {...ustawieniaKaruzeli}  className={styles.slick}>
+        {sameCategoryProducts.map((product) => (
           <Produkt 
             key={product.id}
             id={product.id}
-            name={product.name}
             price={product.price}
+            name = {product.name}
+            desc = {product.desc}
+            brand = {product.brand}
             imageURL={product.imageURL}
+            category={product.category}
+
            />
-  ))}
+        ))}
+      </Slider>
   </div>
-    </section>
+
     </>
   );
 };

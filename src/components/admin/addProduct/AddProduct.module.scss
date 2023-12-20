@@ -8,7 +8,9 @@
     .mainHeading{
       margin-bottom: 50px;
     }
-    form {
+    .form {
+      max-width: 75%;
+      margin-bottom: 20px;
       label {
         display: block;
         font-size: 1.4rem;
@@ -52,4 +54,9 @@
   .group {
     border: 1px solid var(--dark-blue);
     padding: 5px;
+  }
+
+  .btn {
+    margin-bottom: 30px;
+    max-width: 300px!important;
   }

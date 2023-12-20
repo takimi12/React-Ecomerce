@@ -63,7 +63,7 @@ const Reset = () => {
                                   className="input-content"
                                   {...input}
                                   type="text"
-                                  placeholder="Username or email address"
+                                  placeholder="Give your email adress"
                                   required
                                 />
                                 <div className={styles.info}>

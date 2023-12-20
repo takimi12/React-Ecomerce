@@ -21,7 +21,7 @@ const EightSection = () => {
   const phoneProducts = products.filter((product) => product.category === 'Electronics' );
 
 
-  const ustawieniaKaruzeli = {
+ const ustawieniaKaruzeli = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -32,21 +32,21 @@ const EightSection = () => {
       {
         breakpoint: 2000,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: 5,
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 1750,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: 5,
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 1350,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 5,
           slidesToScroll: 1,
         }
       },
@@ -58,14 +58,14 @@ const EightSection = () => {
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 991,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
         }
       },
       {
-        breakpoint: 550,
+        breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -80,6 +80,7 @@ const EightSection = () => {
       },
     ]
   };
+  
   
 
 

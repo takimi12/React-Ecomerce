@@ -1,106 +1,117 @@
 .table {
-    padding: 5px;
+  padding: 5px;
+  width: 100%;
+  overflow-x: auto;
+.mainHeading{
+  margin: 20px 0px;
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+    }
+}
+  table {
+    border-collapse: collapse;
     width: 100%;
-    overflow-x: auto;
-  
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      thead {
+    tbody{
+      overflow: scroll;
+      td{
+        min-width: 150px
+      }
+    }
+    thead {
 background-color: #f2f2f2;
-      }
-  
-      th {
-        border: 1px solid #eee;
-        text-transform: uppercase;
-        font-weight: 900;
-      }
-  
-      th,
-      td {
-       
-        text-align: left;
-        padding: 8px;
-        &.icons {
-          > * {
-            margin-right: 5px;
-            cursor: pointer;
-          }
+    }
+
+    th {
+      border: 1px solid #eee;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    th,
+    td {
+     
+      text-align: left;
+      padding: 8px;
+      &.icons {
+        > * {
+          margin-right: 5px;
+          cursor: pointer;
         }
-      }
-  
-      tr {
-        border-bottom: 1px solid #ccc;
-      }
-  
-      tr:nth-child(even) {
-        background-color: #eee;
       }
     }
-    .action {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
+
+    tr {
+      border-bottom: 1px solid #ccc;
     }
-    .checkout {
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
-      overflow: hidden;
-  
-      .card {
-        padding: 1rem;
-        .text {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-         
-        }
-        button {
-          margin-top: 5px;
-        }
-      }
+
+    tr:nth-child(even) {
+      background-color: #eee;
     }
   }
-  .count {
+  .action {
     display: flex;
-    align-items: center;
-    p{
-      font-size: 16px;
-    }
-    button {
-        font-size: 20px;
-    }
-  
+    justify-content: space-between;
+    align-items: start;
   }
-.summaryone{
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: flex-end;
-  .checdkout{
-    max-width: 500px;
+  .checkout {
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
-    background: #f1f1f1;
-    padding: 20px;
-    border: solid 1px #bfbfbf;
+    overflow: hidden;
+
+    .card {
+      padding: 1rem;
+      .text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       
+      }
+      button {
+        margin-top: 5px;
+      }
+    }
   }
- 
+}
+.count {
+  display: flex;
+  align-items: center;
+  p{
+    font-size: 16px;
+  }
+  button {
+      font-size: 20px;
+  }
+
+}
+.summaryone{
+display: flex;
+justify-content: flex-end;
+flex-direction: column;
+align-items: flex-end;
+.checdkout{
+  max-width: 500px;
+  width: 100%;
+  background: #f1f1f1;
+  padding: 20px;
+  border: solid 1px #bfbfbf;
+}
+
 }
 
 .cartAction{
-  margin-top: 50px;
+margin-top: 50px;
 }
 
 .text{
-  display: flex;
-  justify-content: space-between;
+display: flex;
+justify-content: space-between;
 }
 .details{
-  padding: 10px 0px;
-  border-top: solid 1px #ccc;
-  border-bottom: solid 1px #ccc;
-  margin-bottom: 20px;
+padding: 10px 0px;
+border-top: solid 1px #ccc;
+border-bottom: solid 1px #ccc;
+margin-bottom: 20px;
 }
 
 .lighterText{
@@ -108,31 +119,35 @@ color: #666;
 }
 
 .lighterSummary{
-  color: #666;
-  font-size: 14px;
-  font-weight: 600;
+color: #666;
+font-size: 14px;
+font-weight: 600;
 }
 
 .strongerText{
-  font-size: 22px;
-  font-weight: 900;
+font-size: 22px;
+font-weight: 900;
 }
 .strongerSummary{
-  color: #f30;
-  font-weight: 600;
+color: #f30;
+font-weight: 600;
 }
 
 .button{
-  max-width: 500px;
-  margin-top: 20px;
+max-width: 500px;
+margin-top: 20px;
 }
 .btn {
 max-width: 50%;
 width: 100%;
-
 display: flex!important;
 align-items: center;
 justify-content: center;
-
-
+@media screen and (max-width: 991px) {
+max-width: 100%;
+font-size: 16px;
+}
+@media screen and (max-width: 576px) {
+padding: 10px;
+}
 }

@@ -1,19 +1,28 @@
 .admin {
     display: flex;
-    padding: 0px 30px;
+    padding: 30px 30px;
     background-color: #f1f1f1;
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+       }
     
     .navbar {
       width: 25%;
       height: 100%;
       background-color: #fff;
       margin-bottom: 100px;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+         }
+     
     }
     .content {
       width: 75%;
-      padding: 1rem;
+      margin-left: 20px;
       overflow: hidden;
-
+      @media screen and (max-width: 768px) {
+        width: 100%;
+         }
     }
   }
   

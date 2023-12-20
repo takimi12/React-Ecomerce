@@ -39,19 +39,26 @@ function App() {
           } />
           
           <Route path="/product-details/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/shop"  element={<Product />} />
           <Route path="/about"  element={<About />} />
           <Route path="/contact"  element={<Contact />} />
           <Route path="/faq"  element={<FAQComponent />} />
           <Route path="/blog"  element={<Blog />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/orders-details/:id" element={<OrderDetails />} />
+          <Route path="/compare" element={<Compare />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/cart" element={<Cart />} />        
+        
+        
+        
+        
+
           <Route path="/checkout-details" element={<CheckoutDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
            <Route path="*" element={<NotFoundPage />} />
-          <Route path="/" element={<Home />} />
+
         </Routes>
         <Footer />
 

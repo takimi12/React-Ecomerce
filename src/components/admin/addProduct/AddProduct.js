@@ -165,7 +165,7 @@ const AddProduct = () => {
     <div className={styles.product}>
       <h2 className={styles.mainHeading}>{detectForm(id, 'Add New Product', 'Edit Product')}</h2>
 
-      <form onSubmit={detectForm(id, addProduct, editProduct)}>
+      <form className={styles.form} onSubmit={detectForm(id, addProduct, editProduct)}>
         <label>Product name:</label>
         <input
           type="text"
@@ -260,7 +260,7 @@ const AddProduct = () => {
           onChange={(e) => handleInputChange(e)}
         />
 
-        <button className='--btn' type="submit" disabled={isLoading}>
+        <button className={`--btn ${styles.btn}`}type="submit" disabled={isLoading}>
           {detectForm(id, 'Add Product', 'Save Changes')}
         </button>
       </form>

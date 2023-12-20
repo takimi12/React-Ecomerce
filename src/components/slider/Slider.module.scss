@@ -6,17 +6,34 @@
       height: 100%;
       padding: 0 30px;
       max-width: 100%;
+      @media screen and (max-width: 1199px) {
+        flex-wrap: wrap;
+        }
+      
       .SectionLeft {
         max-width: calc(100% - 390px);
         position: relative;
+        @media screen and (max-width: 1440px) {
+        margin-right: 40px; 
+        }
+        @media screen and (max-width: 1199px) {
+       max-width: 100%; 
+       margin: 0;
+        }
+      
         .slide {
             opacity: 0;
             visibility: hidden;
             transition: opacity 750ms ease 0s, visibility 750ms ease 0s;
+            height: 100%;
     
             &.current {
               opacity: 1;
               visibility: visible;
+              img {
+                height: 100%;
+                object-fit: cover;
+              }
             }
           }
         .arrow {
@@ -34,6 +51,11 @@
           border-radius: 0;
           z-index: 100;
           transition: opacity 750ms ease 0s, visibility 750ms ease 0s;
+          @media screen and (max-width: 768px) {
+            width: 30px;
+            height: 30px;
+             }
+           
   
           &.left-arrow {
             left: 0;
@@ -44,5 +66,19 @@
           }
         }
       }
+    }
+  }
+
+  .sectionRight{
+    @media screen and (max-width: 1199px) {
+      width: 100%;
+      margin-top: 20px;  
+    display: flex; 
+    }
+    a{
+      max-width: 50%;
+      width: 100%;
+      img{
+        width: 100%;}
     }
   }

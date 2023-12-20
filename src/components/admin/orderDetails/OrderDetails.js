@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import ChangeOrderStatus from "../ChangeOrderStatus/ChangeOrderStatus";
 import { selectOrderHistory, STORE_ORDERS } from "../../../redux/slice/orderslice";
 
+
 const OrderDetails = () => {
   const [order, setOrder] = useState(null);
   const { id } = useParams();
@@ -23,25 +24,23 @@ const OrderDetails = () => {
     <>
       <div className={styles.table}>
         <h2>Order Details</h2>
-        <div>
-          <Link to="/admin/orders">&larr; Back To Orders</Link>
+        <div className={styles.btnParent}>
+          <Link to="/account/orders"><button className="--btn">&larr; Back To Orders</button></Link>
         </div>
         <br />
         {order === null ? (
           <img src={spinnerImg} alt="Loading..." style={{ width: "50px" }} />
         ) : (
           <>
+
             <p>
-              <b>Order ID</b> {order.id}
+              <b className={styles.orderStatus}>Order Amount</b> ${order.orderAmount}
             </p>
             <p>
-              <b>Order Amount</b> ${order.orderAmount}
+              <b className={styles.orderStatus}>Order Status</b> {order.orderStatus}
             </p>
             <p>
-              <b>Order Status</b> {order.orderStatus}
-            </p>
-            <p>
-              <b>Shipping Address</b>
+              <b className={styles.orderStatus}>Shipping Address</b>
               <br />
               Address: {order.shippingAddress.line1},
               {order.shippingAddress.line2}, {order.shippingAddress.city}
@@ -89,7 +88,7 @@ const OrderDetails = () => {
             </table>
           </>
         )}
-        <ChangeOrderStatus order={order} id={id} />
+
       </div>
     </>
   );
