@@ -119,39 +119,6 @@
 
 
 
-.navigation--list {
-  display: none;
-  @media (max-width: 1199px) {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 10px 30px;
-    border-top: 1px solid #ccc;
-    background-color: #fff;
-     .navigation__content {
-      max-width: 400px;
-      margin: 0 auto;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      align-items: center;
-       .navigation__item {
-        text-align: center;
-      
-        i {
-          font-size: 24px;
-      }
-      span {
-        display: block;
-      }
-  }
-  }
-}
-}
-
 
 
 

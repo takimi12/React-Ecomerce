@@ -3,7 +3,7 @@ import styles from './Search.module.scss';
 import { BiChevronDown, BiX } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
-const Search = ({ list }) => {
+const Search = ({ list, isRenderedInsideSearchContent }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [inputValue, setInputValue] = useState('');
@@ -13,7 +13,9 @@ const Search = ({ list }) => {
   const handleInputChange = (input) => {
     const inputValue = input.toLowerCase();
 
-    if (inputValue.length >= 2) {
+    if (inputValue === '') {
+      setSuggestions([]);
+    } else {
       const filteredSuggestions = list.filter(
         (item) =>
           (selectedCategory === '' || item.category === selectedCategory) &&
@@ -26,8 +28,6 @@ const Search = ({ list }) => {
       );
 
       setSuggestions(filteredSuggestions);
-    } else {
-      setSuggestions([]);
     }
 
     setInputValue(input);
@@ -93,11 +93,11 @@ const Search = ({ list }) => {
         </div>
         <div>
           {suggestions.length > 0 && (
-            <div className={styles.suggestions}>
-              {suggestions.map((item) => (
+            <div className={`${styles.suggestions} ${isRenderedInsideSearchContent ? styles.smallSuggestions : ''}`}>
+              {/* Render only the first suggestion if isRenderedInsideSearchContent is true */}
+              {isRenderedInsideSearchContent ? (
                 <Link
-                  to={`/product-details/${item.id}`}
-                  key={item.id}
+                  to={`/product-details/${suggestions[0].id}`}
                   className={styles.suggestion}
                   onClick={() => {
                     setSuggestions([]);
@@ -105,23 +105,45 @@ const Search = ({ list }) => {
                   }}
                 >
                   <div className={styles.suggestionImage}>
-                    <img src={item.image} alt={item.name} className={styles.suggestionImage} />
+                    <img src={suggestions[0].image} alt={suggestions[0].name} className={styles.suggestionImage} />
                   </div>
                   <div className={styles.suggestionDetails}>
-                    <p>{item.name}</p>
-                    <p>{item.brand}</p>
-                    <p>${item.price}</p>
+                    <p>{suggestions[0].name}</p>
+                    <p>{suggestions[0].brand}</p>
+                    <p>${suggestions[0].price}</p>
                   </div>
                 </Link>
-              ))}
+              ) : (
+                // Render all suggestions
+                suggestions.map((item) => (
+                  <Link
+                    to={`/product-details/${item.id}`}
+                    key={item.id}
+                    className={styles.suggestion}
+                    onClick={() => {
+                      setSuggestions([]);
+                      setInputValue('');
+                    }}
+                  >
+                    <div className={styles.suggestionImage}>
+                      <img src={item.image} alt={item.name} className={styles.suggestionImage} />
+                    </div>
+                    <div className={styles.suggestionDetails}>
+                      <p>{item.name}</p>
+                      <p>{item.brand}</p>
+                      <p>${item.price}</p>
+                    </div>
+                  </Link>
+                ))
+              )}
             </div>
           )}
         </div>
       </div>
       <div className={styles.searchButton}>
-       
-          <Link  onClick={handleSearch}> <button >Search  </button></Link>
-        
+        <Link onClick={handleSearch}>
+          <button>Search</button>
+        </Link>
       </div>
     </>
   );

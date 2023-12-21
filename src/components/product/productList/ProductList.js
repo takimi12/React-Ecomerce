@@ -9,6 +9,7 @@ import { FILTER_BY_SEARCH, SORT_PRODUCTS, selectFilteredProducts } from '../../.
 import Pagination from '../../pagination/Pagination';
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { selectProducts } from '../../../redux/slice/productslice';
+import { selectFilteredProducts1 } from '../../../redux/slice/categoryslice';
 
 
 
@@ -17,13 +18,21 @@ const ProductList = () => {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("latest");
   const filteredProducts = useSelector(selectFilteredProducts);
+ 
   const products = useSelector(selectProducts);
+  
+  const selectedCategory1 = useSelector(selectFilteredProducts1);
+
+
+  console.log(selectedCategory1, 'selectedCategory1');
+  
 
 
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(25);
+
   // Get Current Products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -31,6 +40,8 @@ const ProductList = () => {
     indexOfFirstProduct,
     indexOfLastProduct
   );
+
+
 
   const dispatch =  useDispatch()
 

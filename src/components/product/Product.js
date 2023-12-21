@@ -17,6 +17,9 @@ const Product = () => {
 
 
     const dispatch = useDispatch()
+   
+   
+   
     useEffect(() => {
       window.scrollTo(0, 0); 
     }, []); 

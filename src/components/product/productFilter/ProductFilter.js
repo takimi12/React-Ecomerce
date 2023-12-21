@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import styles from './ProductFilter.module.scss'
 import { selectMaxPrice, selectMinPrice, selectProducts } from '../../../redux/slice/productslice'
-import { FILTER_BY_BRAND, FILTER_BY_CATEGORY, FILTER_BY_PRICE } from '../../../redux/slice/filterslice';
+import { FILTER_BY_BRAND, FILTER_BY_CATEGORY, FILTER_BY_PRICE, selectFilteredProducts } from '../../../redux/slice/filterslice';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import { selectFilteredProducts1 } from '../../../redux/slice/categoryslice';
 const ProductFilter = () => {
   const [category, setCategory] = useState('All');
   const [brand, setBrand] = useState('All');
   const [priceRange, setPriceRange] = useState([25, 3000]);
+
+
+ 
+
 
   const products = useSelector(selectProducts);
   const minPrice = useSelector(selectMinPrice);
@@ -20,12 +25,15 @@ const ProductFilter = () => {
     dispatch(FILTER_BY_BRAND({ products, brand }));
   }, [dispatch, products, brand]);
 
+
+
   useEffect(() => {
     dispatch(FILTER_BY_PRICE({ products, price: { min: priceRange[0], max: priceRange[1] } }));
   }, [dispatch, products, priceRange]);
-
   
-  
+  useEffect(() => {
+    dispatch(FILTER_BY_CATEGORY({ products, price: { min: priceRange[0], max: priceRange[1] } }));
+  }, [dispatch, products, priceRange]);
 
 
   const allCategories = [
@@ -33,12 +41,16 @@ const ProductFilter = () => {
     ...new Set(products.map((product) => product.category)),
   ];
 
+
+
   const allBrands = ['All', ...new Set(products.map((product) => product.brand))];
 
   const filterProducts = (cat) => {
     setCategory(cat);
     dispatch(FILTER_BY_CATEGORY({ products, category: cat }));
   };
+  
+
 
   const filterButtonCategory = (selectedBrand) => {
     setBrand(selectedBrand);
@@ -62,9 +74,9 @@ return (
             <button
               key={index}
               type="button"
-              onClick={() => filterProducts(cat)}
+              onClick={() => filterProducts(cat) }
               className={styles.filterButtonCattegory}>
-              {cat}
+              {cat} 
               </button>
             )
         }
