@@ -164,6 +164,13 @@ width: 100%;
 .reviewsContent{
     display: flex;
     max-width: 75%;
+    margin-bottom: 50px;
+    @media screen and (max-width: 991px) {
+        max-width: 100%;
+    }    
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }    
 }
 
 .tabContent{

@@ -3,20 +3,30 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./NavigationList.module.scss";
 import SearchContent from "./SearchContent";
 import Categories from "./Categories";
+import Menu from "./Menu";
 
 const NavigationList = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   const handleSearchClick = () => {
     setIsSearchOpen(!isSearchOpen);
     setIsCategoryOpen(false);
+    setIsMenuOpen(false); // Close the menu when opening search
   };
 
   const handleCategoryClick = () => {
     setIsCategoryOpen(!isCategoryOpen);
     setIsSearchOpen(false);
+    setIsMenuOpen(false); // Close the menu when opening categories
+  };
+
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setIsSearchOpen(false);
+    setIsCategoryOpen(false); // Close categories when opening the menu
   };
 
   const isShopPage = location.pathname === "/shop";
@@ -25,21 +35,20 @@ const NavigationList = () => {
     <>
       {isSearchOpen && <SearchContent onClose={() => setIsSearchOpen(false)} />}
       {isCategoryOpen && <Categories onClose={() => setIsCategoryOpen(false)} />}
+      {isMenuOpen && <Menu onClose={() => setIsMenuOpen(false)} />}
 
       <div className={styles.navigationList}>
         <div className={styles.content}>
-          <Link className={styles.item}>
+          <Link className={styles.item} onClick={handleMenuClick}>
             <i className="icon-menu"></i>
             <span> Menu</span>
           </Link>
           {isShopPage ? (
-            // Show only Categories link when on the /shop page
             <Link className={styles.item} onClick={handleCategoryClick}>
               <i className="icon-list4"></i>
               <span> Categories</span>
             </Link>
           ) : (
-            // Show Shop link for other pages
             <Link className={styles.item} to="/shop">
               <i className="icon-list4"></i>
               <span> Shop</span>

@@ -1,5 +1,10 @@
 .navigationMain{
     margin-left:  20%;
+    display: flex;
+    align-items: center;
+    z-index: 99999;
+    position: relative;
+    padding-right: 40px;
 .navigation {
  
     width: 100%;
@@ -8,11 +13,49 @@
     padding: 20px;
     .navigationLink{
         display: inline-block;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 400;
         line-height: 20px;
         color: #000;
         margin-right: 20px;
     }
 }
+}
+
+.account{
+    display: flex;
+    margin-right: 20px;
+    &:after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        right: -10px;
+        width: 2px;
+        height: 15px;
+        background-color: #000;
+    }
+ 
+}
+
+.navigationRight{
+    display: flex;
+}
+
+.mobileMenu 
+{
+    margin-left: 0;
+    top: 150px;
+    .navigation{
+    display: flex;
+    flex-direction: column;
+    a{
+        margin-bottom: 20px;
+    }
+    }
+    .navigationRight{
+        display: none;
+     
+    }
 }

@@ -2,12 +2,18 @@
 .reviewContainer{
     width: 100%;
     max-width: 30%;
+    @media screen and (max-width: 800px) {
+ order: 2;
+    }    
     svg {
         fill:#fcb800;
         margin-right: 5px;
     }
 }
 .review{
+    @media screen and (max-width: 800px) {
+        order: 1;
+           }    
 svg {
     fill: gold;
 }

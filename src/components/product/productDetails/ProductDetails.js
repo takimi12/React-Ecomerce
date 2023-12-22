@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { LuRotate3D } from "react-icons/lu";
 import { FaFacebook, FaTwitter, FaGooglePlus, FaLinkedin, FaInstagram, FaNetworkWired, FaReceipt, FaCreditCard, FaStore } from 'react-icons/fa';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../../firebase/config';
 import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY, DECREASE_CART, selectCartItems } from '../../../redux/slice/cartslice';
 import useFetchDocument from '../../../customHooks/useFetchDocument';
 import useFetchCollection from '../../../customHooks/useFetchCollection';
@@ -16,6 +13,8 @@ import styles from './ProductDetails.module.scss';
 import { selectProducts } from '../../../redux/slice/productslice';
 import Produkt from '../../home/components/Product';
 import Slider from 'react-slick';
+import ReviewContent from '../../reviewProducts/ReviewContent';
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -29,6 +28,7 @@ const ProductDetails = () => {
   const [activeTab, setActiveTab] = useState('description'); // Default active tab
   const products = useSelector(selectProducts)
   const filteredReviews = data.filter((review) => review.productID === id);
+
 
   const [sameCategoryProducts, setSameCategoryProducts] = useState([]);
 
@@ -301,10 +301,22 @@ const addToCart = () => {
           </div>
         )}
         {activeTab === 'reviews' && (
+          <>
           <div className={styles.reviewsContent}>
             <ReviewComponent reviews={filteredReviews} />
             <ReviewProducts />
           </div>
+          <div>
+          {filteredReviews.map((item, index) => (
+      <ReviewContent
+        key={index}
+        review={item.review}
+        reviewDate={item.reviewDate}
+        userName={item.userName}
+      />
+    ))}
+            </div>
+            </>
         )}
         {activeTab === 'qna' && (
           <div>

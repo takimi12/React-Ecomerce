@@ -53,6 +53,7 @@ const Header = () => {
           <div className="header__right">
             <HeaderRight />
           </div>
+          
                </div>
 
       </div>

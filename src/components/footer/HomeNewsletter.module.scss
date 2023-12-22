@@ -1,6 +1,9 @@
 .contactForm{
     width: 100%;
     max-width: 60%;
+    @media screen and (max-width: 800px) {
+      max-width: 100%;
+       }
 .formgroup{
     display: flex;
     margin-bottom: 20px;
@@ -95,4 +98,7 @@
   .row{
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 768px) {
+    flex-direction: column;
+    }
   }
