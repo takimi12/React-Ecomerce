@@ -9,7 +9,7 @@ const FooterDefault = () => (
     <footer className="ps-footer">
 
             <FooterWidgets />
-            <FooterLinks />
+
             <FooterCopyright />
 
     </footer>

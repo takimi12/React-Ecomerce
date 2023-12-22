@@ -1,9 +1,9 @@
 import React from 'react';
 
-const FooterWidgets = () => (
-  <div className="aside-parent">
-    <aside className="widget  widget_contact-us">
-      <h4 className="widget-title">Contact us</h4>
+const widgetsData = [
+  {
+    title: 'Contact us',
+    content: (
       <div className="widget_content">
         <p>Call us 24/7</p>
         <h3>1800 97 97 69</h3>
@@ -34,61 +34,78 @@ const FooterWidgets = () => (
           </li>
         </ul>
       </div>
-    </aside>
-    <aside className="widget widget_footer">
-      <h4 className="widget-title">Quick Links</h4>
+    ),
+  },
+  {
+    title: 'Quick Links',
+    content: (
       <ul className="ps-list--">
         <li>
-          <a href="/page/blank">Policy</a>
+          <a href="/page/blank">Content</a>
         </li>
         <li>
-          <a href="/page/blank">Term & Condition</a>
+          <a href="/page/blank">Content</a>
         </li>
         <li>
-          <a href="/page/blank">Shipping</a>
+          <a href="/page/blank">Content</a>
         </li>
         <li>
-          <a href="/page/blank">Return</a>
+          <a href="/page/blank">Content</a>
         </li>
         <li>
-          <a href="/page/faqs">FAQs</a>
+          <a href="/page/faqs">Content</a>
         </li>
       </ul>
-    </aside>
-    <aside className="widget widget_footer">
-      <h4 className="widget-title">Company</h4>
+    ),
+  },
+  {
+    title: 'Company',
+    content: (
       <ul className="ps-list--">
         <li>
-          <a href="/page/about-us">About Us</a>
+          <a href="/page/about-us">Content</a>
         </li>
         <li>
-          <a href="/page/blank">Affiliate</a>
+          <a href="/page/blank">Content</a>
         </li>
         <li>
-          <a href="/page/blank">Career</a>
+          <a href="/page/blank">Content</a>
         </li>
         <li>
-          <a href="/page/contact-us">Contact</a>
+          <a href="/page/contact-us">Content</a>
         </li>
       </ul>
-    </aside>
-    <aside className="widget widget_footer">
-      <h4 className="widget-title">Business</h4>
+    ),
+  },
+  {
+    title: 'Business',
+    content: (
       <ul className="ps-list--">
         <li>
-          <a href="/page/about-us">Our Press</a>
+          <a href="/page/about-us">Content</a>
         </li>
         <li>
-          <a href="/account/checkout">Checkout</a>
+          <a href="/account/checkout">Content</a>
         </li>
         <li>
-          <a href="/account/user-information">My account</a>
+          <a href="/account/user-information">Content</a>
         </li>
         <li>
-          <a href="/shop">Shop</a>
+          <a href="/shop">Content</a>
         </li>
       </ul>
-    </aside>
+    ),
+  },
+];
+
+const FooterWidgets = () => (
+  <div className="aside-parent">
+    {widgetsData.map((widget, index) => (
+      <aside key={index} className={`widget widget_${widget.title.toLowerCase().replace(' ', '-')}`}>
+        <h4 className="widget-title">{widget.title}</h4>
+        {widget.content}
+      </aside>
+    ))}
   </div>
 );
 

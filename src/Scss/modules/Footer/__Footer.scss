@@ -16,6 +16,7 @@
   .aside-parent {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 100px;
     @media (max-width: 1024px) {
 flex-wrap: wrap;
     }

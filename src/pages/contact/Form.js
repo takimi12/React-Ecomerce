@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import styles from "./Form.module.scss";
+import { useForm } from "@formspree/react";
+
+
+
 
 const Popup = ({ content, onClose }) => (
     
@@ -30,7 +34,11 @@ const ContactForm = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [popupContent, setPopupContent] = useState("");
   const [isOverlayVisible, setOverlayVisible] = useState(false);
+  const [state, handleSubmit] = useForm("meqyjrdw");
 
+
+
+  
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -72,6 +80,7 @@ const ContactForm = () => {
     }
   };
 
+  
   const handleEmailBlur = () => {
     if (!email) {
       setEmailError("Email musi zawierać znak @");
@@ -127,37 +136,47 @@ const ContactForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  
-    handleNameBlur();
-    handleSurnameBlur();
-    handleEmailBlur();
-    handleTelephoneBlur();
-    handleMessageBlur();
-  
+  const handleSubmitForm = async () => {
+    // Add your form validation logic here
+    // If validation passes, submit the form to Formspree
     if (!nameError && !surnameError && !emailError && !telephoneError && !messageError) {
-      setPopupContent("Formularz przesłany poprawnie!");
-      setPopupVisible(true);
-  
-      // Clear form data
-      setName("");
-      setSurname("");
-      setEmail("");
-      setTelephone("");
-      setMessage("");
-      setNameTouched(false);
-      setSurnameTouched(false);
-      setEmailTouched(false);
-      setTelephoneTouched(false);
-      setMessageTouched(false);
+      const formData = {
+        name,
+        surname,
+        email,
+        telephone,
+        message,
+      };
+
+      // Submit to Formspree
+      const response = await fetch("https://formspree.io/meqyjrdw", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setPopupContent("Form submitted successfully!");
+        setPopupVisible(true);
+        setOverlayVisible(true);
+        setName("");
+        setSurname("");
+        setEmail("");
+        setTelephone("");
+        setMessage("");
+      } else {
+        setPopupContent("Form submission failed. Please try again later.");
+        setPopupVisible(true);
+        setOverlayVisible(true);
+      }
     }
   };
-
   return (
     <>
-      <form className={styles.contactForm} onSubmit={handleSubmit}>
-        <h2 className="ContactFormHeading">Get in touch!</h2>
+      <form className={styles.contactForm} onSubmit={(e) => { e.preventDefault(); handleSubmitForm(); }}>
+         <h2 className="ContactFormHeading">Get in touch!</h2>
         <div className={styles.formgroup}>
           <div className={`${styles.inputWrapper} ${nameError ? "error" : ""}`}>
             <label className={`input-label body-small ${nameError ? "error" : ""}`} htmlFor="name">
@@ -259,12 +278,12 @@ const ContactForm = () => {
       </form>
 
       {isPopupVisible && (
-  <>
-    <div className={styles.overlay}></div>
-    <Popup content={popupContent} onClose={() => { setPopupVisible(false); setOverlayVisible(false); }} />
-  </>
-)}
-    </>
+        <>
+          {isOverlayVisible && <div className={styles.overlay}></div>}
+          <Popup content={popupContent} onClose={() => { setPopupVisible(false); setOverlayVisible(false); }} />
+        </>
+      )}
+     </>
   );
 };
 

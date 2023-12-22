@@ -70,10 +70,16 @@
     @media (max-width: 768px){
         flex-wrap: wrap;
     }
+    @media (max-width: 576px){
+        flex-direction: column;
+    }
 }
 
 .rightSide{
     display: flex;
+    @media (max-width: 576px){
+        flex-direction: column;
+    }
     cursor: pointer;
 }
 
