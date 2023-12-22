@@ -30,7 +30,13 @@
       border-radius: 50%;
         }
       }
+      &:hover {
+       .icon{
+       color: white;
+       } 
       }
+      }
+      
     }
     .user--header{
       display: flex;

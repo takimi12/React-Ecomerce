@@ -66,65 +66,9 @@
         max-width: 75%;
         margin: auto;
 
-    form {
-        width: 100%;
-        .formHeading{
-            margin-bottom: 60px;
-            text-align: center;
-            font-size: 36px;
-            font-weight: 600;
-            color: #000;
-            @media (max-width: 991px) {
-                font-size: 24px;
-            }
-           
-            @media (max-width: 768px) {
-                text-align: start;
-             }
-        }
-        .row {
-            display: flex;
-            width: 100%;
-            margin: 20px;
-            @media (max-width: 768px) {
-                display: block;
-                margin: 0;
-            }
-            .rowChild{
-                display: flex;
-                width: 100%;
-                @media (max-width: 768px) {
-                   margin-bottom: 20px;
-                }
-                .formGroup{
-                    width: 100%;
-                    margin-right: 20px;
-                }
-                input {
-                    background: #fff;
-                    width: 100%;
-                    min-height: 50px;
-                    padding: 10px;
-                }
-            }
-            textarea {
-                background: #fff;
-                width: 100%;
-                min-height: 150px;
-                padding: 10px;
-            }
-
-        }
-        .submit{
-            margin: 20px;
-            display: flex;
-            justify-content: center;
-            .btn{
-                max-width: 300px!important;
-            }
-        }
+  
+       
     }
     } 
      
   
-}
